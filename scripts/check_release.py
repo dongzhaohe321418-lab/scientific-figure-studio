@@ -4,6 +4,7 @@ import argparse
 import hashlib
 import json
 import re
+import struct
 import sys
 from pathlib import Path, PurePosixPath, PureWindowsPath
 from audit_svg import audit
@@ -23,6 +24,13 @@ def check(record, base):
     delivery = record.get("delivery")
     if delivery not in {"raster", "full-vector", "hybrid"}:
         errors.append("delivery must be raster, full-vector or hybrid")
+    override = record.get("delivery_format_override", {})
+    if not isinstance(override, dict):
+        errors.append("delivery_format_override must be an object")
+        override = {}
+    explicit_override = override.get("requested_by_user") is True and isinstance(override.get("reason"), str) and bool(override["reason"].strip())
+    if delivery != "full-vector" and not explicit_override:
+        errors.append("Default delivery requires PNG plus fully editable SVG; a format exception needs an explicit user request and reason")
     registered = {}
     roles = set()
     files = record.get("files")
@@ -97,6 +105,17 @@ def check(record, base):
         required_roles |= {"source", "edit-test"}
     for role in sorted(required_roles - roles):
         errors.append("Missing file role: " + role)
+    if not explicit_override:
+        previews = [registered.get(i.get("path")) for i in files if isinstance(i, dict) and i.get("role") == "preview"]
+        valid_png = False
+        for preview in previews:
+            if preview and preview.is_file() and preview.suffix.lower() == ".png":
+                header = preview.read_bytes()[:24]
+                if len(header) == 24 and header[:8] == b'\x89PNG\r\n\x1a\n' and header[12:16] == b'IHDR':
+                    width, height = struct.unpack('>II', header[16:24])
+                    valid_png |= width > 0 and height > 0
+        if not valid_png:
+            errors.append("Default delivery requires a saved PNG preview with a valid PNG/IHDR header; inspect full decoding separately")
     gates = record.get("gates", {})
     if not isinstance(gates, dict):
         errors.append("gates must be an object")

@@ -1,5 +1,6 @@
 """Synthetic fixtures test tooling, not live image generation or scientific quality."""
 import hashlib
+import base64
 import json
 import sys
 import tempfile
@@ -39,9 +40,12 @@ class QualityTools(unittest.TestCase):
         if generated:
             roles += ["prompt", "master"]
         for role in roles:
-            name = "figure.svg" if role == "source" else role + ".txt"
+            name = "figure.svg" if role == "source" else ("preview.png" if role == "preview" else role + ".txt")
             path = self.base / name
-            path.write_text(SVG if role == "source" else "Synthetic evidence for unit tests only.", encoding="utf-8")
+            if role == "preview":
+                path.write_bytes(base64.b64decode('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aDV0AAAAASUVORK5CYII='))
+            else:
+                path.write_text(SVG if role == "source" else "Synthetic evidence for unit tests only.", encoding="utf-8")
             record["files"].append({"path": name, "role": role,
                 "sha256": hashlib.sha256(path.read_bytes()).hexdigest()})
         for gate in GATES:
@@ -137,8 +141,29 @@ class QualityTools(unittest.TestCase):
     def test_raster_allows_editability_exemption(self):
         record = self.record()
         record["delivery"] = "raster"
+        record["delivery_format_override"] = {"requested_by_user": True, "reason": "User explicitly requested a raster-only fixture"}
         record["gates"]["editability"] = {"status": "not_applicable", "notes": "Raster-only request"}
         self.assertEqual(check(record, self.base), [])
+
+    def test_raster_only_is_not_default(self):
+        record = self.record()
+        record["delivery"] = "raster"
+        self.assertTrue(any("Default delivery" in e for e in check(record, self.base)))
+
+    def test_fake_png_extension_is_rejected(self):
+        record = self.record()
+        preview = self.base / 'preview.png'
+        preview.write_text('not an image', encoding='utf-8')
+        for item in record['files']:
+            if item['role'] == 'preview':
+                item['sha256'] = hashlib.sha256(preview.read_bytes()).hexdigest()
+        self.assertTrue(any("saved PNG" in e for e in check(record, self.base)))
+
+    def test_format_exception_needs_a_reason(self):
+        record = self.record()
+        record['delivery'] = 'raster'
+        record['delivery_format_override'] = {'requested_by_user': True, 'reason': ''}
+        self.assertTrue(any('Default delivery' in e for e in check(record, self.base)))
 
     def test_science_cannot_be_exempted(self):
         record = self.record()

@@ -4,7 +4,7 @@
 
 [中文说明](README.zh-CN.md) · [Skill instructions](SKILL.md) · [Quality gates](references/quality-gates.md)
 
-A public, reusable Codex skill for evidence-grounded scientific illustrations: device cross-sections, exploded laboratory apparatus, material mechanisms and explanatory research figures. It addresses a common failure: a refined image becomes a crude diagram when an agent is asked to make it editable.
+A public, reusable Codex skill for evidence-grounded scientific illustrations across life sciences, chemistry, physics, engineering, Earth/environmental sciences and conceptual research methods. It addresses a common failure: a refined image becomes a crude diagram when an agent is asked to make it editable. **Default delivery is a PNG plus a genuinely editable SVG, both saved to a persistent directory on the user's computer.**
 
 ## Compatibility: primarily Codex
 
@@ -17,7 +17,7 @@ Other agents are not supported out of the box. GPT Image 2 is also available thr
 1. Identify the actual architecture and verify physical relationships using appropriate sources.
 2. Inspect scientific figures as well as reading papers; translate observed visual qualities into a concrete design brief.
 3. Establish and refine an image2 visual master for substantial new illustrations.
-4. When editing is requested, reconstruct meaningful objects while preserving the master's perspective, material cues, typography and hierarchy.
+4. Reconstruct meaningful editable SVG objects while preserving the master's perspective, material cues, typography and hierarchy; export the corresponding PNG and save both files.
 5. Review science, appearance and editability independently; save evidence, prompts, sources and portable deliverables.
 
 Scientific errors cannot be compensated for by attractive styling. File validity cannot substitute for visual inspection. A PNG embedded in SVG is not fully editable. “Nature-style” expresses an aesthetic ambition, not affiliation, acceptance or certification.
@@ -67,11 +67,21 @@ An explicitly authorised API route can use a documented model ID and supported `
 
 ## Editable deliverables
 
+The default is **full vector SVG plus its exported PNG**. Keep the image2 master separately. The SVG must remain available on disk with live labels, selectable components and reopening instructions. Raster-only or hybrid delivery requires an explicit user request; inconvenience is not a format exception. The release checker rejects a raster-only default and checks that the PNG preview is a real PNG/IHDR file.
+
 | Mode | Deliverable |
 | --- | --- |
 | Full vector | Semantic geometry, separate arrows and live text; SVG source and render |
 | Hybrid | Declared raster regions plus editable vector content; layered source and render |
 | Raster | Inspected image2 output with prompt, provenance, caption and sources |
+
+For basic later edits, use the bundled [self-contained SVG editor](assets/svg-editor.html): open a local SVG, change text/colour/object positions, and save SVG or export PNG. Its supported subset is narrower than a full vector editor. No model call or cloud upload is needed for these operations. See the [biology example](examples/biology-endocytosis/README.md) for the actual save/reopen test and browser-policy limitations.
+
+## Discipline coverage and live example
+
+Use the [discipline support matrix](references/discipline-support.md) to select specialised checks. It covers cell/molecular biology, biomedical research, ecology/evolution/agriculture, chemistry, materials, physics/optics/astronomy, engineering, geoscience, environment/climate, formal/computational subjects and social research. Quantitative plots, exact structures and maps still require suitable data-driven tools.
+
+The [endocytosis example](examples/biology-endocytosis/README.md) includes two actual native image-generation calls, documented scientific/visual corrections, a saved editable reconstruction and an actual editor save/reopen/export test. Other fields have guidance coverage; this release does not claim they all underwent live generation tests.
 
 Faithful reconstruction can require substantial work. This is an agent workflow, not a one-click lossless PNG-to-SVG converter. Application compatibility must be tested in the actual editor; a browser render alone does not prove Illustrator or PowerPoint compatibility.
 
@@ -87,7 +97,7 @@ python scripts/check_release.py path/to/review.json
 
 Start a review record from [the template](assets/review-template.json) and follow [the evidence format](references/quality-gates.md). The template intentionally fails until real reviews and files are recorded. Scripts check selected SVG structures, required evidence, file hashes and unsupported completion claims. They do **not** independently establish scientific correctness, visual excellence or the truth of self-reported reviews.
 
-The repository includes synthetic regression tests and [behavioural scenarios](references/regression-cases.md). These are not a live image2-to-editable benchmark. No end-to-end visual success rate or journal acceptance rate is claimed. See [validation status](VALIDATION.md).
+The repository includes synthetic regression tests, [behavioural scenarios](references/regression-cases.md) and one documented biology live case. Unit tests remain distinct from visual evaluation. No end-to-end success rate, all-discipline validation or journal acceptance rate is claimed. See [validation status](VALIDATION.md).
 
 ## Contribute and reuse
 

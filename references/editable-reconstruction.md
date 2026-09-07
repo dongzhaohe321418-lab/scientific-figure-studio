@@ -2,6 +2,8 @@
 
 ## Agree on the scope of editing
 
+Default to a PNG exported from a fully editable SVG, with both saved in a persistent project directory. Link the actual local files and supply reopening instructions. Use another mode only for an explicit user request, recorded in the release review.
+
 | Deliverable | What can be edited | Honest description |
 | --- | --- | --- |
 | Semantic vector | Components, boundaries, arrows, colours and live text | Fully editable geometry and labels, subject to tested editor support |
@@ -37,3 +39,9 @@ For current application-specific import/export instructions, inspect installed v
 3. Edit a copy in the intended editor: change a scientifically harmless label, recolour a component and move an arrow/component. Save, close/reopen and export. Confirm changes and absence of collateral damage; keep the canonical scientific figure unchanged.
 4. If an editor is unavailable, test direct source edits and rendering where possible, but state that application compatibility is unverified. Do not fabricate a successful round trip or pass that release gate.
 5. Check offline portability and final export dimensions. Raster resolution is measured from actual pixel dimensions and intended physical size, not a DPI tag alone.
+
+## Optional local editor
+
+The bundled [SVG editor](../assets/svg-editor.html) is a self-contained HTML file for opening, changing and downloading supported SVGs. It supports live text, per-object colour changes, translation, undo, SVG save and PNG export. It performs no network uploads and is designed to open in a normal desktop browser from disk. It is a deliberately limited SVG subset editor, not a full replacement for Inkscape or Illustrator; unsupported elements/styles are rejected. Editing compound mathematical labels replaces their text content; use a full vector editor for advanced typography or path changes.
+
+The biology example was actually imported, edited, downloaded, reimported and exported through this editor served on localhost in the Codex browser. A direct `file://` navigation was blocked by the automation browser's URL policy, so direct double-click offline opening was not verified in that environment. Do not claim tests that were not performed or bypass browser restrictions.

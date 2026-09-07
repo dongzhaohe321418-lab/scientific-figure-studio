@@ -1,6 +1,6 @@
 interface:
   display_name: "Scientific Figure Studio"
-  short_description: "Evidence-grounded image2 figures with editable sources"
-  default_prompt: "Use $scientific-figure-studio to research and create a scientifically accurate, visually refined figure, with faithful editable sources if requested."
+  short_description: "Cross-disciplinary image2 figures with saved PNG and SVG"
+  default_prompt: "Use $scientific-figure-studio to research my subject, apply its discipline-specific checks, and save a refined PNG plus a genuinely editable SVG with reopening instructions."
 policy:
   allow_implicit_invocation: true

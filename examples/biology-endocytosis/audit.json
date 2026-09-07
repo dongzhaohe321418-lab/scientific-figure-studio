@@ -1,0 +1,40 @@
+{
+  "counts": {
+    "image": 0,
+    "text": 24,
+    "path": 1584,
+    "g": 44,
+    "foreignObject": 0,
+    "feImage": 0
+  },
+  "geometry_elements": 2374,
+  "live_labels": [
+    "Clathrin-mediated endocytosis",
+    "Cargo capture, membrane scission and coat removal",
+    "a",
+    "Cargo capture",
+    "b",
+    "Bud maturation",
+    "c",
+    "Vesicle scission",
+    "d",
+    "Uncoating",
+    "Extracellular",
+    "Cytosol",
+    "Dynamin",
+    "GTP-dependent scission",
+    "Coated vesicle",
+    "Auxilin + Hsc70",
+    "ATP-dependent uncoating",
+    "Cargo",
+    "Receptor",
+    "AP2",
+    "Clathrin",
+    "Dynamin",
+    "Cargo stays in the lumen; coat assembly and removal occur on the cytosolic surface.",
+    "Conceptual mammalian pathway; selected factors shown; not to scale. Assembly trajectories vary."
+  ],
+  "errors": [],
+  "warnings": [],
+  "scope": "Structural checks only; rendering, semantic editing, science and aesthetics need inspection."
+}

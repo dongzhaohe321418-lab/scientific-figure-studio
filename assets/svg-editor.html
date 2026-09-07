@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scientific Figure Studio — Offline SVG Editor</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:15px system-ui,sans-serif;background:#edf1f2;color:#18363e}header{padding:18px 24px;background:#153c45;color:white}header h1{margin:0 0 5px;font-size:21px}header p{margin:0;color:#d3e1e5;font-size:13px}.layout{display:grid;grid-template-columns:300px 1fr;min-height:calc(100vh - 90px)}aside{padding:20px;background:white;border-right:1px solid #d5e0e1}label{display:block;font-weight:600;margin:15px 0 6px}input,select,button{font:inherit;border:1px solid #c5d0d2;border-radius:6px;padding:9px;width:100%;background:white;color:#193a43}button{cursor:pointer;margin-top:9px;background:#f5f8f9}button.primary{background:#175760;color:white;border-color:#175760}.row{display:flex;gap:8px}.hint{font-size:12px;line-height:1.55;color:#5c7279;margin-top:12px}#status{font-size:13px;line-height:1.5;margin-top:14px;overflow-wrap:anywhere}main{padding:22px;overflow:auto}#stage{background:white;box-shadow:0 5px 30px #18343f12;min-width:650px}#stage svg{display:block;width:100%;height:auto;user-select:none;touch-action:none}#stage [data-selected]{filter:drop-shadow(0 0 3px #138695);cursor:move}#empty{padding:100px 30px;text-align:center;color:#627a81}@media(max-width:800px){.layout{grid-template-columns:240px 1fr}aside{padding:14px}main{padding:12px}}
+</style></head><body>
+<header><h1>Scientific Figure Studio · SVG Editor</h1><p>Local files · Live text · Editable objects · No upload / 本地编辑，无需联网</p></header>
+<div class="layout"><aside>
+<label for="open">Open SVG / 打开 SVG</label><input id="open" type="file" accept=".svg,image/svg+xml">
+<label for="objects">Object / 选择对象</label><select id="objects"><option value="">Open an SVG first</option></select>
+<label for="labelText">Label / 修改文字</label><input id="labelText" placeholder="Select a text object" disabled>
+<button id="applyText">Apply text / 应用文字</button>
+<label for="colour">Colour / 修改颜色</label><input id="colour" type="color" value="#357a88">
+<button id="applyColour">Apply colour / 应用颜色</button>
+<label>Move / 移动（SVG units）</label><div class="row"><input id="dx" type="number" value="10" aria-label="Move x"><input id="dy" type="number" value="0" aria-label="Move y"></div>
+<button id="move">Move selected / 移动对象</button>
+<button id="undo">Undo / 撤销</button>
+<button class="primary" id="save">Save SVG / 保存 SVG</button>
+<button id="png">Export PNG / 导出 PNG</button>
+<p class="hint">Click an object or select it above; drag to move. Reopen a saved SVG any time. Downloads create a new file; your original stays unchanged.<br>点击或选择对象，拖动即可移动。下载后可随时重新打开编辑。修改科研内容后应重新核对准确性。</p>
+<p class="hint">For advanced path, gradient or typography editing, open the SVG in a vector editor. This small editor supports self-contained SVGs and rejects scripts, external resources and raster content.</p>
+<div id="status" role="status">Ready / 就绪</div>
+</aside><main><div id="stage"><div id="empty">Open a local SVG to begin / 请选择本地 SVG 文件</div></div></main></div>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);let svg=null,selected=null,filename='figure.svg',history=[],drag=null,gradientSerial=0;
+const status=message=>$('status').textContent=message;
+function parse(source){
+ if(/<!\s*(DOCTYPE|ENTITY)\b/i.test(source))throw Error('DTD/entities are not supported');
+ const doc=new DOMParser().parseFromString(source,'image/svg+xml');
+ if(doc.querySelector('parsererror')||doc.documentElement.localName!=='svg'||doc.documentElement.namespaceURI!=='http://www.w3.org/2000/svg')throw Error('Invalid SVG');
+ const root=doc.documentElement;const ids=new Set();
+ const allowed=new Set('svg g defs title desc metadata rect circle ellipse line polyline polygon path text tspan textPath use linearGradient radialGradient stop marker clipPath mask pattern filter feGaussianBlur feOffset feMerge feMergeNode feColorMatrix feBlend feComposite feFlood'.split(' '));
+ for(const node of root.querySelectorAll('*')){
+  if(!allowed.has(node.localName)||node.namespaceURI!=='http://www.w3.org/2000/svg')throw Error('Unsupported SVG element: '+node.localName);
+  if(node.id){if(ids.has(node.id))throw Error('Duplicate SVG IDs');ids.add(node.id)}
+ }
+ for(const node of [root,...root.querySelectorAll('*')]){
+  for(const attr of [...node.attributes]){
+   if(/^on/i.test(attr.name))throw Error('Event handlers are not allowed');
+   if(attr.localName==='href'&&attr.value&&!attr.value.startsWith('#'))throw Error('External resources are not allowed');
+   if(/@import|expression\s*\(|javascript:/i.test(attr.value))throw Error('Unsupported style content');
+   for(const m of attr.value.matchAll(/url\(\s*['"]?([^)'"\s]+)['"]?\s*\)/gi))if(!m[1].startsWith('#'))throw Error('External style resources are not allowed');
+  }
+ }
+ return document.importNode(root,true);
+}
+function serialize(){if(!svg)throw Error('Open a figure first');const clone=svg.cloneNode(true);clone.querySelectorAll('[data-selected]').forEach(n=>n.removeAttribute('data-selected'));return '<?xml version="1.0" encoding="UTF-8"?>\n'+new XMLSerializer().serializeToString(clone)}
+function remember(){history.push(serialize());if(history.length>30)history.shift()}
+function load(source,reset=true){
+ const next=parse(source);svg=next;selected=null;$('stage').replaceChildren(svg);
+ let nodes=[...svg.querySelectorAll('[data-editable="true"]')];
+ if(!nodes.length)nodes=[...svg.querySelectorAll('g[id],text[id]')];
+ if(!nodes.length)nodes=[...svg.querySelectorAll('text,path,rect,circle,ellipse')].filter(n=>!n.closest('defs'));
+ const existing=new Set([...svg.querySelectorAll('[id]')].map(n=>n.id));
+ nodes.forEach((n,i)=>{if(!n.id){let id='editable-'+i;while(existing.has(id))id+='x';n.id=id;existing.add(id)}n.dataset.editable='true'});
+ $('objects').replaceChildren(new Option('Select an object / 选择对象',''));
+ for(const n of nodes)$('objects').add(new Option(n.id+' · '+(n.dataset.label||n.localName),n.id));
+ $('labelText').value='';$('labelText').disabled=true;if(reset)history=[];
+ status('Loaded '+nodes.length+' editable objects / 可编辑对象');
+}
+function choose(id){if(selected)selected.removeAttribute('data-selected');selected=[...svg.querySelectorAll('[id]')].find(n=>n.id===id)||null;
+ $('objects').value=selected?selected.id:'';if(selected)selected.setAttribute('data-selected','true');
+ const isText=selected&&selected.localName==='text';$('labelText').disabled=!isText;$('labelText').value=isText?selected.textContent:'';
+}
+function move(x,y){const t=svg.createSVGTransform();t.setTranslate(x,y);selected.transform.baseVal.insertItemBefore(t,0)}
+function point(event){const p=svg.createSVGPoint();p.x=event.clientX;p.y=event.clientY;return p.matrixTransform(svg.getScreenCTM().inverse())}
+function download(blob,name){const url=URL.createObjectURL(blob);const link=document.createElement('a');link.href=url;link.download=name;link.click();setTimeout(()=>URL.revokeObjectURL(url),10000)}
+$('open').addEventListener('change',async event=>{const file=event.target.files[0];if(!file)return;try{load(await file.text());filename=file.name;status('Opened '+filename+' locally / 已从电脑打开')}catch(e){status(e.message)}});
+$('objects').addEventListener('change',()=>{if(svg)choose($('objects').value)});
+$('applyText').onclick=()=>{if(!selected||selected.localName!=='text')return status('Select a text object first');remember();selected.textContent=$('labelText').value;status('Text changed / 文字已修改')};
+$('applyColour').onclick=()=>{
+ if(!selected)return status('Select an object first');remember();const colour=$('colour').value;
+ const targets=[selected,...selected.querySelectorAll('*')];const gradientCopies=new Map();
+ for(const n of targets)for(const attr of ['fill','stroke']){
+  const value=n.getAttribute(attr);if(!value||value==='none')continue;
+  const match=value.match(/^url\(#([^)]*)\)$/);
+  if(match){
+   if(!gradientCopies.has(match[1])){
+    const original=[...svg.querySelectorAll('linearGradient,radialGradient')].find(g=>g.id===match[1]);if(!original)continue;
+    const clone=original.cloneNode(true);let id;do{id='edited-gradient-'+(++gradientSerial)}while([...svg.querySelectorAll('[id]')].some(g=>g.id===id));clone.id=id;
+    const stops=[...clone.querySelectorAll('stop')];stops.forEach((s,i)=>{s.setAttribute('stop-color',colour);s.setAttribute('stop-opacity',String(.48+.52*i/Math.max(1,stops.length-1)))});
+    original.parentNode.append(clone);gradientCopies.set(match[1],id);
+   }
+   n.setAttribute(attr,'url(#'+gradientCopies.get(match[1])+')');
+  }else n.setAttribute(attr,colour);
+ }
+ status('Selected object recoloured / 已修改所选对象颜色');
+};
+$('move').onclick=()=>{if(!selected)return status('Select an object first');const x=Number($('dx').value),y=Number($('dy').value);if(!Number.isFinite(x)||!Number.isFinite(y))return;remember();move(x,y);status('Object moved / 对象已移动')};
+$('undo').onclick=()=>{if(history.length){const old=history.pop();load(old,false);status('Undo / 已撤销')}};
+$('save').onclick=()=>{try{download(new Blob([serialize()],{type:'image/svg+xml'}),filename.replace(/\.svg$/i,'')+'-edited.svg');status('SVG downloaded; reopen it to continue editing / SVG 已保存，可重新打开')}catch(e){status(e.message)}};
+$('png').onclick=async()=>{
+ try{const source=serialize(),url=URL.createObjectURL(new Blob([source],{type:'image/svg+xml'}));const img=new Image();
+  await new Promise((resolve,reject)=>{img.onload=resolve;img.onerror=reject;img.src=url});const box=svg.viewBox.baseVal;
+  const canvas=document.createElement('canvas');canvas.width=Math.round((box.width||img.width)*2);canvas.height=Math.round((box.height||img.height)*2);
+  const context=canvas.getContext('2d');context.fillStyle='#ffffff';context.fillRect(0,0,canvas.width,canvas.height);context.drawImage(img,0,0,canvas.width,canvas.height);URL.revokeObjectURL(url);
+  canvas.toBlob(blob=>{if(blob){download(blob,filename.replace(/\.svg$/i,'')+'.png');status('PNG exported / PNG 已导出')}},'image/png');
+ }catch(e){status('PNG export failed: '+e.message)}
+};
+$('stage').addEventListener('pointerdown',event=>{if(!svg)return;const n=event.target.closest('[data-editable="true"]');if(!n)return;choose(n.id);remember();drag={start:point(event),transform:n.getAttribute('transform')||''};$('stage').setPointerCapture(event.pointerId)});
+$('stage').addEventListener('pointermove',event=>{if(!drag||!selected)return;const p=point(event);selected.setAttribute('transform',drag.transform);move(p.x-drag.start.x,p.y-drag.start.y)});
+$('stage').addEventListener('pointerup',()=>{drag=null});
+</script></body></html>

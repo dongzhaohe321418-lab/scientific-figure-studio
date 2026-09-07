@@ -13,7 +13,7 @@ These gates govern delivery claims. They are not a journal certification, a guar
 | Portability | Final files, assets and fonts/fallbacks checked | Missing linked images; private absolute paths; broken exported geometry |
 | Provenance | Prompt, route, actual controls and honest model disclosure recorded | “Highest model confirmed” without returned evidence; fictitious generation |
 
-For raster-only requests, editability is not applicable and requires a reason. For supplied masters or explicitly direct vector requests, generation can be not applicable with a reason; the source/master and visual review are still required. A requested exact model that cannot be verified remains an unresolved requirement.
+The default release is a persistent PNG/SVG pair: `delivery: full-vector`, a `.png` preview exported from the final SVG, and a real `.svg` source. The checker rejects raster-only defaults and PNG files lacking a PNG/IHDR header; full decoding and matched appearance still require inspection. A user-requested format exception requires `delivery_format_override: {"requested_by_user": true, "reason": "the actual request"}`. Do not set that flag for convenience. For an explicit raster-only request, editability can be not applicable with a reason. For supplied masters or explicitly direct vector requests, generation can be not applicable with a reason; visual review is still required. A requested exact model that cannot be verified remains unresolved.
 
 ## Review record
 

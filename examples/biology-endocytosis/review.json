@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "title": "Conceptual mammalian clathrin-mediated endocytosis",
+  "delivery": "full-vector",
+  "delivery_format_override": {
+    "requested_by_user": false,
+    "reason": ""
+  },
+  "generation": {
+    "status": "complete",
+    "route": "codex-native",
+    "tool": "image_gen.imagegen",
+    "requested_model": "gpt-image-2",
+    "reported_model": null,
+    "reported_model_evidence": [],
+    "exact_model_required": false,
+    "claims_highest_verified": false,
+    "highest_verification_evidence": [],
+    "controls_sent": {
+      "prompt": "Create an original, exceptionally refined scientific editorial illustration titled \"Clathrin-mediated endocytosis\", landscape aspect about 2:1, white background, restrained and elegant. This is a conceptual mammalian-cell membrane trafficking diagram, not microscopy or atomic structural data. Use a beautifully consistent semi-flat vector-like illustration style, subtle material gradients, warm coral lipid headgroups, deep teal transmembrane receptors, amber clathrin coat, muted blue AP2 adaptors, dark plum dynamin. Precise outlines, no glow, no glossy 3D spectacle. Main goal: flawless membrane topology with clearly intelligible cargo uptake.\nCOMPOSITION: four equal panels across a single horizontal row, labels a/b/c/d. Title and a short line \"Cargo capture, membrane scission and coat removal\". Panels are \"a  Cargo capture\", \"b  Bud maturation\", \"c  Vesicle scission\", \"d  Uncoating\". Each panel has a horizontal plasma membrane near the upper third. Above membrane is \"Extracellular\"; below is \"Cytosol\". Keep all structures in the same orientation. Blank margins between panels, progression arrows in gaps.\nSCIENCE INVARIANTS:\na: shallow inward membrane depression. A lipid bilayer is clear: hydrophilic heads on both surfaces, hydrophobic tails inside. Three coral/red spherical extracellular cargo molecules bind extracellular domains of three teal transmembrane receptors. Cytosolic receptor tails below the membrane contact small blue AP2 adaptors. An amber curved clathrin scaffold is outside the membrane on the CYTOSOLIC underside, never on the extracellular surface.\nb: a deeper inward coated pit attached to surface by an OPEN narrow neck. Lumen remains visibly continuous with extracellular space through neck. Cargo stays inside the pit lumen, receptor ligand-binding domains face that lumen. The same material coding. Amber clathrin outside the curved membrane on cytosolic face, blue AP2 between membrane and coat. A plum dynamin collar on the CYTOSOLIC exterior of neck, not inside lumen. A thin leader identifies \"Dynamin\" and a nearby label \"GTP-dependent scission\".\nc: after scission, an intact flat plasma membrane above, and a completely DETACHED closed bilayer vesicle beneath it with a visible gap. Cargo enclosed in lumen, receptors facing inward and tails outwards. Amber clathrin cage around OUTSIDE of vesicle; AP2 between membrane and cage. Label \"Coated vesicle\". No surface connection, no dynamin collar left wrapped round a nonexistent neck.\nd: detached uncoated vesicle in cytosol, cargo still in lumen and same receptor topology. Amber coat removed and shown as a few released schematic three-legged clathrin units beside vesicle, not dumped into lumen. Use a small curved process arrow OUTSIDE vesicle labelled \"Auxilin + Hsc70\", \"ATP-dependent uncoating\". Show an intact vesicle membrane after uncoating. Do not depict Hsc70 cutting or digesting membrane. Do not show fusion with an endosome in this figure.\nANNOTATION: Legible restrained sans serif typography, dark ink. Include unobtrusive label leaders for \"Cargo\", \"Receptor\", \"AP2\" and \"Clathrin\" in panel a or a clean bottom legend. Colour plus shape labels, not colour alone. Bottom explanatory sentence: \"Cargo remains in the vesicle lumen; the coat assembles and disassembles on the cytosolic surface.\" Small footer: \"Conceptual mammalian pathway; selected factors shown; not to scale. Assembly trajectories vary.\"\nRender complete professional figure with an uncluttered, scholarly aesthetic, generous whitespace and crisp small-label visibility. Geometry should be suitable for faithful subsequent vector reconstruction. Do not add experimental curves, arbitrary dimensions, extra organelles, nuclei, DNA, particles outside their specified compartments, or publisher logos.\n"
+    },
+    "reason": "controls_sent records the initial generation call. The correction call and its project-relative reference image are documented in provenance.json and prompt-v2.txt. The native tool did not expose model selection or report its exact backend."
+  },
+  "files": [
+    {
+      "path": "brief.md",
+      "role": "brief",
+      "sha256": "712b91cc1c121871362dcd7dfd295335508359a7aea3878d0e0eb5c3c55938df"
+    },
+    {
+      "path": "sources.md",
+      "role": "sources",
+      "sha256": "f9ceab60c8137d8808708113ca0c28172bbeaaa830ea8d3188b606a268cc3ed5"
+    },
+    {
+      "path": "prompt-v1.txt",
+      "role": "prompt",
+      "sha256": "52441d4bacf4c165ec6501034e8eca9fb8ee6bfa44bafa3599093436bbacfb8d"
+    },
+    {
+      "path": "prompt-v2.txt",
+      "role": "prompt",
+      "sha256": "df5d6b52c631dd2a2fe6bb1f786965608c1bc5b19e56c1d22c3f26fd32541b05"
+    },
+    {
+      "path": "image2-master.png",
+      "role": "master",
+      "sha256": "eef5b795603f5fc7951cdda35a15558eedace85eafa8a5a700c56925494d9759"
+    },
+    {
+      "path": "image2-master-v1.png",
+      "role": "failed-draft",
+      "sha256": "e4b7e4f28802a904d9e4baf527426b51da0c5e233df236e3a4f68b903c6620f6"
+    },
+    {
+      "path": "endocytosis.svg",
+      "role": "source",
+      "sha256": "2949cd5ac6063965830f797d605db30011396bd5c2b0b2f7814a66bece7e96b2"
+    },
+    {
+      "path": "endocytosis.png",
+      "role": "preview",
+      "sha256": "ac5d6ff3ef8f15955b438e0ecec1509ca95d7e8f3cd36dd2b327210f32595f57"
+    },
+    {
+      "path": "caption.md",
+      "role": "caption",
+      "sha256": "ab184b326528f06fbb09db9d16d0c12e45d20568e64fa5854c33e7888f34970d"
+    },
+    {
+      "path": "visual-comparison.md",
+      "role": "visual-comparison",
+      "sha256": "7176460321a4e6443e4b4b2b64947bee86dfceb5122d6b83e0607db57ac5790e"
+    },
+    {
+      "path": "edit-test.md",
+      "role": "edit-test",
+      "sha256": "235fffa8a42f7bc49e64feec5902192beb5c634ae6978c1059d064fec45d05de"
+    },
+    {
+      "path": "edit-test-copy.svg",
+      "role": "supporting",
+      "sha256": "3d264eb8f91e42350b02d077f9f4df77120daafed78d0783ac337bb06228ac82"
+    },
+    {
+      "path": "edit-test-copy.png",
+      "role": "supporting",
+      "sha256": "d69394b67fc412bd73708c7476ba1196160f8a025799c973dd6098ed7bca6240"
+    },
+    {
+      "path": "provenance.json",
+      "role": "provenance",
+      "sha256": "39aab6b8c907282514fce1ab2eaca3e06e4415a56c4fff13fea5199788e7d222"
+    },
+    {
+      "path": "audit.json",
+      "role": "audit",
+      "sha256": "a05777a09548d5ab4314280b9bc325691037c50c10f43629b0bdcc6c73b9e212"
+    },
+    {
+      "path": "build_figure.py",
+      "role": "generator",
+      "sha256": "c8794af302ff9d246b7d5e7192ad7e2157eceb8385f6a48f07981bdce7c17bdc"
+    },
+    {
+      "path": "render_figure.cjs",
+      "role": "renderer",
+      "sha256": "b4449997dbf7e92a2d0d7f2b584d80d5fb5568bcc5b83cfa594152448c464441"
+    }
+  ],
+  "gates": {
+    "science": {
+      "status": "pass",
+      "reviewer": "Executing Codex agent; self-review on 2026-09-08",
+      "notes": "Primary-source reading and image inspection support this selected conceptual example. Membrane continuity, sidedness, scission and uncoating labels were checked. Not independent peer review or a universal assembly pathway.",
+      "evidence": [
+        "sources.md",
+        "caption.md",
+        "visual-comparison.md",
+        "endocytosis.png"
+      ]
+    },
+    "visual": {
+      "status": "pass",
+      "reviewer": "Executing Codex agent; self-review on 2026-09-08",
+      "notes": "Inspected both generated drafts and the rendered vector output. Corrected reversed coat-removal meaning, coat opening and cargo crowding. Preserves layout, restrained palette and gradients; simplified original lattice is not pixel-identical tracing.",
+      "evidence": [
+        "image2-master.png",
+        "endocytosis.png",
+        "visual-comparison.md"
+      ]
+    },
+    "typography": {
+      "status": "pass",
+      "reviewer": "Executing Codex agent; self-review on 2026-09-08",
+      "notes": "Inspected final PNG at original resolution. Live labels are legible in the intended wide overview, without clipping. Narrow journal-column legibility and formal colour-vision simulation were not tested.",
+      "evidence": [
+        "endocytosis.svg",
+        "endocytosis.png",
+        "visual-comparison.md"
+      ]
+    },
+    "editability": {
+      "status": "pass",
+      "reviewer": "Executing Codex agent; self-review on 2026-09-08",
+      "notes": "Actual browser controls changed text, single-component colour and arrow position; saved to disk, reloaded, reopened the saved SVG and verified retained changes. A PNG export from that reopened SVG was also inspected.",
+      "evidence": [
+        "endocytosis.svg",
+        "edit-test.md",
+        "edit-test-copy.svg",
+        "edit-test-copy.png"
+      ]
+    },
+    "portability": {
+      "status": "pass",
+      "reviewer": "Executing Codex agent; self-review on 2026-09-08",
+      "notes": "Canonical SVG contains live vector geometry, no embedded bitmaps or external resources; saved SVG reopening and PNG export passed in the bundled editor on localhost. Direct file-URL HTML navigation was blocked by browser policy; Inkscape/Illustrator compatibility was not tested.",
+      "evidence": [
+        "audit.json",
+        "endocytosis.svg",
+        "edit-test.md"
+      ]
+    },
+    "provenance": {
+      "status": "pass",
+      "reviewer": "Executing Codex agent; self-review on 2026-09-08",
+      "notes": "Two actual native image-generation calls, both prompts and outputs retained. Exact backend is undisclosed. Final PNG was exported from the original semantic SVG. Source figures were inspected for research only and are not redistributed.",
+      "evidence": [
+        "provenance.json",
+        "prompt-v1.txt",
+        "prompt-v2.txt",
+        "sources.md",
+        "build_figure.py",
+        "render_figure.cjs"
+      ]
+    }
+  },
+  "unresolved": []
+}

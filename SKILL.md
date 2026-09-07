@@ -1,6 +1,6 @@
 ---
 name: scientific-figure-studio
-description: Produce evidence-grounded scientific schematics with Codex image2, reference-led visual refinement, and faithful editable reconstruction when requested. Use for research device cross-sections, exploded apparatus, material mechanisms, and publication-oriented scientific illustrations, including requests for Nature-style quality or editable versions of generated figures.
+description: Produce evidence-grounded scientific illustrations across life sciences, chemistry, physics, engineering, Earth and environmental sciences, and research methods with Codex image2. Deliver a saved PNG and genuinely editable SVG by default, using discipline-specific checks, reference-led refinement and faithful reconstruction. Use for mechanisms, structures, apparatus and publication-oriented conceptual figures; use data tools for quantitative results.
 ---
 
 # Scientific Figure Studio
@@ -28,12 +28,22 @@ Create original scientific illustrations whose physical meaning, visual quality 
 
 ## Workflow
 
+### Default delivery: saved PNG plus editable SVG
+
+- Every completed figure includes **a PNG and a genuinely editable SVG**, stored in a persistent user/project directory and linked in the final response. An inline image, temporary URL or SVG wrapping a PNG does not meet this requirement.
+- The PNG should be exported from the final SVG so the pair depicts the same final figure. Also retain the image2 master as a separate reference PNG. Verify actual file formats, not only extensions.
+- Keep labels as live text and scientific components/arrows as separately editable objects. Embed reusable vector styles; package permitted local assets and font fallbacks for offline editing. Provide instructions to reopen and edit the SVG later.
+- Save and reopen the file, modify a label, colour and object position in a test copy, then export and inspect. A working offline editor may be supplied when a desktop vector editor is unavailable. Do not require a model call or a cloud login for subsequent basic editing.
+- A user's explicit request for raster only, another format or planning only takes precedence. Record that scope exception; technical difficulty or elapsed time never justifies silently dropping SVG.
+
 ### 1. Establish the scientific brief
 
 Read [research and scientific validation](references/research-and-science.md).
 
+- Select the relevant row in [discipline support](references/discipline-support.md). Read its specialised checks before writing the brief. For interdisciplinary figures, combine the applicable checks and reconcile shared interfaces, scales and terminology.
+
 - Identify the object and specific architecture. Separate observed features, sourced facts, assumptions and uncertain interpretation.
-- Determine the intended scientific message, audience, panel arrangement, delivery dimensions, and whether full vector, layered hybrid or raster output is requested. Use reasonable defaults for cosmetic choices.
+- Determine the intended scientific message, audience, panel arrangement and delivery dimensions. Default to PNG plus full-vector SVG; distinguish any explicitly requested narrower editing scope. Use reasonable defaults for cosmetic choices.
 - Ask only when unresolved information changes physical meaning, such as device polarity or instrument detection architecture. Continue independent work while the answer is pending.
 - Create `brief.md`: object/variant, must-show components, ordered interfaces, mechanism graph, exact labels, assumptions, scale convention and target formats.
 - Create `sources.md`: primary source links/DOIs, figure or section identifiers, supported claims, visual references actually inspected and reuse restrictions. Use project-relative paths.
@@ -56,11 +66,11 @@ Read [visual design and review](references/visual-standard.md).
 - Inspect the full image and detail crops. Correct scientific mistakes first, then visual defects. For each revision, state the intended change and invariants; compare against the previous best version to prevent regressions.
 - After three unsuccessful targeted revisions of the same defect, diagnose the representation or tool limitation and change approach. Do not spend indefinitely or quietly lower the target. Retain useful drafts and disclose unresolved issues.
 
-### 4. Reconstruct faithfully when editability is requested
+### 4. Reconstruct faithfully into the required editable SVG
 
 Read [editable reconstruction](references/editable-reconstruction.md).
 
-- Rebuild the inspected master as semantic objects with live labels, separate arrows, named component groups and consistent reusable styles. Keep the master beside the source for comparison.
+- Rebuild the inspected master as semantic objects with live labels, separate arrows, named component groups and consistent reusable styles. This is the default deliverable, not an optional extra. Keep the master beside the source for comparison.
 - Preserve appropriate gradients, shallow perspective, clipped material shading, curves and visual hierarchy. “All rectangles” is not an acceptable substitute when the benchmark relies on these attributes.
 - Use a hybrid source only when it matches the requested editing scope; disclose which content remains raster. If full vector was requested, unresolved raster geometry is a failed requirement, not a completed conversion.
 - Render the editable source and compare it with the master at the same crop, size and background. Inspect at intended publication size and enlarged detail.
@@ -74,7 +84,7 @@ Use [quality gates and evidence](references/quality-gates.md). Initialise `revie
 - Run `python scripts/audit_svg.py figure.svg --full-vector --live-text` for fully editable SVGs; use the appropriate options for other SVG modes. Resolve warnings through actual inspection.
 - Record review evidence and file SHA-256 values; run `python scripts/check_release.py review.json`. This checks evidence bookkeeping and selected structural properties, not scientific truth or beauty.
 - Do not prefill passing reviews. A reviewer can be the executing agent after genuine inspection; never imply independent or human review when absent.
-- Deliver the selected render, requested editable source, generation prompt/provenance, concise caption with scale/simplification notes, sources, and review record. Preserve a reconstructable source or generator when one was used. Use versioned portable filenames.
+- Deliver the PNG exported from the final SVG, the editable SVG itself, the image2 master, generation prompt/provenance, concise caption with scale/simplification notes, sources, and review record. Preserve a reconstructable source or generator when one was used. Use versioned portable filenames and a persistent folder; explain how to reopen the SVG offline.
 - Summarise what is editable, what was checked and remaining limitations. Link to real saved files and show the actual preview. Do not call a failed draft “publication-ready”.
 
 ## Regression checks

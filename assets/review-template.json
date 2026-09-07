@@ -2,6 +2,7 @@
   "schema_version": 1,
   "title": "",
   "delivery": "full-vector",
+  "delivery_format_override": {"requested_by_user": false, "reason": ""},
   "generation": {
     "status": "pending",
     "route": null,
