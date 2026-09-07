@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "title": "",
+  "delivery": "full-vector",
+  "generation": {
+    "status": "pending",
+    "route": null,
+    "tool": null,
+    "requested_model": "gpt-image-2",
+    "reported_model": null,
+    "reported_model_evidence": [],
+    "exact_model_required": false,
+    "claims_highest_verified": false,
+    "highest_verification_evidence": [],
+    "controls_sent": {},
+    "reason": ""
+  },
+  "files": [],
+  "gates": {
+    "science": {"status": "pending", "reviewer": "", "notes": "", "evidence": []},
+    "visual": {"status": "pending", "reviewer": "", "notes": "", "evidence": []},
+    "typography": {"status": "pending", "reviewer": "", "notes": "", "evidence": []},
+    "editability": {"status": "pending", "reviewer": "", "notes": "", "evidence": []},
+    "portability": {"status": "pending", "reviewer": "", "notes": "", "evidence": []},
+    "provenance": {"status": "pending", "reviewer": "", "notes": "", "evidence": []}
+  },
+  "unresolved": []
+}
