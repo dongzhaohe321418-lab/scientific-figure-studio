@@ -1,0 +1,7 @@
+# Figure caption
+
+An illustrative fully connected feedforward multilayer perceptron maps four input features through two five-unit ReLU hidden layers to three logits. One shared softmax operator converts the logit vector into a normalised three-class probability vector. Column-vector convention is used: W1 has shape 5×4, W2 5×5 and W3 3×5; biases contain 5, 5 and 3 elements. All 60 adjacent-layer connections are shown. The four darker incoming edges highlight the affine computation of one first-hidden unit; line colour and width do not encode learned weight magnitudes.
+
+The inset shows representative previous-layer activations, weighting, bias addition and ReLU. Its curve is the exact schematic function max(0,z). During supervised training, a one-hot target y and predicted p define single-example cross-entropy L = −sum_k y_k log(p_k). Backpropagation computes parameter gradients through the chain rule; gradient descent with positive learning rate eta updates weights and biases. The dashed training arrow is separate from the inference graph. No learned weights, activation values, data, accuracy or empirical training curve are implied.
+
+Symbols h1/h2 in superscript identify layers; subscript indices identify units. Theta includes all weights and biases. Bias nodes are omitted from the main graph but included in equations. Intended as a wide overview (approximately 300 mm or full-screen); a narrow journal-column version would require panel rearrangement and another legibility check. Scientific sources are listed in sources.md.

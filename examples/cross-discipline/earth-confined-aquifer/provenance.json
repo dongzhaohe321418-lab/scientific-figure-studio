@@ -1,0 +1,30 @@
+{
+  "date": "2026-09-08",
+  "route": "codex-native",
+  "tool": "image_gen.imagegen",
+  "requested_model_family": "gpt-image-2",
+  "reported_model": null,
+  "model_selection_exposed": false,
+  "quality_parameter_exposed": false,
+  "claims_highest_verified": false,
+  "calls": [
+    {
+      "operation": "generate",
+      "prompt": "prompt.txt",
+      "result": "image2-master-v1.png",
+      "reference_inputs": []
+    },
+    {
+      "operation": "edit",
+      "prompt": "prompt-correction.txt",
+      "result": "image2-master.png",
+      "reference_inputs": [
+        "image2-master-v1.png"
+      ]
+    }
+  ],
+  "research_images_sent_to_generation": false,
+  "reconstruction": "Original semantic SVG; shared build_cases.py and vector.py in bundle parent",
+  "renderer": "Sharp/libvips, render_cases.cjs, density 144",
+  "review": "Executing agent self-review; no independent expert or publisher certification"
+}

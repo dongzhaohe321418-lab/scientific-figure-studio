@@ -1,5 +1,9 @@
 # Earth and environmental sciences
 
+## Concrete regression lessons
+
+The [aquifer case](../../examples/cross-discipline/earth-confined-aquifer/README.md) required correcting water/head agreement, the exposed recharge zone and a misleading flowing-well inset. Compare screen depth with actual drawn strata; verify rim, ground and head elevations together. Distinguish a local static-head marker from a regional potentiometric surface. A conceptual section is not a hydrological simulation; a plausible-looking outlet does not establish available hydraulic head.
+
 ## Spatial and geological context
 
 Record location or conceptual scope, orientation, coordinate reference/projection where relevant, scale and time period. A perspective landscape, map and vertical section are different representations. Check north/up, section direction, layer ordering and chronological relationships. State vertical exaggeration and illustrative scale changes. Use authoritative spatial data for maps; do not invent coastlines, measured site boundaries or geographic distributions.

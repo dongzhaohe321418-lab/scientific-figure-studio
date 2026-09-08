@@ -77,11 +77,13 @@ The default is **full vector SVG plus its exported PNG**. Keep the image2 master
 
 For basic later edits, use the bundled [self-contained SVG editor](assets/svg-editor.html): open a local SVG, change text/colour/object positions, and save SVG or export PNG. Its supported subset is narrower than a full vector editor. No model call or cloud upload is needed for these operations. See the [biology example](examples/biology-endocytosis/README.md) for the actual save/reopen test and browser-policy limitations.
 
-## Discipline coverage and live example
+## Discipline coverage and live evaluations
 
 Use the [discipline support matrix](references/discipline-support.md) to select specialised checks. It covers cell/molecular biology, biomedical research, ecology/evolution/agriculture, chemistry, materials, physics/optics/astronomy, engineering, geoscience, environment/climate, formal/computational subjects and social research. Quantitative plots, exact structures and maps still require suitable data-driven tools.
 
-The [endocytosis example](examples/biology-endocytosis/README.md) includes two actual native image-generation calls, documented scientific/visual corrections, a saved editable reconstruction and an actual editor save/reopen/export test. Other fields have guidance coverage; this release does not claim they all underwent live generation tests.
+Six documented cases cover [endocytosis](examples/biology-endocytosis/README.md), a [feedforward neural network](examples/neural-network/README.md), and [four cross-discipline examples](examples/cross-discipline/README.md): SN2 chemistry, a confined aquifer, terrestrial carbon pathways and causal DAGs. Each retains an actual native master, saved PNG/editable SVG, source research and a real editor save/reopen/export test.
+
+The four new cases required seven native calls. Chemistry and groundwater drafts contained scientific/representation errors that were found and corrected; their failed versions remain labelled evaluation evidence. These are case-level self-reviews, not field-wide benchmarks. See the [evaluation protocol and limitations](references/cross-discipline-evaluation.md). Other specialities retain guidance coverage.
 
 Faithful reconstruction can require substantial work. This is an agent workflow, not a one-click lossless PNG-to-SVG converter. Application compatibility must be tested in the actual editor; a browser render alone does not prove Illustrator or PowerPoint compatibility.
 
@@ -97,7 +99,7 @@ python scripts/check_release.py path/to/review.json
 
 Start a review record from [the template](assets/review-template.json) and follow [the evidence format](references/quality-gates.md). The template intentionally fails until real reviews and files are recorded. Scripts check selected SVG structures, required evidence, file hashes and unsupported completion claims. They do **not** independently establish scientific correctness, visual excellence or the truth of self-reported reviews.
 
-The repository includes synthetic regression tests, [behavioural scenarios](references/regression-cases.md) and one documented biology live case. Unit tests remain distinct from visual evaluation. No end-to-end success rate, all-discipline validation or journal acceptance rate is claimed. See [validation status](VALIDATION.md).
+The repository includes synthetic regression tests, negative mutations of the selected scientific examples, [behavioural scenarios](references/regression-cases.md) and six documented live cases. Unit tests remain distinct from visual evaluation. No end-to-end success rate, all-discipline validation or journal acceptance rate is claimed. See [validation status](VALIDATION.md).
 
 ## Contribute and reuse
 

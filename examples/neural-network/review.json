@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "title": "Feedforward neural network: a 4-5-5-3 classifier",
+  "delivery": "full-vector",
+  "delivery_format_override": {
+    "requested_by_user": false,
+    "reason": ""
+  },
+  "generation": {
+    "status": "complete",
+    "route": "codex-native",
+    "tool": "image_gen.imagegen",
+    "requested_model": "gpt-image-2",
+    "reported_model": null,
+    "reported_model_evidence": [],
+    "exact_model_required": false,
+    "claims_highest_verified": false,
+    "highest_verification_evidence": [],
+    "controls_sent": {
+      "prompt": "Use case: scientific-educational. Create an original highly refined journal-style figure explaining a feedforward artificial neural network (multilayer perceptron), landscape 2400:1400 aspect. White background, crisp near-black typography, calm muted teal/blue/lavender/coral palette. Subtle node shading, beautifully spaced thin vector-like connections, no glow, no brains, no photorealism, no decorative circuits. This should feel like an exceptional scientific illustrator designed it.\nTitle \"Feedforward neural network\"; subtitle \"Representation, prediction and gradient-based learning\".\nComposition: a large left panel a occupying 70% of width, right panel b a neuron computational inset, and a shallow bottom panel c training strip. Very generous whitespace and exact mathematical meaning.\nPanel a \"Network architecture\". Four columns of circular nodes: exactly FOUR inputs, FIVE first hidden units, FIVE second hidden units, THREE output LOGITS. Every node connects to every node in the next column only. This is a fully connected 4–5–5–3 MLP, not a recurrent net. Soft teal input nodes, blue first hidden nodes, muted lavender second hidden nodes, muted coral logit nodes. ReLU hidden layers. The three logits then enter ONE shared rounded \"Softmax\" box. Output is a single probability vector p, with label \"3-class probabilities\". Do NOT use independent sigmoid output units. Label columns \"Input\", \"Hidden 1 · ReLU\", \"Hidden 2 · ReLU\", \"Logits\". Under them use \"x ∈ R⁴\", \"h¹ ∈ R⁵\", \"h² ∈ R⁵\", \"z ∈ R³\". Above each edge fan show weight dimensions \"W¹: 5 × 4\", \"W²: 5 × 5\", \"W³: 3 × 5\". A teal arrow above all columns points RIGHT and says \"Forward computation\". All 60 between-layer connections present; they can be unarrowed with the global arrow defining direction. Highlight the four incoming edges of one central first-hidden node to clarify a single computation, without implying measured weight magnitudes. Softmax coupled across all three logits. Below the architecture put two short lines: \"Hidden layers: hˡ = ReLU(Wˡhˡ⁻¹ + bˡ), l = 1, 2; h⁰ = x\" and \"Output: z = W³h² + b³; p = softmax(z)\". Biases are represented in equations rather than extra bias nodes.\nPanel b \"Inside one hidden unit\". Three small representative incoming activation nodes with ellipsis for omitted inputs; weighted inputs converge on a summation circle \"Σ\", add bias b_j explicitly from above; then arrow to a small ReLU graph (zero on negative side and slope 1 positive side), then arrow to activation h_j. Correct formula \"z_j = Σ_i w_ji a_i + b_j\" and \"h_j = max(0, z_j)\". The ReLU graph is mathematical, not experimental data. Avoid using biological neuron anatomy.\nPanel c \"Training only\". Solid grey arrows go from labelled \"Prediction p\" and \"Target y\" to \"Cross-entropy loss L\". A separate dashed amber arrow points LEFT beneath the network labelled \"Backpropagation: gradients by the chain rule\". State \"Gradient descent: θ ← θ − η∇θL\". Make explicit that backpropagation computes gradients and the optimiser updates parameters; the dashed arrow is not an inference feedback connection. Show only a symbolic training workflow, no fake training curve, no accuracies or invented numerical outputs.\nFooter \"Illustrative 4–5–5–3 classifier; all adjacent-layer connections shown. Colours identify layers, not activation values. Biases shown in equations.\"\nKeep all text clean and nonoverlapping; prioritise clear, original composition and mathematically correct directions. Vector reconstruction will follow, so preserve simple editable geometry but visually refined spacing and controlled gradients."
+    },
+    "reason": "Native backend model and quality setting not exposed; no highest-version claim."
+  },
+  "files": [
+    {
+      "path": "brief.md",
+      "role": "brief",
+      "sha256": "b5c617faa599636c6ac51aef14e60f98fc38d7a0585e1b5ae32cbd5a618bc219"
+    },
+    {
+      "path": "sources.md",
+      "role": "sources",
+      "sha256": "d0b3a8a27b8f5244c91b76fa1d4cb3c30ed15ec4e2eef6518c7e721b9a743ef6"
+    },
+    {
+      "path": "prompt.txt",
+      "role": "prompt",
+      "sha256": "45c6c4f9b2ed5574156f37ae22e640b52f4c090be6cdb34b2157afe1adf84cdf"
+    },
+    {
+      "path": "image2-master.png",
+      "role": "master",
+      "sha256": "e3ba6b4cfc0cc9cb97dd3a9b0fa18e3f17e7989adebc390c698b672d531a12ab"
+    },
+    {
+      "path": "neural-network.svg",
+      "role": "source",
+      "sha256": "6c8e939a094b5c8682d1a8e99389f558170efb4e6f59807ad768e89e28d71e4d"
+    },
+    {
+      "path": "neural-network.png",
+      "role": "preview",
+      "sha256": "ef5aa0b4cc6b37126cd4d511bed0e63740b81de199a43f47b63835dc431efc43"
+    },
+    {
+      "path": "caption.md",
+      "role": "caption",
+      "sha256": "fce2598cb2b78f364021e62a0eb61c80010a061722d3aa26faf44133a70330da"
+    },
+    {
+      "path": "visual-comparison.md",
+      "role": "visual-comparison",
+      "sha256": "d0a230140d02560afe0b7de91df66ca8a474ac71e673cfa95abf182f0bc5d9e9"
+    },
+    {
+      "path": "edit-test.md",
+      "role": "edit-test",
+      "sha256": "03b999c48174f4e0639ae02aacea1c686a5c83e92ab99e5921807bb8daf5ab2d"
+    },
+    {
+      "path": "edit-test-copy.svg",
+      "role": "supporting",
+      "sha256": "582a7d7e842ff5fbcace5d1404049894f8afd71a16adc6c08a47386ed800cb07"
+    },
+    {
+      "path": "edit-test-copy.png",
+      "role": "supporting",
+      "sha256": "23f36ee3992cb138a6ba86cf8731f3c726280ee842ec6cd6883a4f10f8bec4ee"
+    },
+    {
+      "path": "provenance.json",
+      "role": "provenance",
+      "sha256": "3889743393e89f1657df42768a7faac33ae023c4ac641aa2f0de07ccccaf4674"
+    },
+    {
+      "path": "architecture.json",
+      "role": "specification",
+      "sha256": "0306b77894106e0fbc059ac982fc60446d076d8f45500aee4abc00625e5c43e9"
+    },
+    {
+      "path": "architecture-check.json",
+      "role": "validation",
+      "sha256": "90098b60adaa8e48343587346727a4d5c6b7c00193a97d84a577187225a1344c"
+    },
+    {
+      "path": "audit.json",
+      "role": "audit",
+      "sha256": "dbb097a413f5f27f882e7d38b3c21b15de65ee2c28376bbd4789092a39721d16"
+    },
+    {
+      "path": "image-check.json",
+      "role": "validation",
+      "sha256": "262130b5582ad80cf4869c258fe730d882b8d73f6abb57a0aa0158e5d0bf6dd3"
+    },
+    {
+      "path": "build_figure.py",
+      "role": "generator",
+      "sha256": "57384e5ad4241100e581fb39b3ea2f123a7f8093cd8ceeb020a92f1d9952792c"
+    },
+    {
+      "path": "verify_architecture.py",
+      "role": "validation-script",
+      "sha256": "d0bad9e07b50c457eaf18860f6c6576826bd442bd919ac8025b6b458b0ae87c2"
+    },
+    {
+      "path": "render_figure.cjs",
+      "role": "renderer",
+      "sha256": "c7de082860cc0ae7621daa10ef52b03f9bd735329b78d3559467720f7656d6c6"
+    },
+    {
+      "path": "svg-editor.html",
+      "role": "editor",
+      "sha256": "7f2ead6b5719229a86cb79f3f6ae0f6ae05e451aa107401b2f3e7e852641d9e3"
+    },
+    {
+      "path": "如何编辑.md",
+      "role": "instructions",
+      "sha256": "ee4ad1ddb3e3c3e6decd54bec08c2141801df6ae0683e4c5f220408e8cae5d61"
+    }
+  ],
+  "gates": {
+    "science": {
+      "status": "pass",
+      "reviewer": "Executing Codex agent, self-review, 2026-09-08",
+      "notes": "Selected illustrative graph, ReLU, shared softmax, column-vector dimensions and training semantics checked against the cited sources and actual SVG paths. This is self-review, not independent peer review or a trained model test.",
+      "evidence": [
+        "sources.md",
+        "caption.md",
+        "architecture-check.json",
+        "visual-comparison.md"
+      ]
+    },
+    "visual": {
+      "status": "pass",
+      "reviewer": "Executing Codex agent, self-review, 2026-09-08",
+      "notes": "Inspected master, final reconstruction and final browser-exported test copy. Preserved layout, palette, gradients and serif hierarchy; corrected highlight completeness, gradient-arrow origin, mathematical scripts and recolouring opacity.",
+      "evidence": [
+        "image2-master.png",
+        "neural-network.png",
+        "visual-comparison.md",
+        "edit-test-copy.png"
+      ]
+    },
+    "typography": {
+      "status": "pass",
+      "reviewer": "Executing Codex agent, self-review, 2026-09-08",
+      "notes": "Live text/tspan superscripts and subscripts were rendered and inspected. Wide overview only; no narrow-column or formal colour-vision simulation claimed.",
+      "evidence": [
+        "neural-network.svg",
+        "neural-network.png",
+        "visual-comparison.md"
+      ]
+    },
+    "editability": {
+      "status": "pass",
+      "reviewer": "Executing Codex agent, self-review, 2026-09-08",
+      "notes": "Actual local editor controls changed text, node colour and arrow position; a downloaded SVG was reimported after page reload and retained all edits. PNG export then inspected. 188 semantic objects.",
+      "evidence": [
+        "edit-test.md",
+        "edit-test-copy.svg",
+        "edit-test-copy.png",
+        "svg-editor.html"
+      ]
+    },
+    "portability": {
+      "status": "pass",
+      "reviewer": "Executing Codex agent, self-review, 2026-09-08",
+      "notes": "No raster images or external resources in canonical SVG; native PNG fully decoded. Localhost editor import/save/reopen/export passed. Desktop vector apps and direct file-URL HTML opening not tested.",
+      "evidence": [
+        "audit.json",
+        "image-check.json",
+        "edit-test.md",
+        "如何编辑.md"
+      ]
+    },
+    "provenance": {
+      "status": "pass",
+      "reviewer": "Executing Codex agent, self-review, 2026-09-08",
+      "notes": "One actual native generation with saved prompt/output. Original deterministic reconstruction and renderer retained. Exact backend undisclosed; sources used only for research.",
+      "evidence": [
+        "provenance.json",
+        "prompt.txt",
+        "build_figure.py",
+        "render_figure.cjs",
+        "sources.md"
+      ]
+    }
+  },
+  "unresolved": []
+}

@@ -1,5 +1,9 @@
 # Life sciences: checks before drawing and after every export
 
+## Concrete regression lessons
+
+For ecosystem diagrams, declare a pool/transfer graph. The [carbon case](../../examples/cross-discipline/ecology-carbon/README.md) checks nine carbon transfers separately from solar energy, including plant, animal and microbial respiration. A food-chain-only arrow set is insufficient for a carbon-cycle claim. Label omitted reservoirs, timescales and budgets; unmeasured pool sizes, flux widths and organism detail must not look like data. This qualitative example does not validate quantitative ecology or taxonomy.
+
 ## Biological context
 
 Record organism/species, cell or tissue type, physiological/experimental state and spatial/time scale. Separate a general conceptual pathway from a specific experiment. Resolve meaningful uncertainty from primary literature and authoritative structure or organism databases, not visual familiarity. Do not generalise one model organism, cell line or assay to all biology.

@@ -1,0 +1,17 @@
+{
+  "case": "research-causal-dags",
+  "passed": true,
+  "checks": {
+    "confounder edge set and arrowheads": true,
+    "confounder acyclic": true,
+    "mediator edge set and arrowheads": true,
+    "mediator acyclic": true,
+    "collider edge set and arrowheads": true,
+    "collider acyclic": true,
+    "selected backdoor path blocked by Z": true,
+    "selected mediated path blocked by M": true,
+    "collider path opens on conditioning C": true,
+    "direct path persists in first two graphs": true
+  },
+  "scope": "Selected illustration-specific invariants; not independent scientific review, empirical verification or a general domain validator."
+}

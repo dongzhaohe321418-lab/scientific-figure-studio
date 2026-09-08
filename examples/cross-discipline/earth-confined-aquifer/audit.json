@@ -1,0 +1,29 @@
+{
+  "counts": {
+    "image": 0,
+    "text": 12,
+    "path": 35,
+    "g": 20,
+    "foreignObject": 0,
+    "feImage": 0
+  },
+  "geometry_elements": 649,
+  "live_labels": [
+    "Confined aquifer and artesian head",
+    "A static standpipe measurement in a conceptual geological section",
+    "Recharge at outcrop",
+    "Static head",
+    "Cased standpipe",
+    "Upper aquitard · low permeability",
+    "Confined aquifer · saturated",
+    "Lower aquitard",
+    "Screen only in aquifer",
+    "Static measurement shown: the pipe rim is above its water level.",
+    "A separate outlet below available head may flow; discharge changes the local head.",
+    "Conceptual section; local head marker only. Geometry and vertical exaggeration are illustrative; no field measurements implied."
+  ],
+  "errors": [],
+  "warnings": [],
+  "scope": "Structural checks only; rendering, semantic editing, science and aesthetics need inspection.",
+  "file": "figure.svg"
+}

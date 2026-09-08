@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "title": "Confined aquifer and artesian head",
+  "delivery": "full-vector",
+  "delivery_format_override": {
+    "requested_by_user": false,
+    "reason": ""
+  },
+  "generation": {
+    "status": "complete",
+    "route": "codex-native",
+    "tool": "image_gen.imagegen",
+    "requested_model": "gpt-image-2",
+    "reported_model": null,
+    "reported_model_evidence": [],
+    "exact_model_required": false,
+    "claims_highest_verified": false,
+    "highest_verification_evidence": [],
+    "controls_sent": {
+      "prompt": "Create an original refined geoscience journal-style cross-section titled \"Confined aquifer and artesian head\", landscape about 2000 × 1200, white background. The central hero is an elegant gently shaded geological section, warm beige sediments, layered grey-brown aquitards, muted blue permeable aquifer, green thin land surface. Use curved strata, sparse schematic grain stippling, readable labels, understated material depth. Accuracy is paramount.\nAn elevated recharge outcrop is at LEFT. One continuous saturated permeable layer is exposed at the upper left and dips gently RIGHT beneath an upper low-permeability confining unit. A lower aquitard bounds the base. Blue arrows enter the exposed aquifer at left, then travel down-dip within the same aquifer toward a well at right. Do not draw flow arrows through the intact confining unit. The right-hand well is a narrow CASED piezometer penetrating the upper aquitard, open/screened ONLY inside the confined aquifer; it is not a hole connecting every stratum. A capped/no-discharge measurement condition is NOT suitable: use an open-to-air tall standpipe with NO overflow, with its rim ABOVE its static water level. Show the water column rising to a horizontal dashed line clearly ABOVE the local ground at this well, but below the pipe rim. Label \"Static head in standpipe\", and indicate the vertical rise from aquifer to that head. Ground at right is lower than left recharge. Important: this is a static measuring pipe; DO NOT show a fountain or active flow out of its top. Explain in a separate small inset that a separate open outlet LOWER than static head can flow, and \"Discharge lowers head near a flowing well\". Do not conflate the static measurement with flowing equilibrium.\nMain exact labels: \"Recharge at outcrop\", \"Upper aquitard · low permeability\", \"Confined aquifer · saturated\", \"Lower aquitard\", \"Cased standpipe\", \"Screen within aquifer\", \"Static head\". One explanatory sentence \"Water rises above the aquifer roof because its pressure exceeds atmospheric pressure.\" No claim that every artesian well flows at the surface. Footer \"Conceptual section; geometry and vertical exaggeration are illustrative. No pumping rate or field measurements implied.\" Arrows represent groundwater flow; the dashed line is an indicated static head, not a river or water table. Avoid an underground open lake.\n"
+    },
+    "reason": "Initial call shown in controls_sent; edit calls and exact prompt files recorded in provenance.json. Native model/quality controls unavailable."
+  },
+  "files": [
+    {
+      "path": "audit.json",
+      "role": "audit",
+      "sha256": "9a7e3d70cb1860be71614384b901553b4237f5af0818d5ec30927e063b29be00"
+    },
+    {
+      "path": "brief.md",
+      "role": "brief",
+      "sha256": "59ad4396f8507fb8eec2b7887845257dfa99d5d10280505e0c064e658f20f774"
+    },
+    {
+      "path": "caption.md",
+      "role": "caption",
+      "sha256": "8c8b4a58ad4d769365c6ab1c0ec1cf38e2bb5f937cbeda88825853d73cdf1c22"
+    },
+    {
+      "path": "edit-test-copy.png",
+      "role": "supporting",
+      "sha256": "390d8ce6676e10ed0c770f6b502a84de18dd0ff486bc168d3fe0d361b51b4b5e"
+    },
+    {
+      "path": "edit-test-copy.svg",
+      "role": "supporting",
+      "sha256": "cba689899a9f5598abf700192ab365929ebd50b90f65cf3bf6b528888540547b"
+    },
+    {
+      "path": "edit-test.md",
+      "role": "edit-test",
+      "sha256": "c5187cc90f431026eec88f07a62bae22a393c25e8ccf421abcf89f7f2d8a26c6"
+    },
+    {
+      "path": "figure.png",
+      "role": "preview",
+      "sha256": "c92545ffbbedd65a82ad89a7bd969a36d86c6b4d4eab378c5af938be1364b8cf"
+    },
+    {
+      "path": "figure.svg",
+      "role": "source",
+      "sha256": "e21ef39c3a9aed1d5216b9cc5445929bb630d7839fe86f2887f6398e4c04852f"
+    },
+    {
+      "path": "image-check.json",
+      "role": "validation",
+      "sha256": "4c45ee112fa790e60db6aa67c8285fb9107df3a173ab5719ec7d46f9647f15d5"
+    },
+    {
+      "path": "image2-master-v1.png",
+      "role": "supporting",
+      "sha256": "49420e994850e5f0e1621e581b6e7a7666b712875d9b0cd90f9dee7e73ee48f2"
+    },
+    {
+      "path": "image2-master.png",
+      "role": "master",
+      "sha256": "ac90d38fec97de2a9cbb555655360b96e7e7e44f053051e9339688d52acf8cdc"
+    },
+    {
+      "path": "prompt-correction.txt",
+      "role": "supporting",
+      "sha256": "11890ed35512ff90c1c25f46a4862692983db5a6af9ad2c05715970f42b9a9ec"
+    },
+    {
+      "path": "prompt.txt",
+      "role": "prompt",
+      "sha256": "0cc5b810d6187a8261582a4486c07b996c90459e7dc586037cb2dd59ac69a080"
+    },
+    {
+      "path": "provenance.json",
+      "role": "provenance",
+      "sha256": "601a74a32ee74179590cdf1868a085ef38148c1c071588ae70a401b700d40fbe"
+    },
+    {
+      "path": "README.md",
+      "role": "supporting",
+      "sha256": "f5234f1208f3e5e736dd1eff3557e75b3710871e02fe5df5cb39df83da50fae2"
+    },
+    {
+      "path": "scientific-check.json",
+      "role": "validation",
+      "sha256": "a2f36863139f73450b04c9225e169adecef0ce414d8e6ffbe4996c2d9b01c622"
+    },
+    {
+      "path": "sources.md",
+      "role": "sources",
+      "sha256": "a150d9f291e530e0fe11bd32b3231a13c389e9959a337f9368920bc4efb636f4"
+    },
+    {
+      "path": "visual-comparison.md",
+      "role": "visual-comparison",
+      "sha256": "808d525b2fc1269a8cf74e00999a6093fc9bea6ad8dae29ee2be43712cb314a4"
+    }
+  ],
+  "gates": {
+    "science": {
+      "status": "pass",
+      "reviewer": "Executing Codex agent, self-review, 2026-09-08",
+      "notes": "Selected case-specific invariants and source-grounded meaning checked. Illustrative scope only; not independent peer review.",
+      "evidence": [
+        "sources.md",
+        "caption.md",
+        "scientific-check.json",
+        "visual-comparison.md"
+      ]
+    },
+    "visual": {
+      "status": "pass",
+      "reviewer": "Executing Codex agent, self-review, 2026-09-08",
+      "notes": "Actual native master, reconstructed render and reopened-editor export inspected; representation differences explicitly documented.",
+      "evidence": [
+        "image2-master.png",
+        "figure.png",
+        "edit-test-copy.png",
+        "visual-comparison.md"
+      ]
+    },
+    "typography": {
+      "status": "pass",
+      "reviewer": "Executing Codex agent, self-review, 2026-09-08",
+      "notes": "Live text and scientific scripts inspected at wide overview size; narrow-column and publisher-specific typesetting not tested.",
+      "evidence": [
+        "figure.svg",
+        "figure.png",
+        "visual-comparison.md"
+      ]
+    },
+    "editability": {
+      "status": "pass",
+      "reviewer": "Executing Codex agent, self-review, 2026-09-08",
+      "notes": "Real UI change/save/reload/reimport/export passed for a label, component colour and arrow position.",
+      "evidence": [
+        "edit-test.md",
+        "edit-test-copy.svg",
+        "edit-test-copy.png"
+      ]
+    },
+    "portability": {
+      "status": "pass",
+      "reviewer": "Executing Codex agent, self-review, 2026-09-08",
+      "notes": "Self-contained vector source, fully decoded PNGs and retained local edits; direct file URL and desktop vector applications untested.",
+      "evidence": [
+        "audit.json",
+        "image-check.json",
+        "edit-test.md"
+      ]
+    },
+    "provenance": {
+      "status": "pass",
+      "reviewer": "Executing Codex agent, self-review, 2026-09-08",
+      "notes": "Actual native calls and versioned outputs retained; backend model and quality controls undisclosed.",
+      "evidence": [
+        "provenance.json",
+        "prompt.txt",
+        "sources.md"
+      ]
+    }
+  },
+  "unresolved": []
+}

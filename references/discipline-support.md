@@ -29,6 +29,15 @@ Read the applicable reference below, research the specific topic and record the 
 ## Coverage status
 
 - Domain guides: provided for all rows above.
-- Biology live evaluation: see [the example record](../examples/biology-endocytosis/README.md) for its actual scope and limitations.
-- Other disciplines: guidance coverage; no new live image2-to-SVG benchmark claimed in this release.
-- A single successful cell-trafficking example does not establish performance on anatomy, microscopy, all organisms or all scientific fields.
+- Six conceptual cases now have actual native generation, editable reconstruction and application save/reopen evidence:
+
+| Area | Evaluated case | Evidence |
+| --- | --- | --- |
+| Cell biology | Clathrin-mediated endocytosis | [Case](../examples/biology-endocytosis/README.md) |
+| Computer science | Fully connected 4–5–5–3 MLP | [Case](../examples/neural-network/README.md) |
+| Organic chemistry | Achiral methyl SN2 substitution | [Case](../examples/cross-discipline/chemistry-sn2/README.md) |
+| Hydrogeology | Conceptual confined aquifer and static head | [Case](../examples/cross-discipline/earth-confined-aquifer/README.md) |
+| Ecology | Selected terrestrial carbon pathways | [Case](../examples/cross-discipline/ecology-carbon/README.md) |
+| Research methods | Confounder, mediator and collider DAG motifs | [Case](../examples/cross-discipline/research-causal-dags/README.md) |
+
+All other specialities remain guidance coverage. Even within these six areas, only the named cases have recorded evidence. No subject-wide reliability, quantitative/clinical validity, independent expert review or journal certification follows from these examples. See the [evaluation protocol and limits](cross-discipline-evaluation.md).

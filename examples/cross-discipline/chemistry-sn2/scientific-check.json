@@ -1,0 +1,15 @@
+{
+  "case": "chemistry-sn2",
+  "passed": true,
+  "checks": {
+    "atom conservation, including hydroxyl hydrogen": true,
+    "visible formal charge −1 on both sides and TS": true,
+    "only two partial axial bonds": true,
+    "electron-attack single head, correct orientation and origin": true,
+    "electron-departure single head, correct orientation and origin": true,
+    "attack originates at selected oxygen pair": true,
+    "departing pair starts on C–Br bond": true,
+    "achiral scope explicitly disclosed": true
+  },
+  "scope": "Selected illustration-specific invariants; not independent scientific review, empirical verification or a general domain validator."
+}

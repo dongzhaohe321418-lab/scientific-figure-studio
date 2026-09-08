@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "title": "SN2 nucleophilic substitution",
+  "delivery": "full-vector",
+  "delivery_format_override": {
+    "requested_by_user": false,
+    "reason": ""
+  },
+  "generation": {
+    "status": "complete",
+    "route": "codex-native",
+    "tool": "image_gen.imagegen",
+    "requested_model": "gpt-image-2",
+    "reported_model": null,
+    "reported_model_evidence": [],
+    "exact_model_required": false,
+    "claims_highest_verified": false,
+    "highest_verification_evidence": [],
+    "controls_sent": {
+      "prompt": "Create an original scientific editorial illustration titled \"S_N2 nucleophilic substitution\", white landscape canvas about 2000 × 1200, restrained teal, coral and purple with charcoal labels, clear live-label-like text, elegant subtle shading and generous whitespace. Scientific accuracy over ornament. Two panels. Panel a \"A concerted substitution\": depict the exact overall reaction HO⁻ + CH₃–Br → CH₃–OH + Br⁻. Show one transition state between reactants and products, in brackets with a double-dagger and overall negative charge: [HO···C(H)₃···Br]‡⁻. Incoming O, C and departing Br are collinear. Both axial bonds are DASHED partial bonds. The three C–H bonds are real bonds and coplanar in the transition state; represent their plane with a restrained pale translucent ellipse. Label \"Backside approach\", \"Bond forming\", \"Bond breaking\", \"One transition state; no intermediate\". Molecular spheres can have subtle gradients, but element labels and chemical formulae must be unambiguous. Carbon charcoal, oxygen coral, bromine plum, hydrogen light grey. Do not draw five full bonds around C; do not identify a methyl carbon as chiral or use R/S labels. There are one C, one O, one Br and four H on each side including OH. Panel b \"Electron-pair movement\": show a clean structural formula HO⁻ + CH₃–Br with an explicit lone-pair dot pair at O; curved FULL arrowhead from that pair to carbon, and second curved full arrowhead from the C–Br bond to Br. The arrows represent electron pairs, not atoms. Alongside a short rate expression \"rate = k[CH₃Br][HO⁻]\" and labels \"Bimolecular rate law\", \"Atom and charge balance: preserved\". Footer: \"Conceptual methyl substitution; schematic molecular projection. Solvent and quantitative energetics are not specified.\" No decorative glow, no numerical energy barriers, no orbital clouds, no fake experiments. Original layout only; do not reproduce textbook artwork.\n"
+    },
+    "reason": "Initial call shown in controls_sent; edit calls and exact prompt files recorded in provenance.json. Native model/quality controls unavailable."
+  },
+  "files": [
+    {
+      "path": "audit.json",
+      "role": "audit",
+      "sha256": "df48022f139d85671268c663fd06b70968a8acd06ae7d6b8f2f97e4fab57e576"
+    },
+    {
+      "path": "brief.md",
+      "role": "brief",
+      "sha256": "8b01866dd6e5090858883b509e07f9cf2e5b78e7e9d330500584235a72694556"
+    },
+    {
+      "path": "caption.md",
+      "role": "caption",
+      "sha256": "e1d599b9c3e387d83cb5ceb88c0624cc1b845c762d2d4b095bbc02fdfd7f5605"
+    },
+    {
+      "path": "edit-test-copy.png",
+      "role": "supporting",
+      "sha256": "aba2dc1cb5d226c9137c3af2c955dd83112a8f5561bd5d7fa5f17a0065f94a2a"
+    },
+    {
+      "path": "edit-test-copy.svg",
+      "role": "supporting",
+      "sha256": "588b9810d67cea2ec1ef0c36b597e99215a1419dd77d2a7314f1bd80dcbe221f"
+    },
+    {
+      "path": "edit-test.md",
+      "role": "edit-test",
+      "sha256": "9138815fb7424663d4625529b0218c26354dc95dd68c85fc0d0bc904162cd796"
+    },
+    {
+      "path": "figure.png",
+      "role": "preview",
+      "sha256": "0ed86518f2a85f97505d9853c89014de1a2738e15e777c5f668118cf8fc4b843"
+    },
+    {
+      "path": "figure.svg",
+      "role": "source",
+      "sha256": "d2764b4f43496a252656cb04fabefcd73da3546a854a7c5c0c9c37ff6ce498ea"
+    },
+    {
+      "path": "image-check.json",
+      "role": "validation",
+      "sha256": "b1d1e6ec706f61ce5a139ab00ab7d2a9cda28f215398ef2399220f94f6c929a2"
+    },
+    {
+      "path": "image2-master-v1.png",
+      "role": "supporting",
+      "sha256": "beab814bc60cf442ca958c731a039ae60054e93d0ed1a31255ba40ab8641e3fb"
+    },
+    {
+      "path": "image2-master-v2.png",
+      "role": "supporting",
+      "sha256": "a83716bb65423dcc4039b840f3a3686118c11e0072b3968292f39faf4a16c254"
+    },
+    {
+      "path": "image2-master.png",
+      "role": "master",
+      "sha256": "3429a112367cd9d808ae651c944cb5118ab4a702df8aa4560454b31156b55891"
+    },
+    {
+      "path": "prompt-correction-2.txt",
+      "role": "supporting",
+      "sha256": "73837703273182bfd7d9927f6737b7e9abe7cace44fdf6acd4a90ab2d1b17665"
+    },
+    {
+      "path": "prompt-correction.txt",
+      "role": "supporting",
+      "sha256": "94df216d15f6f1a9cf28035b03b61d75eba8b85a77d77439e2f679d68b95f002"
+    },
+    {
+      "path": "prompt.txt",
+      "role": "prompt",
+      "sha256": "4ba86d8d5fb430661b049a8dfae9fab171af7532aa540fbddeae524853587ab6"
+    },
+    {
+      "path": "provenance.json",
+      "role": "provenance",
+      "sha256": "848e088e183d19b61ae05ac646eb641cbd84e296f21886052a1a23733dd07e63"
+    },
+    {
+      "path": "README.md",
+      "role": "supporting",
+      "sha256": "8dcded4b0ae378d3fd1ab0bb60ad566fbffe8bbe6d77529f8ebba2a33da982fa"
+    },
+    {
+      "path": "scientific-check.json",
+      "role": "validation",
+      "sha256": "464ef81063f40d5b49734ac0e564aaa459c6137356f92ad758ccd2167931c862"
+    },
+    {
+      "path": "sources.md",
+      "role": "sources",
+      "sha256": "3da2294c4b96c4c6a51c30948b0448893f0b526e625279a79f332017778c65a2"
+    },
+    {
+      "path": "visual-comparison.md",
+      "role": "visual-comparison",
+      "sha256": "141c033195348d5a54a3f6f36f9196be51b3fb4e2cffb358c8e343c38a44df7d"
+    }
+  ],
+  "gates": {
+    "science": {
+      "status": "pass",
+      "reviewer": "Executing Codex agent, self-review, 2026-09-08",
+      "notes": "Selected case-specific invariants and source-grounded meaning checked. Illustrative scope only; not independent peer review.",
+      "evidence": [
+        "sources.md",
+        "caption.md",
+        "scientific-check.json",
+        "visual-comparison.md"
+      ]
+    },
+    "visual": {
+      "status": "pass",
+      "reviewer": "Executing Codex agent, self-review, 2026-09-08",
+      "notes": "Actual native master, reconstructed render and reopened-editor export inspected; representation differences explicitly documented.",
+      "evidence": [
+        "image2-master.png",
+        "figure.png",
+        "edit-test-copy.png",
+        "visual-comparison.md"
+      ]
+    },
+    "typography": {
+      "status": "pass",
+      "reviewer": "Executing Codex agent, self-review, 2026-09-08",
+      "notes": "Live text and scientific scripts inspected at wide overview size; narrow-column and publisher-specific typesetting not tested.",
+      "evidence": [
+        "figure.svg",
+        "figure.png",
+        "visual-comparison.md"
+      ]
+    },
+    "editability": {
+      "status": "pass",
+      "reviewer": "Executing Codex agent, self-review, 2026-09-08",
+      "notes": "Real UI change/save/reload/reimport/export passed for a label, component colour and arrow position.",
+      "evidence": [
+        "edit-test.md",
+        "edit-test-copy.svg",
+        "edit-test-copy.png"
+      ]
+    },
+    "portability": {
+      "status": "pass",
+      "reviewer": "Executing Codex agent, self-review, 2026-09-08",
+      "notes": "Self-contained vector source, fully decoded PNGs and retained local edits; direct file URL and desktop vector applications untested.",
+      "evidence": [
+        "audit.json",
+        "image-check.json",
+        "edit-test.md"
+      ]
+    },
+    "provenance": {
+      "status": "pass",
+      "reviewer": "Executing Codex agent, self-review, 2026-09-08",
+      "notes": "Actual native calls and versioned outputs retained; backend model and quality controls undisclosed.",
+      "evidence": [
+        "provenance.json",
+        "prompt.txt",
+        "sources.md"
+      ]
+    }
+  },
+  "unresolved": []
+}

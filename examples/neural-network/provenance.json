@@ -1,0 +1,16 @@
+{
+  "date": "2026-09-08",
+  "route": "codex-native",
+  "tool": "image_gen.imagegen",
+  "requested_model_family": "gpt-image-2",
+  "reported_model": null,
+  "model_selection_exposed": false,
+  "quality_parameter_exposed": false,
+  "claims_highest_verified": false,
+  "calls": [{"operation": "generate", "prompt": "prompt.txt", "result": "image2-master.png", "reference_inputs": []}],
+  "reconstruction": "Original semantic SVG reconstruction with exact graph geometry and live mathematical tspan labels",
+  "final_svg": "neural-network.svg",
+  "final_png": "neural-network.png",
+  "renderer": "Sharp/libvips at density 144, exported from final SVG",
+  "review": "Executing agent self-review; not independent scientific peer review"
+}

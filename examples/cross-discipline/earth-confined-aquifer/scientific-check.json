@@ -1,0 +1,15 @@
+{
+  "case": "earth-confined-aquifer",
+  "passed": true,
+  "checks": {
+    "water surface aligns with local static head": true,
+    "rim > head > land > aquifer roof in physical elevation": true,
+    "all actual screen slits inside aquifer": true,
+    "outcrop touches land at elevated left boundary": true,
+    "flow-0 travels inside saturated bed": true,
+    "flow-1 travels inside saturated bed": true,
+    "flow-2 travels inside saturated bed": true,
+    "flow-3 travels inside saturated bed": true
+  },
+  "scope": "Selected illustration-specific invariants; not independent scientific review, empirical verification or a general domain validator."
+}

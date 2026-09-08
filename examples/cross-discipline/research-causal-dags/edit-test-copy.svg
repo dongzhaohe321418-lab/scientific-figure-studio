@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="1200" viewBox="0 0 2000 1200" font-family="Georgia, Times New Roman, serif">
+<title>Confounding, mediation and collider bias</title><desc>Original conceptual scientific diagram with live labels and separate editable components. See caption and sources.</desc>
+<rect width="2000" height="1200" fill="white"/>
+<defs>
+<radialGradient id="blue" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#f1f8fc"/><stop offset="1" stop-color="#a4c6dc"/></radialGradient>
+<radialGradient id="teal" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#edfafa"/><stop offset="1" stop-color="#94c8c5"/></radialGradient>
+<radialGradient id="purple" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#f8f2fa"/><stop offset="1" stop-color="#b9a4c9"/></radialGradient>
+<radialGradient id="amber" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#fff5dc"/><stop offset="1" stop-color="#d7b571"/></radialGradient>
+<radialGradient id="coral" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#fff1e9"/><stop offset="1" stop-color="#e8afa0"/></radialGradient>
+<radialGradient id="carbon" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#90989a"/><stop offset="1" stop-color="#20272b"/></radialGradient>
+<radialGradient id="oxygen" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#ffded2"/><stop offset="1" stop-color="#db705a"/></radialGradient>
+<radialGradient id="bromine" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#d0a0bb"/><stop offset="1" stop-color="#663d69"/></radialGradient>
+<radialGradient id="hydrogen" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#c1c8cd"/></radialGradient>
+<radialGradient id="leaf" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#b8cd80"/><stop offset="1" stop-color="#3c7556"/></radialGradient>
+<radialGradient id="soil" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#a38b63"/><stop offset="1" stop-color="#6d573d"/></radialGradient>
+<radialGradient id="fur" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#dbcebb"/><stop offset="1" stop-color="#95816c"/></radialGradient>
+<radialGradient id="edited-gradient-1" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#eee1ca"/><stop offset="1" stop-color="#c39542"/></radialGradient></defs>
+<text id="figure-title" data-editable="true" x="1000" y="83" font-size="52" fill="#223842" text-anchor="middle" font-weight="700">Three causal diagram motifs</text>
+<g id="confounder-panel" data-editable="true" data-label="confounder-panel">
+<rect x="60" y="190" width="590" height="770" rx="18" fill="white" stroke="#c4cfd6" stroke-width="1.8"/>
+</g>
+<text id="confounder-letter" data-editable="true" x="93" y="252" font-size="44" fill="#223842" text-anchor="start" font-weight="700"><tspan dy="0" font-size="44">a</tspan></text>
+<text id="confounder-title" data-editable="true" x="355" y="252" font-size="37" fill="#223842" text-anchor="middle" font-weight="700"><tspan dy="0" font-size="37">Confounder</tspan></text>
+<g id="confounder-Z-X" data-editable="true" data-label="confounder-Z-X" data-source="Z" data-destination="X" data-graph="confounder" data-species="causal-assumption">
+<path d="M308.578,444.78 L208.459,553.018" fill="none" stroke="#ad7b31" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon data-arrowhead="true" points="208.459,553.018 223.783,546.759 213.506,537.253" fill="#ad7b31"/>
+</g>
+<g id="confounder-Z-Y" data-editable="true" data-label="confounder-Z-Y" data-source="Z" data-destination="Y" data-graph="confounder" data-species="causal-assumption">
+<path d="M391.422,444.78 L491.541,553.018" fill="none" stroke="#ad7b31" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon data-arrowhead="true" points="491.541,553.018 486.494,537.253 476.217,546.759" fill="#ad7b31"/>
+</g>
+<g id="confounder-X-Y" data-editable="true" data-label="confounder-X-Y" data-source="X" data-destination="Y" data-graph="confounder" data-species="causal-assumption" transform="translate(0 8)">
+<path d="M226,600 L471,600" fill="none" stroke="#197780" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon data-arrowhead="true" points="471,600 456,593 456,607" fill="#197780"/>
+</g>
+<g id="confounder-node-Z" data-editable="true" data-label="confounder-node-Z" data-graph="confounder" data-node="Z">
+<ellipse cx="350" cy="400" rx="59" ry="59" fill="url(#edited-gradient-1)" stroke="#c39542" stroke-width="2"/>
+</g>
+<text id="confounder-symbol-Z" data-editable="true" x="350" y="418" font-size="58" fill="#223842" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="58">Z</tspan></text>
+<g id="confounder-node-X" data-editable="true" data-label="confounder-node-X" data-graph="confounder" data-node="X">
+<ellipse cx="165" cy="600" rx="59" ry="59" fill="url(#blue)" stroke="#58758e" stroke-width="2"/>
+</g>
+<text id="confounder-symbol-X" data-editable="true" x="165" y="618" font-size="58" fill="#223842" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="58">X</tspan></text>
+<g id="confounder-node-Y" data-editable="true" data-label="confounder-node-Y" data-graph="confounder" data-node="Y">
+<ellipse cx="535" cy="600" rx="59" ry="59" fill="url(#blue)" stroke="#58758e" stroke-width="2"/>
+</g>
+<text id="confounder-symbol-Y" data-editable="true" x="535" y="618" font-size="58" fill="#223842" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="58">Y</tspan></text>
+<g id="confounder-rule" data-editable="true" data-label="confounder-rule">
+<path d="M85,742 H625" fill="none" stroke="#c2ccd3" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g id="mediator-panel" data-editable="true" data-label="mediator-panel">
+<rect x="705" y="190" width="590" height="770" rx="18" fill="white" stroke="#c4cfd6" stroke-width="1.8"/>
+</g>
+<text id="mediator-letter" data-editable="true" x="738" y="252" font-size="44" fill="#223842" text-anchor="start" font-weight="700"><tspan dy="0" font-size="44">b</tspan></text>
+<text id="mediator-title" data-editable="true" x="1000" y="252" font-size="37" fill="#223842" text-anchor="middle" font-weight="700"><tspan dy="0" font-size="37">Mediator</tspan></text>
+<g id="mediator-X-M" data-editable="true" data-label="mediator-X-M" data-source="X" data-destination="M" data-graph="mediator" data-species="causal-assumption">
+<path d="M855.807,554.659 L952.186,447.571" fill="none" stroke="#197780" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon data-arrowhead="true" points="952.186,447.571 936.949,454.037 947.355,463.403" fill="#197780"/>
+</g>
+<g id="mediator-M-Y" data-editable="true" data-label="mediator-M-Y" data-source="M" data-destination="Y" data-graph="mediator" data-species="causal-assumption">
+<path d="M1036.42,444.78 L1136.54,553.018" fill="none" stroke="#197780" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon data-arrowhead="true" points="1136.54,553.018 1131.49,537.253 1121.22,546.759" fill="#197780"/>
+</g>
+<g id="mediator-X-Y" data-editable="true" data-label="mediator-X-Y" data-source="X" data-destination="Y" data-graph="mediator" data-species="causal-assumption">
+<path d="M869,628 Q995,757 1126,628" fill="none" stroke="#197780" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon data-arrowhead="true" points="1126,628 1110.4,633.537 1120.22,643.512" fill="#197780"/>
+</g>
+<g id="mediator-node-X" data-editable="true" data-label="mediator-node-X" data-graph="mediator" data-node="X">
+<ellipse cx="815" cy="600" rx="59" ry="59" fill="url(#blue)" stroke="#58758e" stroke-width="2"/>
+</g>
+<text id="mediator-symbol-X" data-editable="true" x="815" y="618" font-size="58" fill="#223842" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="58">X</tspan></text>
+<g id="mediator-node-M" data-editable="true" data-label="mediator-node-M" data-graph="mediator" data-node="M">
+<ellipse cx="995" cy="400" rx="59" ry="59" fill="url(#teal)" stroke="#197780" stroke-width="2"/>
+</g>
+<text id="mediator-symbol-M" data-editable="true" x="995" y="418" font-size="58" fill="#223842" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="58">M</tspan></text>
+<g id="mediator-node-Y" data-editable="true" data-label="mediator-node-Y" data-graph="mediator" data-node="Y">
+<ellipse cx="1180" cy="600" rx="59" ry="59" fill="url(#blue)" stroke="#58758e" stroke-width="2"/>
+</g>
+<text id="mediator-symbol-Y" data-editable="true" x="1180" y="618" font-size="58" fill="#223842" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="58">Y</tspan></text>
+<g id="mediator-rule" data-editable="true" data-label="mediator-rule">
+<path d="M730,742 H1270" fill="none" stroke="#c2ccd3" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g id="collider-panel" data-editable="true" data-label="collider-panel">
+<rect x="1350" y="190" width="590" height="770" rx="18" fill="white" stroke="#c4cfd6" stroke-width="1.8"/>
+</g>
+<text id="collider-letter" data-editable="true" x="1383" y="252" font-size="44" fill="#223842" text-anchor="start" font-weight="700"><tspan dy="0" font-size="44">c</tspan></text>
+<text id="collider-title" data-editable="true" x="1645" y="252" font-size="37" fill="#223842" text-anchor="middle" font-weight="700"><tspan dy="0" font-size="37">Collider</tspan></text>
+<g id="collider-X-C" data-editable="true" data-label="collider-X-C" data-source="X" data-destination="C" data-graph="collider" data-species="causal-assumption">
+<path d="M1498.88,437.001 L1601.2,560.687" fill="none" stroke="#c86958" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon data-arrowhead="true" points="1601.2,560.687 1597.04,544.668 1586.25,553.591" fill="#c86958"/>
+</g>
+<g id="collider-Y-C" data-editable="true" data-label="collider-Y-C" data-source="Y" data-destination="C" data-graph="collider" data-species="causal-assumption">
+<path d="M1785.99,436.896 L1682.93,560.797" fill="none" stroke="#c86958" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon data-arrowhead="true" points="1682.93,560.797 1697.9,553.742 1687.14,544.789" fill="#c86958"/>
+</g>
+<g id="collider-node-X" data-editable="true" data-label="collider-node-X" data-graph="collider" data-node="X">
+<ellipse cx="1460" cy="390" rx="59" ry="59" fill="url(#blue)" stroke="#58758e" stroke-width="2"/>
+</g>
+<text id="collider-symbol-X" data-editable="true" x="1460" y="408" font-size="58" fill="#223842" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="58">X</tspan></text>
+<g id="collider-node-Y" data-editable="true" data-label="collider-node-Y" data-graph="collider" data-node="Y">
+<ellipse cx="1825" cy="390" rx="59" ry="59" fill="url(#blue)" stroke="#58758e" stroke-width="2"/>
+</g>
+<text id="collider-symbol-Y" data-editable="true" x="1825" y="408" font-size="58" fill="#223842" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="58">Y</tspan></text>
+<g id="collider-node-C" data-editable="true" data-label="collider-node-C" data-graph="collider" data-node="C">
+<ellipse cx="1642" cy="610" rx="59" ry="59" fill="url(#coral)" stroke="#c86958" stroke-width="2"/>
+</g>
+<text id="collider-symbol-C" data-editable="true" x="1642" y="628" font-size="58" fill="#223842" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="58">C</tspan></text>
+<g id="collider-rule" data-editable="true" data-label="collider-rule">
+<path d="M1375,742 H1915" fill="none" stroke="#c2ccd3" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<text id="confounder-note" data-editable="true" x="350" y="319" font-size="27" fill="#223842" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" font-size="27">Pre-exposure common cause</tspan></text>
+<text id="confounder-line1" data-editable="true" x="355" y="803" font-size="28" fill="#223842" text-anchor="middle" font-weight="400"><tspan dy="0" font-size="28">Conditioning on Z blocks</tspan></text>
+<text id="confounder-line2" data-editable="true" x="355" y="848" font-size="28" fill="#223842" text-anchor="middle" font-weight="400"><tspan dy="0" font-size="28">the backdoor path X ← Z → Y.</tspan></text>
+<text id="mediator-note" data-editable="true" x="1000" y="319" font-size="27" fill="#223842" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" font-size="27">On a causal pathway</tspan></text>
+<text id="mediator-line-0" data-editable="true" x="1000" y="803" font-size="27" fill="#223842" text-anchor="middle" font-weight="400"><tspan dy="0" font-size="27">For the total effect, do not adjust</tspan></text>
+<text id="mediator-line-1" data-editable="true" x="1000" y="848" font-size="27" fill="#223842" text-anchor="middle" font-weight="400"><tspan dy="0" font-size="27">away the mediated pathway.</tspan></text>
+<text id="mediator-line-2" data-editable="true" x="1000" y="893" font-size="23" fill="#61727b" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" font-size="23">Statement applies to the graph shown.</tspan></text>
+<g id="condition-collider" data-editable="true" data-label="condition-collider" data-condition="C">
+<ellipse cx="1642" cy="610" rx="73" ry="73" fill="none" stroke="#c86958" stroke-width="2.5" stroke-dasharray="12 10"/>
+</g>
+<text id="collider-note" data-editable="true" x="1642" y="711" font-size="26" fill="#223842" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" font-size="26">Common effect</tspan></text>
+<text id="collider-line-0" data-editable="true" x="1645" y="803" font-size="27" fill="#223842" text-anchor="middle" font-weight="400"><tspan dy="0" font-size="27">Without conditioning: path blocked.</tspan></text>
+<text id="collider-line-1" data-editable="true" x="1645" y="848" font-size="27" fill="#223842" text-anchor="middle" font-weight="400"><tspan dy="0" font-size="27">Conditioning on C can open</tspan></text>
+<text id="collider-line-2" data-editable="true" x="1645" y="893" font-size="27" fill="#223842" text-anchor="middle" font-weight="400"><tspan dy="0" font-size="27">a noncausal association.</tspan></text>
+<g id="condition-legend" data-editable="true" data-label="condition-legend">
+<ellipse cx="1530" cy="1008" rx="17" ry="17" fill="none" stroke="#c86958" stroke-width="2.3" stroke-dasharray="7 6"/>
+</g>
+<text id="condition-legend-text" data-editable="true" x="1565" y="1017" font-size="25" fill="#223842" text-anchor="start" font-weight="400"><tspan dy="0" font-size="25">Dashed outline: conditioning</tspan></text>
+<text id="xy-legend" data-editable="true" x="460" y="1017" font-size="27" fill="#223842" text-anchor="middle" font-weight="400"><tspan dy="0" font-size="27">X: exposure   ·   Y: outcome</tspan></text>
+<text id="principle" data-editable="true" x="1000" y="1080" font-size="31" fill="#223842" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="31">Draw causal assumptions before selecting adjustment variables.</tspan></text>
+<text id="footer-1" data-editable="true" x="1000" y="1132" font-size="24" fill="#61727b" text-anchor="middle" font-weight="400"><tspan dy="0" font-size="24">Arrows encode assumed direct causal relations. A graph does not establish an empirical effect or a complete identification strategy.</tspan></text>
+<text id="footer-2" data-editable="true" x="1000" y="1170" font-size="24" fill="#61727b" text-anchor="middle" font-weight="400"><tspan dy="0" font-size="24">Illustrative DAGs; statements apply to the depicted paths and assumptions. Conditioning does not create a causal arrow.</tspan></text>
+</svg>

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="1200" viewBox="0 0 2000 1200" font-family="Arial, Helvetica, sans-serif">
+<title>SN2 nucleophilic substitution</title><desc>Original conceptual scientific diagram with live labels and separate editable components. See caption and sources.</desc>
+<rect width="2000" height="1200" fill="white"/>
+<defs>
+<radialGradient id="blue" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#f1f8fc"/><stop offset="1" stop-color="#a4c6dc"/></radialGradient>
+<radialGradient id="teal" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#edfafa"/><stop offset="1" stop-color="#94c8c5"/></radialGradient>
+<radialGradient id="purple" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#f8f2fa"/><stop offset="1" stop-color="#b9a4c9"/></radialGradient>
+<radialGradient id="amber" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#fff5dc"/><stop offset="1" stop-color="#d7b571"/></radialGradient>
+<radialGradient id="coral" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#fff1e9"/><stop offset="1" stop-color="#e8afa0"/></radialGradient>
+<radialGradient id="carbon" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#90989a"/><stop offset="1" stop-color="#20272b"/></radialGradient>
+<radialGradient id="oxygen" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#ffded2"/><stop offset="1" stop-color="#db705a"/></radialGradient>
+<radialGradient id="bromine" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#d0a0bb"/><stop offset="1" stop-color="#663d69"/></radialGradient>
+<radialGradient id="hydrogen" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#c1c8cd"/></radialGradient>
+<radialGradient id="leaf" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#b8cd80"/><stop offset="1" stop-color="#3c7556"/></radialGradient>
+<radialGradient id="soil" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#a38b63"/><stop offset="1" stop-color="#6d573d"/></radialGradient>
+<radialGradient id="fur" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#dbcebb"/><stop offset="1" stop-color="#95816c"/></radialGradient>
+<radialGradient id="edited-gradient-1" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#ecd4d1"/><stop offset="1" stop-color="#ba6459"/></radialGradient></defs>
+<text id="figure-title" data-editable="true" x="1000" y="83" font-size="52" fill="#223842" text-anchor="middle" font-weight="700">SN2 substitution</text>
+<text id="figure-subtitle" data-editable="true" x="1000" y="133" font-size="27" fill="#61727b" text-anchor="middle" font-weight="400"><tspan dy="0" font-size="27">One concerted step · explicit atom, charge and electron-pair accounting</tspan></text>
+<g id="mechanism-frame" data-editable="true" data-label="mechanism-frame">
+<rect x="55" y="175" width="1890" height="545" rx="20" fill="white" stroke="#b8cfd0" stroke-width="1.8"/>
+</g>
+<text id="panel-a" data-editable="true" x="85" y="228" font-size="43" fill="#197780" text-anchor="start" font-weight="700"><tspan dy="0" font-size="43">a</tspan></text>
+<text id="panel-a-title" data-editable="true" x="145" y="225" font-size="34" fill="#197780" text-anchor="start" font-weight="700"><tspan dy="0" font-size="34">A concerted substitution</tspan></text>
+<g id="r-oh" data-editable="true" data-label="r-oh" data-bond="single">
+<path d="M100,430 L185,430" fill="none" stroke="#7d8485" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g id="r-cbr" data-editable="true" data-label="r-cbr" data-bond="single">
+<path d="M430,430 L555,430" fill="none" stroke="#7d8485" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g id="r-ch1" data-editable="true" data-label="r-ch1" data-bond="single">
+<path d="M430,430 L413,320" fill="none" stroke="#7d8485" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g id="r-ch2" data-editable="true" data-label="r-ch2" data-bond="single">
+<path d="M430,430 L365,510" fill="none" stroke="#7d8485" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g id="r-ch3" data-editable="true" data-label="r-ch3" data-bond="single">
+<path d="M430,430 L495,510" fill="none" stroke="#7d8485" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g id="r-oh-h" data-editable="true" data-label="H" data-element="H" data-state="reactant">
+<ellipse cx="100" cy="430" rx="23" ry="23" fill="url(#hydrogen)" stroke="#879199" stroke-width="1"/>
+</g>
+<text id="r-oh-h-label" data-editable="true" x="100" y="440" font-size="29" fill="#223842" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="29">H</tspan></text>
+<g id="r-o" data-editable="true" data-label="O" data-element="O" data-state="reactant">
+<ellipse cx="185" cy="430" rx="33" ry="33" fill="url(#edited-gradient-1)" stroke="#ba6459" stroke-width="1"/>
+</g>
+<text id="r-o-label" data-editable="true" x="185" y="440" font-size="29" fill="#223842" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="29">O</tspan></text>
+<g id="r-c" data-editable="true" data-label="C" data-element="C" data-state="reactant">
+<ellipse cx="430" cy="430" rx="33" ry="33" fill="url(#carbon)" stroke="#879199" stroke-width="1"/>
+</g>
+<text id="r-c-label" data-editable="true" x="430" y="440" font-size="29" fill="#ffffff" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="29">C</tspan></text>
+<g id="r-br" data-editable="true" data-label="Br" data-element="Br" data-state="reactant">
+<ellipse cx="555" cy="430" rx="38" ry="38" fill="url(#bromine)" stroke="#879199" stroke-width="1"/>
+</g>
+<text id="r-br-label" data-editable="true" x="555" y="440" font-size="29" fill="#ffffff" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="29">Br</tspan></text>
+<g id="r-h1" data-editable="true" data-label="H" data-element="H" data-state="reactant">
+<ellipse cx="413" cy="320" rx="23" ry="23" fill="url(#hydrogen)" stroke="#879199" stroke-width="1"/>
+</g>
+<text id="r-h1-label" data-editable="true" x="413" y="330" font-size="29" fill="#223842" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="29">H</tspan></text>
+<g id="r-h2" data-editable="true" data-label="H" data-element="H" data-state="reactant">
+<ellipse cx="365" cy="510" rx="23" ry="23" fill="url(#hydrogen)" stroke="#879199" stroke-width="1"/>
+</g>
+<text id="r-h2-label" data-editable="true" x="365" y="520" font-size="29" fill="#223842" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="29">H</tspan></text>
+<g id="r-h3" data-editable="true" data-label="H" data-element="H" data-state="reactant">
+<ellipse cx="495" cy="510" rx="23" ry="23" fill="url(#hydrogen)" stroke="#879199" stroke-width="1"/>
+</g>
+<text id="r-h3-label" data-editable="true" x="495" y="520" font-size="29" fill="#223842" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="29">H</tspan></text>
+<text id="r-minus" data-editable="true" x="225" y="397" font-size="30" fill="#223842" text-anchor="middle" font-weight="400"><tspan dy="0" font-size="30">−</tspan></text>
+<text id="r-plus" data-editable="true" x="295" y="441" font-size="38" fill="#223842" text-anchor="middle" font-weight="400"><tspan dy="0" font-size="38">+</tspan></text>
+<text id="reactants-label" data-editable="true" x="330" y="620" font-size="31" fill="#223842" text-anchor="middle" font-weight="400"><tspan dy="0" font-size="31">HO</tspan><tspan dy="-11.78" font-size="21.7">−</tspan><tspan dy="11.78" font-size="31"> + CH</tspan><tspan dy="6.2" font-size="21.7">3</tspan><tspan dy="-6.2" font-size="31">Br</tspan></text>
+<g id="step-to-ts" data-editable="true" data-label="step-to-ts" transform="translate(0 8)">
+<path d="M640,430 L730,430" fill="none" stroke="#223842" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon data-arrowhead="true" points="730,430 715,423 715,437" fill="#223842"/>
+</g>
+<g id="equatorial-plane" data-editable="true" data-label="equatorial-plane">
+<ellipse cx="1000" cy="430" rx="89" ry="148" fill="#e9e2f0" stroke="none" stroke-width="1" fill-opacity="0.65"/>
+</g>
+<g id="t-oh" data-editable="true" data-label="t-oh" data-bond="single">
+<path d="M800,430 L875,430" fill="none" stroke="#7d8485" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g id="t-form" data-editable="true" data-label="t-form" data-bond="partial">
+<path d="M875,430 L1000,430" fill="none" stroke="#7d8485" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="10 9"/>
+</g>
+<g id="t-break" data-editable="true" data-label="t-break" data-bond="partial">
+<path d="M1000,430 L1165,430" fill="none" stroke="#7d8485" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="10 9"/>
+</g>
+<g id="t-ch1" data-editable="true" data-label="t-ch1" data-bond="single">
+<path d="M1000,430 L1000,300" fill="none" stroke="#7d8485" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g id="t-ch2" data-editable="true" data-label="t-ch2" data-bond="single">
+<path d="M1000,430 L929,520" fill="none" stroke="#7d8485" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g id="t-ch3" data-editable="true" data-label="t-ch3" data-bond="single">
+<path d="M1000,430 L1071,520" fill="none" stroke="#7d8485" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g id="t-oh-h" data-editable="true" data-label="H" data-element="H" data-state="transition">
+<ellipse cx="800" cy="430" rx="23" ry="23" fill="url(#hydrogen)" stroke="#879199" stroke-width="1"/>
+</g>
+<text id="t-oh-h-label" data-editable="true" x="800" y="440" font-size="29" fill="#223842" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="29">H</tspan></text>
+<g id="t-o" data-editable="true" data-label="O" data-element="O" data-state="transition">
+<ellipse cx="875" cy="430" rx="33" ry="33" fill="url(#oxygen)" stroke="#879199" stroke-width="1"/>
+</g>
+<text id="t-o-label" data-editable="true" x="875" y="440" font-size="29" fill="#223842" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="29">O</tspan></text>
+<g id="t-c" data-editable="true" data-label="C" data-element="C" data-state="transition">
+<ellipse cx="1000" cy="430" rx="33" ry="33" fill="url(#carbon)" stroke="#879199" stroke-width="1"/>
+</g>
+<text id="t-c-label" data-editable="true" x="1000" y="440" font-size="29" fill="#ffffff" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="29">C</tspan></text>
+<g id="t-br" data-editable="true" data-label="Br" data-element="Br" data-state="transition">
+<ellipse cx="1165" cy="430" rx="38" ry="38" fill="url(#bromine)" stroke="#879199" stroke-width="1"/>
+</g>
+<text id="t-br-label" data-editable="true" x="1165" y="440" font-size="29" fill="#ffffff" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="29">Br</tspan></text>
+<g id="t-h1" data-editable="true" data-label="H" data-element="H" data-state="transition">
+<ellipse cx="1000" cy="300" rx="23" ry="23" fill="url(#hydrogen)" stroke="#879199" stroke-width="1"/>
+</g>
+<text id="t-h1-label" data-editable="true" x="1000" y="310" font-size="29" fill="#223842" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="29">H</tspan></text>
+<g id="t-h2" data-editable="true" data-label="H" data-element="H" data-state="transition">
+<ellipse cx="929" cy="520" rx="23" ry="23" fill="url(#hydrogen)" stroke="#879199" stroke-width="1"/>
+</g>
+<text id="t-h2-label" data-editable="true" x="929" y="530" font-size="29" fill="#223842" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="29">H</tspan></text>
+<g id="t-h3" data-editable="true" data-label="H" data-element="H" data-state="transition">
+<ellipse cx="1071" cy="520" rx="23" ry="23" fill="url(#hydrogen)" stroke="#879199" stroke-width="1"/>
+</g>
+<text id="t-h3-label" data-editable="true" x="1071" y="530" font-size="29" fill="#223842" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="29">H</tspan></text>
+<g id="ts-brackets" data-editable="true" data-label="ts-brackets">
+<path d="M785,260 H765 V590 H785 M1210,260 H1230 V590 H1210" fill="none" stroke="#223842" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<text id="ts-charge" data-editable="true" x="1255" y="273" font-size="34" fill="#223842" text-anchor="start" font-weight="400"><tspan dy="0" font-size="34">‡</tspan><tspan dy="-12.92" font-size="23.8">−</tspan></text>
+<text id="t-form-label" data-editable="true" x="892" y="573" font-size="24" fill="#197780" text-anchor="middle" font-weight="400"><tspan dy="0" font-size="24">Bond forming</tspan></text>
+<text id="t-break-label" data-editable="true" x="1135" y="573" font-size="24" fill="#7b5b91" text-anchor="middle" font-weight="400"><tspan dy="0" font-size="24">Bond breaking</tspan></text>
+<text id="ts-label" data-editable="true" x="1000" y="650" font-size="29" fill="#223842" text-anchor="middle" font-weight="400"><tspan dy="0" font-size="29">One transition state; no intermediate</tspan></text>
+<g id="step-to-product" data-editable="true" data-label="step-to-product">
+<path d="M1295,430 L1390,430" fill="none" stroke="#223842" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon data-arrowhead="true" points="1390,430 1375,423 1375,437" fill="#223842"/>
+</g>
+<g id="p-co" data-editable="true" data-label="p-co" data-bond="single">
+<path d="M1530,430 L1650,430" fill="none" stroke="#7d8485" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g id="p-oh" data-editable="true" data-label="p-oh" data-bond="single">
+<path d="M1650,430 L1740,493" fill="none" stroke="#7d8485" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g id="p-ch1" data-editable="true" data-label="p-ch1" data-bond="single">
+<path d="M1530,430 L1515,320" fill="none" stroke="#7d8485" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g id="p-ch2" data-editable="true" data-label="p-ch2" data-bond="single">
+<path d="M1530,430 L1463,510" fill="none" stroke="#7d8485" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g id="p-ch3" data-editable="true" data-label="p-ch3" data-bond="single">
+<path d="M1530,430 L1595,510" fill="none" stroke="#7d8485" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g id="p-c" data-editable="true" data-label="C" data-element="C" data-state="product">
+<ellipse cx="1530" cy="430" rx="33" ry="33" fill="url(#carbon)" stroke="#879199" stroke-width="1"/>
+</g>
+<text id="p-c-label" data-editable="true" x="1530" y="440" font-size="29" fill="#ffffff" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="29">C</tspan></text>
+<g id="p-o" data-editable="true" data-label="O" data-element="O" data-state="product">
+<ellipse cx="1650" cy="430" rx="33" ry="33" fill="url(#oxygen)" stroke="#879199" stroke-width="1"/>
+</g>
+<text id="p-o-label" data-editable="true" x="1650" y="440" font-size="29" fill="#223842" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="29">O</tspan></text>
+<g id="p-oh-h" data-editable="true" data-label="H" data-element="H" data-state="product">
+<ellipse cx="1740" cy="493" rx="23" ry="23" fill="url(#hydrogen)" stroke="#879199" stroke-width="1"/>
+</g>
+<text id="p-oh-h-label" data-editable="true" x="1740" y="503" font-size="29" fill="#223842" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="29">H</tspan></text>
+<g id="p-h1" data-editable="true" data-label="H" data-element="H" data-state="product">
+<ellipse cx="1515" cy="320" rx="23" ry="23" fill="url(#hydrogen)" stroke="#879199" stroke-width="1"/>
+</g>
+<text id="p-h1-label" data-editable="true" x="1515" y="330" font-size="29" fill="#223842" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="29">H</tspan></text>
+<g id="p-h2" data-editable="true" data-label="H" data-element="H" data-state="product">
+<ellipse cx="1463" cy="510" rx="23" ry="23" fill="url(#hydrogen)" stroke="#879199" stroke-width="1"/>
+</g>
+<text id="p-h2-label" data-editable="true" x="1463" y="520" font-size="29" fill="#223842" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="29">H</tspan></text>
+<g id="p-h3" data-editable="true" data-label="H" data-element="H" data-state="product">
+<ellipse cx="1595" cy="510" rx="23" ry="23" fill="url(#hydrogen)" stroke="#879199" stroke-width="1"/>
+</g>
+<text id="p-h3-label" data-editable="true" x="1595" y="520" font-size="29" fill="#223842" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="29">H</tspan></text>
+<g id="p-br" data-editable="true" data-label="Br" data-element="Br" data-state="product">
+<ellipse cx="1865" cy="430" rx="38" ry="38" fill="url(#bromine)" stroke="#879199" stroke-width="1"/>
+</g>
+<text id="p-br-label" data-editable="true" x="1865" y="440" font-size="29" fill="#ffffff" text-anchor="middle" font-weight="600"><tspan dy="0" font-size="29">Br</tspan></text>
+<text id="p-plus" data-editable="true" x="1772" y="441" font-size="36" fill="#223842" text-anchor="middle" font-weight="400"><tspan dy="0" font-size="36">+</tspan></text>
+<text id="p-minus" data-editable="true" x="1911" y="400" font-size="30" fill="#223842" text-anchor="middle" font-weight="400"><tspan dy="0" font-size="30">−</tspan></text>
+<text id="products-label" data-editable="true" x="1640" y="620" font-size="31" fill="#223842" text-anchor="middle" font-weight="400"><tspan dy="0" font-size="31">CH</tspan><tspan dy="6.2" font-size="21.7">3</tspan><tspan dy="-6.2" font-size="31">OH + Br</tspan><tspan dy="-11.78" font-size="21.7">−</tspan></text>
+<g id="electron-frame" data-editable="true" data-label="electron-frame">
+<rect x="55" y="755" width="1890" height="332" rx="20" fill="white" stroke="#c9c0d4" stroke-width="1.8"/>
+</g>
+<text id="panel-b" data-editable="true" x="85" y="810" font-size="43" fill="#7b5b91" text-anchor="start" font-weight="700"><tspan dy="0" font-size="43">b</tspan></text>
+<text id="panel-b-title" data-editable="true" x="145" y="808" font-size="34" fill="#7b5b91" text-anchor="start" font-weight="700"><tspan dy="0" font-size="34">Electron-pair movement</tspan></text>
+<text id="e-h" data-editable="true" x="160" y="975" font-size="43" fill="#223842" text-anchor="middle" font-weight="400"><tspan dy="0" font-size="43">H</tspan></text>
+<text id="e-o" data-editable="true" x="270" y="975" font-size="43" fill="#c86958" text-anchor="middle" font-weight="400"><tspan dy="0" font-size="43">O</tspan><tspan dy="-16.34" font-size="30.1">−</tspan></text>
+<text id="e-plus" data-editable="true" x="388" y="975" font-size="39" fill="#223842" text-anchor="middle" font-weight="400"><tspan dy="0" font-size="39">+</tspan></text>
+<text id="e-c" data-editable="true" x="550" y="975" font-size="43" fill="#223842" text-anchor="middle" font-weight="400"><tspan dy="0" font-size="43">CH</tspan><tspan dy="8.6" font-size="30.1">3</tspan></text>
+<text id="e-br" data-editable="true" x="728" y="975" font-size="43" fill="#7b5b91" text-anchor="middle" font-weight="400"><tspan dy="0" font-size="43">Br</tspan></text>
+<g id="e-oh-bond" data-editable="true" data-label="e-oh-bond">
+<path d="M183,960 H240" fill="none" stroke="#223842" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g id="e-cbr-bond" data-editable="true" data-label="e-cbr-bond">
+<path d="M602,960 H690" fill="none" stroke="#223842" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g id="oxygen-pair" data-editable="true" data-label="oxygen-pair">
+<ellipse cx="267" cy="923" rx="3.8" ry="3.8" fill="#c86958" stroke="none" stroke-width="1"/>
+<ellipse cx="281" cy="923" rx="3.8" ry="3.8" fill="#c86958" stroke="none" stroke-width="1"/>
+</g>
+<g id="electron-attack" data-editable="true" data-label="electron-attack" data-origin="oxygen-lone-pair" data-destination="carbon" data-species="electron-pair">
+<path d="M274,923 C348,830 454,845 520,929" fill="none" stroke="#c86958" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon data-arrowhead="true" points="520,929 516.237,912.88 505.228,921.53" fill="#c86958"/>
+</g>
+<g id="electron-departure" data-editable="true" data-label="electron-departure" data-origin="C-Br-bond" data-destination="bromine" data-species="electron-pair">
+<path d="M646,960 C655,862 714,862 728,928" fill="none" stroke="#7b5b91" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon data-arrowhead="true" points="728,928 731.735,911.874 718.04,914.779" fill="#7b5b91"/>
+</g>
+<text id="selected-pair-note" data-editable="true" x="472" y="1040" font-size="24" fill="#61727b" text-anchor="middle" font-weight="400"><tspan dy="0" font-size="24">Selected reacting lone pair shown; other lone pairs omitted.</tspan></text>
+<text id="rate-equation" data-editable="true" x="1390" y="913" font-size="37" fill="#223842" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" font-size="37">rate = k[CH</tspan><tspan dy="7.4" font-size="25.9">3</tspan><tspan dy="-7.4" font-size="37">Br][HO</tspan><tspan dy="-14.06" font-size="25.9">−</tspan><tspan dy="14.06" font-size="37">]</tspan></text>
+<text id="rate-note" data-editable="true" x="1390" y="969" font-size="27" fill="#7b5b91" text-anchor="middle" font-weight="400"><tspan dy="0" font-size="27">Bimolecular rate law</tspan></text>
+<text id="balance-note" data-editable="true" x="1390" y="1022" font-size="26" fill="#197780" text-anchor="middle" font-weight="400"><tspan dy="0" font-size="26">Atoms conserved · net charge −1 on both sides</tspan></text>
+<text id="footer" data-editable="true" x="1000" y="1148" font-size="24" fill="#61727b" text-anchor="middle" font-weight="400"><tspan dy="0" font-size="24">Conceptual methyl substitution; not a chiral example. Molecular projection is schematic; no quantitative energetics implied.</tspan></text>
+</svg>

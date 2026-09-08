@@ -1,0 +1,31 @@
+{
+  "layer_sizes": [
+    4,
+    5,
+    5,
+    3
+  ],
+  "hidden_activation": "ReLU",
+  "output_operator": "softmax",
+  "weight_shapes": [
+    [
+      5,
+      4
+    ],
+    [
+      5,
+      5
+    ],
+    [
+      3,
+      5
+    ]
+  ],
+  "bias_shapes": [
+    5,
+    5,
+    3
+  ],
+  "dense_connection_count": 60,
+  "data": "conceptual, no trained parameters"
+}

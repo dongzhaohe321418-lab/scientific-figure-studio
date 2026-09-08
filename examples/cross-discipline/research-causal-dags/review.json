@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "title": "Confounding, mediation and collider bias",
+  "delivery": "full-vector",
+  "delivery_format_override": {
+    "requested_by_user": false,
+    "reason": ""
+  },
+  "generation": {
+    "status": "complete",
+    "route": "codex-native",
+    "tool": "image_gen.imagegen",
+    "requested_model": "gpt-image-2",
+    "reported_model": null,
+    "reported_model_evidence": [],
+    "exact_model_required": false,
+    "claims_highest_verified": false,
+    "highest_verification_evidence": [],
+    "controls_sent": {
+      "prompt": "Create an original impeccable research-methods scientific figure titled \"Confounding, mediation and collider bias\", landscape about 2000 × 1200, white background, restrained navy/teal/muted coral with subtle round-node gradients and fine rules. Extremely clear arrows and generous whitespace. This is causal inference, not a biological pathway.\nThree equal panels a b c, each has ONE directed acyclic graph with LARGE readable X/Y and third-node symbols. X = exposure, Y = outcome. Panel a \"Confounder\": Z at top, X lower-left, Y lower-right. EXACT directed edges Z → X, Z → Y, X → Y. Z is labelled \"Pre-exposure common cause\". Under graph: \"Conditioning on Z blocks the backdoor path X ← Z → Y\". Highlight the two common-cause arrows in muted amber and causal X→Y in teal; no extra edges. Panel b \"Mediator\": X left, M centre slightly raised, Y right. EXACT edges X → M, M → Y, plus a separate gently curved direct edge X → Y below. M labelled \"On a causal pathway\". Under graph: \"For the total effect, do not adjust away the mediated pathway\". Explain this statement concerns the graph shown, not a universal adjustment rule. Panel c \"Collider\": X left-upper, Y right-upper, C bottom centre. EXACT edges X → C and Y → C. NO X→Y edge. C labelled \"Common effect\". Show a thin dashed outline around C representing conditioning, with small legend \"Dashed outline: condition on this variable\". Text \"Without conditioning: this path is blocked\" and \"Conditioning on C can open a noncausal association\". Do NOT reverse the arrowheads into C. Do not draw an actual new causal edge when conditioning; a noncausal association is not a causal arrow.\nBelow the three panels a short interpretation row: \"Draw assumptions before choosing adjustment variables.\" and \"An arrow encodes an assumed direct causal relation; it does not prove an effect.\" Footer \"Illustrative DAGs; conclusions apply to the depicted paths and stated assumptions. No empirical effects, randomisation or complete identification strategy implied.\" Distinguish causal arrows from conditioning symbols; no made-up effect estimates, p values, patient data or study outcomes. Elegant professional scientific typography, no ornamental network web.\n"
+    },
+    "reason": "Initial call shown in controls_sent; edit calls and exact prompt files recorded in provenance.json. Native model/quality controls unavailable."
+  },
+  "files": [
+    {
+      "path": "audit.json",
+      "role": "audit",
+      "sha256": "3852a0845bacb5c3346ecc7bef9431014a95c254ad4c82a735a53139c924511f"
+    },
+    {
+      "path": "brief.md",
+      "role": "brief",
+      "sha256": "e44b0e783d8b43f47f51ff64b7834390bcaa9269968a6424de6cabd7fa58205f"
+    },
+    {
+      "path": "caption.md",
+      "role": "caption",
+      "sha256": "94e45209651ab507580cc9b2fa7155909308b055e6b363a89d672dab5d76cedb"
+    },
+    {
+      "path": "edit-test-copy.png",
+      "role": "supporting",
+      "sha256": "cf3db744ca97ecbc66a7c36c6048e3e829bcafe8beadc105a1f84126fa3bee1b"
+    },
+    {
+      "path": "edit-test-copy.svg",
+      "role": "supporting",
+      "sha256": "4253cd9c2821bdb3c6a90177db6195f57c00a79da2e79b97e0acbac642874a19"
+    },
+    {
+      "path": "edit-test.md",
+      "role": "edit-test",
+      "sha256": "7a6af632c64686213d32a23daa4b7454990a646429d8aad04db270b79db14733"
+    },
+    {
+      "path": "figure.png",
+      "role": "preview",
+      "sha256": "944bd654f3f268f799393480f957681118e048c4021474235832c3202610af29"
+    },
+    {
+      "path": "figure.svg",
+      "role": "source",
+      "sha256": "02ee7381c3cffd0180b0436daa874cdbed0675fdeb4e974674a73d8d0026c23c"
+    },
+    {
+      "path": "image-check.json",
+      "role": "validation",
+      "sha256": "b1d1e6ec706f61ce5a139ab00ab7d2a9cda28f215398ef2399220f94f6c929a2"
+    },
+    {
+      "path": "image2-master.png",
+      "role": "master",
+      "sha256": "31c6a9602f979e3e1261ff6b0ac87a6675d5383dfeb2f984d8d69a714a5c8db7"
+    },
+    {
+      "path": "prompt.txt",
+      "role": "prompt",
+      "sha256": "f71bd2de24efd31b59682aa2bb47cc2147490ba7fbb8d281274682ea74046b75"
+    },
+    {
+      "path": "provenance.json",
+      "role": "provenance",
+      "sha256": "1a6809560f47326f28676a88a2d0815f2d9141ce266125f61e979a103df9fc5e"
+    },
+    {
+      "path": "README.md",
+      "role": "supporting",
+      "sha256": "52e4610fb9c0bfd79736002dcdf82bbac6cab4ee1a4102cd28bd37f0707318f8"
+    },
+    {
+      "path": "scientific-check.json",
+      "role": "validation",
+      "sha256": "0bd87c3f7f2a79da0f45d9d6c4c24cb985d546deff46a5c22110814cfcb0cb2d"
+    },
+    {
+      "path": "sources.md",
+      "role": "sources",
+      "sha256": "8997e69ca333edf9720c063ab97de9d821af209b8418f29be2006581a8dac643"
+    },
+    {
+      "path": "visual-comparison.md",
+      "role": "visual-comparison",
+      "sha256": "00ad5276ca093c161be55c40849afa730e92ba255d9c62028034ede843f1f082"
+    }
+  ],
+  "gates": {
+    "science": {
+      "status": "pass",
+      "reviewer": "Executing Codex agent, self-review, 2026-09-08",
+      "notes": "Selected case-specific invariants and source-grounded meaning checked. Illustrative scope only; not independent peer review.",
+      "evidence": [
+        "sources.md",
+        "caption.md",
+        "scientific-check.json",
+        "visual-comparison.md"
+      ]
+    },
+    "visual": {
+      "status": "pass",
+      "reviewer": "Executing Codex agent, self-review, 2026-09-08",
+      "notes": "Actual native master, reconstructed render and reopened-editor export inspected; representation differences explicitly documented.",
+      "evidence": [
+        "image2-master.png",
+        "figure.png",
+        "edit-test-copy.png",
+        "visual-comparison.md"
+      ]
+    },
+    "typography": {
+      "status": "pass",
+      "reviewer": "Executing Codex agent, self-review, 2026-09-08",
+      "notes": "Live text and scientific scripts inspected at wide overview size; narrow-column and publisher-specific typesetting not tested.",
+      "evidence": [
+        "figure.svg",
+        "figure.png",
+        "visual-comparison.md"
+      ]
+    },
+    "editability": {
+      "status": "pass",
+      "reviewer": "Executing Codex agent, self-review, 2026-09-08",
+      "notes": "Real UI change/save/reload/reimport/export passed for a label, component colour and arrow position.",
+      "evidence": [
+        "edit-test.md",
+        "edit-test-copy.svg",
+        "edit-test-copy.png"
+      ]
+    },
+    "portability": {
+      "status": "pass",
+      "reviewer": "Executing Codex agent, self-review, 2026-09-08",
+      "notes": "Self-contained vector source, fully decoded PNGs and retained local edits; direct file URL and desktop vector applications untested.",
+      "evidence": [
+        "audit.json",
+        "image-check.json",
+        "edit-test.md"
+      ]
+    },
+    "provenance": {
+      "status": "pass",
+      "reviewer": "Executing Codex agent, self-review, 2026-09-08",
+      "notes": "Actual native calls and versioned outputs retained; backend model and quality controls undisclosed.",
+      "evidence": [
+        "provenance.json",
+        "prompt.txt",
+        "sources.md"
+      ]
+    }
+  },
+  "unresolved": []
+}

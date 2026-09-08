@@ -1,5 +1,9 @@
 # Physical sciences and engineering
 
+## Concrete regression lessons
+
+The [SN2 live case](../../examples/cross-discipline/chemistry-sn2/README.md) caught a generated electron-pair arrow with two heads. Independently count atoms and formal charges, distinguish full electron-pair heads from single-electron fishhooks, anchor tails at a lone pair or bond, and verify destinations. Partial bonds and transition states must not imply unclaimed intermediates. This methyl example is achiral and provides no stereochemical validation; stereospecific requests need their own source and projection checks.
+
 ## Chemistry and biochemistry
 
 Verify chemical identity, atom mapping where claimed, bond order, formal charge, protonation context and stereochemistry. Balance reaction stoichiometry and charge before styling. Distinguish reaction, equilibrium, resonance, electron-pair movement and physical transport arrows. Source catalytic intermediates and conditions; do not fill gaps in a mechanism with plausible-looking chemistry. Use structure-aware tools for exact chemical drawings, then retain editable labels and clean vector geometry.

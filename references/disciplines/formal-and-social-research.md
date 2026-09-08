@@ -1,5 +1,11 @@
 # Formal, computational and social research
 
+## Concrete regression lessons
+
+The [DAG case](../../examples/cross-discipline/research-causal-dags/README.md) tests directed edges and selected path blocking/opening. Conditioning is an operation, not a newly created causal arrow. A blocked backdoor or mediated path does not imply overall independence when a direct path remains. State the estimand and graph assumptions; do not generalise an adjustment rule to arbitrary graphs.
+
+The [MLP case](../../examples/neural-network/README.md) checks layer counts, adjacent-layer connectivity and column-vector matrix dimensions. Softmax is coupled across logits; backpropagation calculates gradients while an optimiser updates parameters. Architecture illustrations cannot establish empirical performance.
+
 ## Mathematics, statistics and computing
 
 Define symbols, domains, dimensions and assumptions before illustration. Use deterministic tools for exact geometry, equations, graph layout and quantitative plots. Verify tensor shapes, data/control flow, algorithm stages and input/output relationships. A drawn architecture is not evidence that an algorithm has been implemented or benchmarked.

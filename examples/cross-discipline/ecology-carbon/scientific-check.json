@@ -1,0 +1,11 @@
+{
+  "case": "ecology-carbon",
+  "passed": true,
+  "checks": {
+    "all nine specified carbon transfers, no extras": true,
+    "single correctly oriented head per carbon transfer": true,
+    "solar energy separate from carbon": true,
+    "partial budget scope visible": true
+  },
+  "scope": "Selected illustration-specific invariants; not independent scientific review, empirical verification or a general domain validator."
+}

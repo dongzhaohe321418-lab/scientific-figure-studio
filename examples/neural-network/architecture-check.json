@@ -1,0 +1,15 @@
+{
+  "graph_checks_passed": true,
+  "layer_sizes": [
+    4,
+    5,
+    5,
+    3
+  ],
+  "dense_edges": 60,
+  "duplicate_or_missing_edges": 0,
+  "edge_geometry_matches_nodes": true,
+  "relu_zero_and_unit_slope": true,
+  "shared_softmax": true,
+  "scope": "Exported conceptual graph and selected geometric properties, not a trained neural-network benchmark."
+}

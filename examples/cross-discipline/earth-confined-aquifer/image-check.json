@@ -1,0 +1,23 @@
+[
+  {
+    "path": "figure.png",
+    "format": "PNG",
+    "width": 4000,
+    "height": 2400,
+    "full_decode": true
+  },
+  {
+    "path": "image2-master.png",
+    "format": "PNG",
+    "width": 1620,
+    "height": 971,
+    "full_decode": true
+  },
+  {
+    "path": "edit-test-copy.png",
+    "format": "PNG",
+    "width": 4000,
+    "height": 2400,
+    "full_decode": true
+  }
+]

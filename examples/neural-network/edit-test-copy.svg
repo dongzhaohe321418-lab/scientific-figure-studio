@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1400" viewBox="0 0 2400 1400" font-family="Georgia, Times New Roman, serif">
+<title>Feedforward neural network: a 4-5-5-3 multilayer perceptron</title><desc>Two ReLU hidden layers, three coupled softmax probabilities, a single hidden unit and a separate training workflow. Every adjacent-layer connection is explicitly drawn. All labels are live text.</desc>
+<defs>
+<radialGradient id="input" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#f5fcfc"/><stop offset="1" stop-color="#b9d9dc"/></radialGradient>
+<radialGradient id="hidden1" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#f5f8ff"/><stop offset="1" stop-color="#bdd0ed"/></radialGradient>
+<radialGradient id="hidden2" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#faf7ff"/><stop offset="1" stop-color="#d2c6e6"/></radialGradient>
+<radialGradient id="logit" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#fff8f5"/><stop offset="1" stop-color="#f0c3b7"/></radialGradient>
+<radialGradient id="edited-gradient-1" cx="30%" cy="25%" r="85%"><stop offset="0" stop-color="#e8d9cb"/><stop offset="1" stop-color="#ad7846"/></radialGradient></defs><rect width="2400" height="1400" fill="#ffffff"/>
+<text id="title" data-editable="true" x="1200" y="83" font-size="64" fill="#23343c" text-anchor="middle" font-weight="700"><tspan dy="0" dx="0" font-size="64">Feedforward neural network</tspan></text>
+<text id="subtitle" data-editable="true" x="1200" y="145" font-size="33" fill="#61717c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="33">Representation, prediction and gradient-based learning</tspan></text>
+<text id="panel-a" data-editable="true" x="70" y="245" font-size="49" fill="#23343c" text-anchor="start" font-weight="700"><tspan dy="0" dx="0" font-size="49">a</tspan></text>
+<text id="panel-a-title" data-editable="true" x="140" y="242" font-size="35" fill="#23343c" text-anchor="start" font-weight="700">Multilayer perceptron</text>
+<g id="forward-flow" data-editable="true" data-label="forward-flow" transform="translate(0 8)">
+<path d="M 565,267 L 1355,267" fill="none" stroke="#167c83" stroke-width="3.7" stroke-linejoin="round"/>
+<polygon points="1355,267 1343,261 1343,273" fill="#167c83"/>
+</g>
+<text id="forward-label" data-editable="true" x="960" y="246" font-size="29" fill="#167c83" text-anchor="middle" font-weight="600"><tspan dy="0" dx="0" font-size="29">Forward computation</tspan></text>
+<text id="layer-name-0" data-editable="true" x="155" y="330" font-size="30" fill="#167c83" text-anchor="middle" font-weight="600"><tspan dy="0" dx="0" font-size="30">Input</tspan></text>
+<text id="layer-symbol-0" data-editable="true" x="155" y="376" font-size="30" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="30">x ∈ ℝ</tspan><tspan dy="-11.4" dx="0" font-size="20.4">4</tspan></text>
+<text id="layer-name-1" data-editable="true" x="545" y="330" font-size="30" fill="#4a70b0" text-anchor="middle" font-weight="600"><tspan dy="0" dx="0" font-size="30">Hidden 1 · ReLU</tspan></text>
+<text id="layer-symbol-1" data-editable="true" x="545" y="376" font-size="30" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="30">h</tspan><tspan dy="-11.4" dx="0" font-size="20.4">1</tspan><tspan dy="11.4" dx="0" font-size="30"> ∈ ℝ</tspan><tspan dy="-11.4" dx="0" font-size="20.4">5</tspan></text>
+<text id="layer-name-2" data-editable="true" x="975" y="330" font-size="30" fill="#8064aa" text-anchor="middle" font-weight="600"><tspan dy="0" dx="0" font-size="30">Hidden 2 · ReLU</tspan></text>
+<text id="layer-symbol-2" data-editable="true" x="975" y="376" font-size="30" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="30">h</tspan><tspan dy="-11.4" dx="0" font-size="20.4">2</tspan><tspan dy="11.4" dx="0" font-size="30"> ∈ ℝ</tspan><tspan dy="-11.4" dx="0" font-size="20.4">5</tspan></text>
+<text id="layer-name-3" data-editable="true" x="1300" y="330" font-size="30" fill="#c96a58" text-anchor="middle" font-weight="600"><tspan dy="0" dx="0" font-size="30">Logits</tspan></text>
+<text id="layer-symbol-3" data-editable="true" x="1300" y="376" font-size="30" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="30">z ∈ ℝ</tspan><tspan dy="-11.4" dx="0" font-size="20.4">3</tspan></text>
+<text id="weight-shape-1" data-editable="true" x="350.0" y="405" font-size="24" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="24">W</tspan><tspan dy="-9.12" dx="0" font-size="16.32">1</tspan><tspan dy="9.12" dx="0" font-size="24">: 5 × 4</tspan></text>
+<g id="weight-1-1-1" data-editable="true" data-label="W1[1,1]" data-source="layer-0-unit-1" data-target="layer-1-unit-1" data-connection="dense">
+<path d="M 155,490 L 545,450" fill="none" stroke="#a0b9d9" stroke-width="1.7"/>
+</g>
+<g id="weight-1-2-1" data-editable="true" data-label="W1[2,1]" data-source="layer-0-unit-1" data-target="layer-1-unit-2" data-connection="dense">
+<path d="M 155,490 L 545,560" fill="none" stroke="#a0b9d9" stroke-width="1.7"/>
+</g>
+<g id="weight-1-3-1" data-editable="true" data-label="W1[3,1]" data-source="layer-0-unit-1" data-target="layer-1-unit-3" data-connection="dense">
+<path d="M 155,490 L 545,670" fill="none" stroke="#167c83" stroke-width="3.2"/>
+</g>
+<g id="weight-1-4-1" data-editable="true" data-label="W1[4,1]" data-source="layer-0-unit-1" data-target="layer-1-unit-4" data-connection="dense">
+<path d="M 155,490 L 545,780" fill="none" stroke="#a0b9d9" stroke-width="1.7"/>
+</g>
+<g id="weight-1-5-1" data-editable="true" data-label="W1[5,1]" data-source="layer-0-unit-1" data-target="layer-1-unit-5" data-connection="dense">
+<path d="M 155,490 L 545,890" fill="none" stroke="#a0b9d9" stroke-width="1.7"/>
+</g>
+<g id="weight-1-1-2" data-editable="true" data-label="W1[1,2]" data-source="layer-0-unit-2" data-target="layer-1-unit-1" data-connection="dense">
+<path d="M 155,605 L 545,450" fill="none" stroke="#a0b9d9" stroke-width="1.7"/>
+</g>
+<g id="weight-1-2-2" data-editable="true" data-label="W1[2,2]" data-source="layer-0-unit-2" data-target="layer-1-unit-2" data-connection="dense">
+<path d="M 155,605 L 545,560" fill="none" stroke="#a0b9d9" stroke-width="1.7"/>
+</g>
+<g id="weight-1-3-2" data-editable="true" data-label="W1[3,2]" data-source="layer-0-unit-2" data-target="layer-1-unit-3" data-connection="dense">
+<path d="M 155,605 L 545,670" fill="none" stroke="#167c83" stroke-width="3.2"/>
+</g>
+<g id="weight-1-4-2" data-editable="true" data-label="W1[4,2]" data-source="layer-0-unit-2" data-target="layer-1-unit-4" data-connection="dense">
+<path d="M 155,605 L 545,780" fill="none" stroke="#a0b9d9" stroke-width="1.7"/>
+</g>
+<g id="weight-1-5-2" data-editable="true" data-label="W1[5,2]" data-source="layer-0-unit-2" data-target="layer-1-unit-5" data-connection="dense">
+<path d="M 155,605 L 545,890" fill="none" stroke="#a0b9d9" stroke-width="1.7"/>
+</g>
+<g id="weight-1-1-3" data-editable="true" data-label="W1[1,3]" data-source="layer-0-unit-3" data-target="layer-1-unit-1" data-connection="dense">
+<path d="M 155,720 L 545,450" fill="none" stroke="#a0b9d9" stroke-width="1.7"/>
+</g>
+<g id="weight-1-2-3" data-editable="true" data-label="W1[2,3]" data-source="layer-0-unit-3" data-target="layer-1-unit-2" data-connection="dense">
+<path d="M 155,720 L 545,560" fill="none" stroke="#a0b9d9" stroke-width="1.7"/>
+</g>
+<g id="weight-1-3-3" data-editable="true" data-label="W1[3,3]" data-source="layer-0-unit-3" data-target="layer-1-unit-3" data-connection="dense">
+<path d="M 155,720 L 545,670" fill="none" stroke="#167c83" stroke-width="3.2"/>
+</g>
+<g id="weight-1-4-3" data-editable="true" data-label="W1[4,3]" data-source="layer-0-unit-3" data-target="layer-1-unit-4" data-connection="dense">
+<path d="M 155,720 L 545,780" fill="none" stroke="#a0b9d9" stroke-width="1.7"/>
+</g>
+<g id="weight-1-5-3" data-editable="true" data-label="W1[5,3]" data-source="layer-0-unit-3" data-target="layer-1-unit-5" data-connection="dense">
+<path d="M 155,720 L 545,890" fill="none" stroke="#a0b9d9" stroke-width="1.7"/>
+</g>
+<g id="weight-1-1-4" data-editable="true" data-label="W1[1,4]" data-source="layer-0-unit-4" data-target="layer-1-unit-1" data-connection="dense">
+<path d="M 155,835 L 545,450" fill="none" stroke="#a0b9d9" stroke-width="1.7"/>
+</g>
+<g id="weight-1-2-4" data-editable="true" data-label="W1[2,4]" data-source="layer-0-unit-4" data-target="layer-1-unit-2" data-connection="dense">
+<path d="M 155,835 L 545,560" fill="none" stroke="#a0b9d9" stroke-width="1.7"/>
+</g>
+<g id="weight-1-3-4" data-editable="true" data-label="W1[3,4]" data-source="layer-0-unit-4" data-target="layer-1-unit-3" data-connection="dense">
+<path d="M 155,835 L 545,670" fill="none" stroke="#167c83" stroke-width="3.2"/>
+</g>
+<g id="weight-1-4-4" data-editable="true" data-label="W1[4,4]" data-source="layer-0-unit-4" data-target="layer-1-unit-4" data-connection="dense">
+<path d="M 155,835 L 545,780" fill="none" stroke="#a0b9d9" stroke-width="1.7"/>
+</g>
+<g id="weight-1-5-4" data-editable="true" data-label="W1[5,4]" data-source="layer-0-unit-4" data-target="layer-1-unit-5" data-connection="dense">
+<path d="M 155,835 L 545,890" fill="none" stroke="#a0b9d9" stroke-width="1.7"/>
+</g>
+<text id="weight-shape-2" data-editable="true" x="760.0" y="405" font-size="24" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="24">W</tspan><tspan dy="-9.12" dx="0" font-size="16.32">2</tspan><tspan dy="9.12" dx="0" font-size="24">: 5 × 5</tspan></text>
+<g id="weight-2-1-1" data-editable="true" data-label="W2[1,1]" data-source="layer-1-unit-1" data-target="layer-2-unit-1" data-connection="dense">
+<path d="M 545,450 L 975,450" fill="none" stroke="#b6a6cc" stroke-width="1.7"/>
+</g>
+<g id="weight-2-2-1" data-editable="true" data-label="W2[2,1]" data-source="layer-1-unit-1" data-target="layer-2-unit-2" data-connection="dense">
+<path d="M 545,450 L 975,560" fill="none" stroke="#b6a6cc" stroke-width="1.7"/>
+</g>
+<g id="weight-2-3-1" data-editable="true" data-label="W2[3,1]" data-source="layer-1-unit-1" data-target="layer-2-unit-3" data-connection="dense">
+<path d="M 545,450 L 975,670" fill="none" stroke="#b6a6cc" stroke-width="1.7"/>
+</g>
+<g id="weight-2-4-1" data-editable="true" data-label="W2[4,1]" data-source="layer-1-unit-1" data-target="layer-2-unit-4" data-connection="dense">
+<path d="M 545,450 L 975,780" fill="none" stroke="#b6a6cc" stroke-width="1.7"/>
+</g>
+<g id="weight-2-5-1" data-editable="true" data-label="W2[5,1]" data-source="layer-1-unit-1" data-target="layer-2-unit-5" data-connection="dense">
+<path d="M 545,450 L 975,890" fill="none" stroke="#b6a6cc" stroke-width="1.7"/>
+</g>
+<g id="weight-2-1-2" data-editable="true" data-label="W2[1,2]" data-source="layer-1-unit-2" data-target="layer-2-unit-1" data-connection="dense">
+<path d="M 545,560 L 975,450" fill="none" stroke="#b6a6cc" stroke-width="1.7"/>
+</g>
+<g id="weight-2-2-2" data-editable="true" data-label="W2[2,2]" data-source="layer-1-unit-2" data-target="layer-2-unit-2" data-connection="dense">
+<path d="M 545,560 L 975,560" fill="none" stroke="#b6a6cc" stroke-width="1.7"/>
+</g>
+<g id="weight-2-3-2" data-editable="true" data-label="W2[3,2]" data-source="layer-1-unit-2" data-target="layer-2-unit-3" data-connection="dense">
+<path d="M 545,560 L 975,670" fill="none" stroke="#b6a6cc" stroke-width="1.7"/>
+</g>
+<g id="weight-2-4-2" data-editable="true" data-label="W2[4,2]" data-source="layer-1-unit-2" data-target="layer-2-unit-4" data-connection="dense">
+<path d="M 545,560 L 975,780" fill="none" stroke="#b6a6cc" stroke-width="1.7"/>
+</g>
+<g id="weight-2-5-2" data-editable="true" data-label="W2[5,2]" data-source="layer-1-unit-2" data-target="layer-2-unit-5" data-connection="dense">
+<path d="M 545,560 L 975,890" fill="none" stroke="#b6a6cc" stroke-width="1.7"/>
+</g>
+<g id="weight-2-1-3" data-editable="true" data-label="W2[1,3]" data-source="layer-1-unit-3" data-target="layer-2-unit-1" data-connection="dense">
+<path d="M 545,670 L 975,450" fill="none" stroke="#b6a6cc" stroke-width="1.7"/>
+</g>
+<g id="weight-2-2-3" data-editable="true" data-label="W2[2,3]" data-source="layer-1-unit-3" data-target="layer-2-unit-2" data-connection="dense">
+<path d="M 545,670 L 975,560" fill="none" stroke="#b6a6cc" stroke-width="1.7"/>
+</g>
+<g id="weight-2-3-3" data-editable="true" data-label="W2[3,3]" data-source="layer-1-unit-3" data-target="layer-2-unit-3" data-connection="dense">
+<path d="M 545,670 L 975,670" fill="none" stroke="#b6a6cc" stroke-width="1.7"/>
+</g>
+<g id="weight-2-4-3" data-editable="true" data-label="W2[4,3]" data-source="layer-1-unit-3" data-target="layer-2-unit-4" data-connection="dense">
+<path d="M 545,670 L 975,780" fill="none" stroke="#b6a6cc" stroke-width="1.7"/>
+</g>
+<g id="weight-2-5-3" data-editable="true" data-label="W2[5,3]" data-source="layer-1-unit-3" data-target="layer-2-unit-5" data-connection="dense">
+<path d="M 545,670 L 975,890" fill="none" stroke="#b6a6cc" stroke-width="1.7"/>
+</g>
+<g id="weight-2-1-4" data-editable="true" data-label="W2[1,4]" data-source="layer-1-unit-4" data-target="layer-2-unit-1" data-connection="dense">
+<path d="M 545,780 L 975,450" fill="none" stroke="#b6a6cc" stroke-width="1.7"/>
+</g>
+<g id="weight-2-2-4" data-editable="true" data-label="W2[2,4]" data-source="layer-1-unit-4" data-target="layer-2-unit-2" data-connection="dense">
+<path d="M 545,780 L 975,560" fill="none" stroke="#b6a6cc" stroke-width="1.7"/>
+</g>
+<g id="weight-2-3-4" data-editable="true" data-label="W2[3,4]" data-source="layer-1-unit-4" data-target="layer-2-unit-3" data-connection="dense">
+<path d="M 545,780 L 975,670" fill="none" stroke="#b6a6cc" stroke-width="1.7"/>
+</g>
+<g id="weight-2-4-4" data-editable="true" data-label="W2[4,4]" data-source="layer-1-unit-4" data-target="layer-2-unit-4" data-connection="dense">
+<path d="M 545,780 L 975,780" fill="none" stroke="#b6a6cc" stroke-width="1.7"/>
+</g>
+<g id="weight-2-5-4" data-editable="true" data-label="W2[5,4]" data-source="layer-1-unit-4" data-target="layer-2-unit-5" data-connection="dense">
+<path d="M 545,780 L 975,890" fill="none" stroke="#b6a6cc" stroke-width="1.7"/>
+</g>
+<g id="weight-2-1-5" data-editable="true" data-label="W2[1,5]" data-source="layer-1-unit-5" data-target="layer-2-unit-1" data-connection="dense">
+<path d="M 545,890 L 975,450" fill="none" stroke="#b6a6cc" stroke-width="1.7"/>
+</g>
+<g id="weight-2-2-5" data-editable="true" data-label="W2[2,5]" data-source="layer-1-unit-5" data-target="layer-2-unit-2" data-connection="dense">
+<path d="M 545,890 L 975,560" fill="none" stroke="#b6a6cc" stroke-width="1.7"/>
+</g>
+<g id="weight-2-3-5" data-editable="true" data-label="W2[3,5]" data-source="layer-1-unit-5" data-target="layer-2-unit-3" data-connection="dense">
+<path d="M 545,890 L 975,670" fill="none" stroke="#b6a6cc" stroke-width="1.7"/>
+</g>
+<g id="weight-2-4-5" data-editable="true" data-label="W2[4,5]" data-source="layer-1-unit-5" data-target="layer-2-unit-4" data-connection="dense">
+<path d="M 545,890 L 975,780" fill="none" stroke="#b6a6cc" stroke-width="1.7"/>
+</g>
+<g id="weight-2-5-5" data-editable="true" data-label="W2[5,5]" data-source="layer-1-unit-5" data-target="layer-2-unit-5" data-connection="dense">
+<path d="M 545,890 L 975,890" fill="none" stroke="#b6a6cc" stroke-width="1.7"/>
+</g>
+<text id="weight-shape-3" data-editable="true" x="1137.5" y="405" font-size="24" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="24">W</tspan><tspan dy="-9.12" dx="0" font-size="16.32">3</tspan><tspan dy="9.12" dx="0" font-size="24">: 3 × 5</tspan></text>
+<g id="weight-3-1-1" data-editable="true" data-label="W3[1,1]" data-source="layer-2-unit-1" data-target="layer-3-unit-1" data-connection="dense">
+<path d="M 975,450 L 1300,550" fill="none" stroke="#dba99e" stroke-width="1.7"/>
+</g>
+<g id="weight-3-2-1" data-editable="true" data-label="W3[2,1]" data-source="layer-2-unit-1" data-target="layer-3-unit-2" data-connection="dense">
+<path d="M 975,450 L 1300,670" fill="none" stroke="#dba99e" stroke-width="1.7"/>
+</g>
+<g id="weight-3-3-1" data-editable="true" data-label="W3[3,1]" data-source="layer-2-unit-1" data-target="layer-3-unit-3" data-connection="dense">
+<path d="M 975,450 L 1300,790" fill="none" stroke="#dba99e" stroke-width="1.7"/>
+</g>
+<g id="weight-3-1-2" data-editable="true" data-label="W3[1,2]" data-source="layer-2-unit-2" data-target="layer-3-unit-1" data-connection="dense">
+<path d="M 975,560 L 1300,550" fill="none" stroke="#dba99e" stroke-width="1.7"/>
+</g>
+<g id="weight-3-2-2" data-editable="true" data-label="W3[2,2]" data-source="layer-2-unit-2" data-target="layer-3-unit-2" data-connection="dense">
+<path d="M 975,560 L 1300,670" fill="none" stroke="#dba99e" stroke-width="1.7"/>
+</g>
+<g id="weight-3-3-2" data-editable="true" data-label="W3[3,2]" data-source="layer-2-unit-2" data-target="layer-3-unit-3" data-connection="dense">
+<path d="M 975,560 L 1300,790" fill="none" stroke="#dba99e" stroke-width="1.7"/>
+</g>
+<g id="weight-3-1-3" data-editable="true" data-label="W3[1,3]" data-source="layer-2-unit-3" data-target="layer-3-unit-1" data-connection="dense">
+<path d="M 975,670 L 1300,550" fill="none" stroke="#dba99e" stroke-width="1.7"/>
+</g>
+<g id="weight-3-2-3" data-editable="true" data-label="W3[2,3]" data-source="layer-2-unit-3" data-target="layer-3-unit-2" data-connection="dense">
+<path d="M 975,670 L 1300,670" fill="none" stroke="#dba99e" stroke-width="1.7"/>
+</g>
+<g id="weight-3-3-3" data-editable="true" data-label="W3[3,3]" data-source="layer-2-unit-3" data-target="layer-3-unit-3" data-connection="dense">
+<path d="M 975,670 L 1300,790" fill="none" stroke="#dba99e" stroke-width="1.7"/>
+</g>
+<g id="weight-3-1-4" data-editable="true" data-label="W3[1,4]" data-source="layer-2-unit-4" data-target="layer-3-unit-1" data-connection="dense">
+<path d="M 975,780 L 1300,550" fill="none" stroke="#dba99e" stroke-width="1.7"/>
+</g>
+<g id="weight-3-2-4" data-editable="true" data-label="W3[2,4]" data-source="layer-2-unit-4" data-target="layer-3-unit-2" data-connection="dense">
+<path d="M 975,780 L 1300,670" fill="none" stroke="#dba99e" stroke-width="1.7"/>
+</g>
+<g id="weight-3-3-4" data-editable="true" data-label="W3[3,4]" data-source="layer-2-unit-4" data-target="layer-3-unit-3" data-connection="dense">
+<path d="M 975,780 L 1300,790" fill="none" stroke="#dba99e" stroke-width="1.7"/>
+</g>
+<g id="weight-3-1-5" data-editable="true" data-label="W3[1,5]" data-source="layer-2-unit-5" data-target="layer-3-unit-1" data-connection="dense">
+<path d="M 975,890 L 1300,550" fill="none" stroke="#dba99e" stroke-width="1.7"/>
+</g>
+<g id="weight-3-2-5" data-editable="true" data-label="W3[2,5]" data-source="layer-2-unit-5" data-target="layer-3-unit-2" data-connection="dense">
+<path d="M 975,890 L 1300,670" fill="none" stroke="#dba99e" stroke-width="1.7"/>
+</g>
+<g id="weight-3-3-5" data-editable="true" data-label="W3[3,5]" data-source="layer-2-unit-5" data-target="layer-3-unit-3" data-connection="dense">
+<path d="M 975,890 L 1300,790" fill="none" stroke="#dba99e" stroke-width="1.7"/>
+</g>
+<g id="layer-0-unit-1" data-editable="true" data-label="x₁" data-layer="0" data-unit="1">
+<circle cx="155" cy="490" r="42" fill="url(#edited-gradient-1)" stroke="#ad7846" stroke-width="1.8"/>
+</g>
+<text id="label-layer-0-unit-1" data-editable="true" x="155" y="500" font-size="30" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="30">x</tspan><tspan dy="6" dx="0" font-size="20.4">1</tspan></text>
+<g id="layer-0-unit-2" data-editable="true" data-label="x₂" data-layer="0" data-unit="2">
+<circle cx="155" cy="605" r="42" fill="url(#input)" stroke="#167c83" stroke-width="1.8"/>
+</g>
+<text id="label-layer-0-unit-2" data-editable="true" x="155" y="615" font-size="30" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="30">x</tspan><tspan dy="6" dx="0" font-size="20.4">2</tspan></text>
+<g id="layer-0-unit-3" data-editable="true" data-label="x₃" data-layer="0" data-unit="3">
+<circle cx="155" cy="720" r="42" fill="url(#input)" stroke="#167c83" stroke-width="1.8"/>
+</g>
+<text id="label-layer-0-unit-3" data-editable="true" x="155" y="730" font-size="30" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="30">x</tspan><tspan dy="6" dx="0" font-size="20.4">3</tspan></text>
+<g id="layer-0-unit-4" data-editable="true" data-label="x₄" data-layer="0" data-unit="4">
+<circle cx="155" cy="835" r="42" fill="url(#input)" stroke="#167c83" stroke-width="1.8"/>
+</g>
+<text id="label-layer-0-unit-4" data-editable="true" x="155" y="845" font-size="30" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="30">x</tspan><tspan dy="6" dx="0" font-size="20.4">4</tspan></text>
+<g id="layer-1-unit-1" data-editable="true" data-label="h¹₁" data-layer="1" data-unit="1">
+<circle cx="545" cy="450" r="42" fill="url(#hidden1)" stroke="#4a70b0" stroke-width="1.8"/>
+</g>
+<text id="label-layer-1-unit-1" data-editable="true" x="545" y="460" font-size="30" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="30">h</tspan><tspan dy="-11.4" dx="0" font-size="20.4">1</tspan><tspan dy="17.4" dx="-12.036" font-size="20.4">1</tspan></text>
+<g id="layer-1-unit-2" data-editable="true" data-label="h¹₂" data-layer="1" data-unit="2">
+<circle cx="545" cy="560" r="42" fill="url(#hidden1)" stroke="#4a70b0" stroke-width="1.8"/>
+</g>
+<text id="label-layer-1-unit-2" data-editable="true" x="545" y="570" font-size="30" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="30">h</tspan><tspan dy="-11.4" dx="0" font-size="20.4">1</tspan><tspan dy="17.4" dx="-12.036" font-size="20.4">2</tspan></text>
+<g id="layer-1-unit-3" data-editable="true" data-label="h¹₃" data-layer="1" data-unit="3">
+<circle cx="545" cy="670" r="42" fill="url(#hidden1)" stroke="#4a70b0" stroke-width="1.8"/>
+</g>
+<text id="label-layer-1-unit-3" data-editable="true" x="545" y="680" font-size="30" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="30">h</tspan><tspan dy="-11.4" dx="0" font-size="20.4">1</tspan><tspan dy="17.4" dx="-12.036" font-size="20.4">3</tspan></text>
+<g id="layer-1-unit-4" data-editable="true" data-label="h¹₄" data-layer="1" data-unit="4">
+<circle cx="545" cy="780" r="42" fill="url(#hidden1)" stroke="#4a70b0" stroke-width="1.8"/>
+</g>
+<text id="label-layer-1-unit-4" data-editable="true" x="545" y="790" font-size="30" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="30">h</tspan><tspan dy="-11.4" dx="0" font-size="20.4">1</tspan><tspan dy="17.4" dx="-12.036" font-size="20.4">4</tspan></text>
+<g id="layer-1-unit-5" data-editable="true" data-label="h¹₅" data-layer="1" data-unit="5">
+<circle cx="545" cy="890" r="42" fill="url(#hidden1)" stroke="#4a70b0" stroke-width="1.8"/>
+</g>
+<text id="label-layer-1-unit-5" data-editable="true" x="545" y="900" font-size="30" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="30">h</tspan><tspan dy="-11.4" dx="0" font-size="20.4">1</tspan><tspan dy="17.4" dx="-12.036" font-size="20.4">5</tspan></text>
+<g id="layer-2-unit-1" data-editable="true" data-label="h²₁" data-layer="2" data-unit="1">
+<circle cx="975" cy="450" r="42" fill="url(#hidden2)" stroke="#8064aa" stroke-width="1.8"/>
+</g>
+<text id="label-layer-2-unit-1" data-editable="true" x="975" y="460" font-size="30" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="30">h</tspan><tspan dy="-11.4" dx="0" font-size="20.4">2</tspan><tspan dy="17.4" dx="-12.036" font-size="20.4">1</tspan></text>
+<g id="layer-2-unit-2" data-editable="true" data-label="h²₂" data-layer="2" data-unit="2">
+<circle cx="975" cy="560" r="42" fill="url(#hidden2)" stroke="#8064aa" stroke-width="1.8"/>
+</g>
+<text id="label-layer-2-unit-2" data-editable="true" x="975" y="570" font-size="30" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="30">h</tspan><tspan dy="-11.4" dx="0" font-size="20.4">2</tspan><tspan dy="17.4" dx="-12.036" font-size="20.4">2</tspan></text>
+<g id="layer-2-unit-3" data-editable="true" data-label="h²₃" data-layer="2" data-unit="3">
+<circle cx="975" cy="670" r="42" fill="url(#hidden2)" stroke="#8064aa" stroke-width="1.8"/>
+</g>
+<text id="label-layer-2-unit-3" data-editable="true" x="975" y="680" font-size="30" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="30">h</tspan><tspan dy="-11.4" dx="0" font-size="20.4">2</tspan><tspan dy="17.4" dx="-12.036" font-size="20.4">3</tspan></text>
+<g id="layer-2-unit-4" data-editable="true" data-label="h²₄" data-layer="2" data-unit="4">
+<circle cx="975" cy="780" r="42" fill="url(#hidden2)" stroke="#8064aa" stroke-width="1.8"/>
+</g>
+<text id="label-layer-2-unit-4" data-editable="true" x="975" y="790" font-size="30" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="30">h</tspan><tspan dy="-11.4" dx="0" font-size="20.4">2</tspan><tspan dy="17.4" dx="-12.036" font-size="20.4">4</tspan></text>
+<g id="layer-2-unit-5" data-editable="true" data-label="h²₅" data-layer="2" data-unit="5">
+<circle cx="975" cy="890" r="42" fill="url(#hidden2)" stroke="#8064aa" stroke-width="1.8"/>
+</g>
+<text id="label-layer-2-unit-5" data-editable="true" x="975" y="900" font-size="30" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="30">h</tspan><tspan dy="-11.4" dx="0" font-size="20.4">2</tspan><tspan dy="17.4" dx="-12.036" font-size="20.4">5</tspan></text>
+<g id="layer-3-unit-1" data-editable="true" data-label="z₁" data-layer="3" data-unit="1">
+<circle cx="1300" cy="550" r="42" fill="url(#logit)" stroke="#c96a58" stroke-width="1.8"/>
+</g>
+<text id="label-layer-3-unit-1" data-editable="true" x="1300" y="560" font-size="30" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="30">z</tspan><tspan dy="6" dx="0" font-size="20.4">1</tspan></text>
+<g id="layer-3-unit-2" data-editable="true" data-label="z₂" data-layer="3" data-unit="2">
+<circle cx="1300" cy="670" r="42" fill="url(#logit)" stroke="#c96a58" stroke-width="1.8"/>
+</g>
+<text id="label-layer-3-unit-2" data-editable="true" x="1300" y="680" font-size="30" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="30">z</tspan><tspan dy="6" dx="0" font-size="20.4">2</tspan></text>
+<g id="layer-3-unit-3" data-editable="true" data-label="z₃" data-layer="3" data-unit="3">
+<circle cx="1300" cy="790" r="42" fill="url(#logit)" stroke="#c96a58" stroke-width="1.8"/>
+</g>
+<text id="label-layer-3-unit-3" data-editable="true" x="1300" y="800" font-size="30" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="30">z</tspan><tspan dy="6" dx="0" font-size="20.4">3</tspan></text>
+<g id="logit-to-softmax-1" data-editable="true" data-label="logit-to-softmax-1">
+<path d="M 1342,550 L 1435,635" fill="none" stroke="#23343c" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="1435,635 1430.19,622.475 1422.09,631.333" fill="#23343c"/>
+</g>
+<g id="logit-to-softmax-2" data-editable="true" data-label="logit-to-softmax-2">
+<path d="M 1342,670 L 1435,670" fill="none" stroke="#23343c" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="1435,670 1423,664 1423,676" fill="#23343c"/>
+</g>
+<g id="logit-to-softmax-3" data-editable="true" data-label="logit-to-softmax-3">
+<path d="M 1342,790 L 1435,705" fill="none" stroke="#23343c" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="1435,705 1422.09,708.667 1430.19,717.525" fill="#23343c"/>
+</g>
+<g id="softmax" data-editable="true" data-label="softmax">
+<rect x="1435" y="611" width="145" height="118" rx="12" fill="#fafbfc" stroke="#71808b" stroke-width="1.6"/>
+</g>
+<text id="softmax-label" data-editable="true" x="1507" y="681" font-size="27" fill="#23343c" text-anchor="middle" font-weight="400"><tspan dy="0" dx="0" font-size="27">Softmax</tspan></text>
+<g id="softmax-to-probability" data-editable="true" data-label="softmax-to-probability">
+<path d="M 1580,670 L 1634,670" fill="none" stroke="#23343c" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1634,670 1622,664 1622,676" fill="#23343c"/>
+</g>
+<text id="probability-title-1" data-editable="true" x="1642" y="520" font-size="25" fill="#167c83" text-anchor="middle" font-weight="600"><tspan dy="0" dx="0" font-size="25">3-class</tspan></text>
+<text id="probability-title-2" data-editable="true" x="1642" y="551" font-size="25" fill="#167c83" text-anchor="middle" font-weight="600"><tspan dy="0" dx="0" font-size="25">probabilities</tspan></text>
+<text id="probability-space" data-editable="true" x="1642" y="603" font-size="28" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="28">p ∈ ℝ</tspan><tspan dy="-10.64" dx="0" font-size="19.04">3</tspan></text>
+<g id="probability-brackets" data-editable="true" data-label="probability-brackets">
+<path d="M 1626,626 H 1618 V 754 H 1626 M 1673,626 H 1681 V 754 H 1673" fill="none" stroke="#23343c" stroke-width="2"/>
+</g>
+<text id="probability-1" data-editable="true" x="1649" y="651" font-size="28" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="28">p</tspan><tspan dy="5.6" dx="0" font-size="19.04">1</tspan></text>
+<text id="probability-2" data-editable="true" x="1649" y="693" font-size="28" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="28">p</tspan><tspan dy="5.6" dx="0" font-size="19.04">2</tspan></text>
+<text id="probability-3" data-editable="true" x="1649" y="735" font-size="28" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="28">p</tspan><tspan dy="5.6" dx="0" font-size="19.04">3</tspan></text>
+<text id="hidden-equation" data-editable="true" x="865" y="967" font-size="29" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="29">Hidden:  h</tspan><tspan dy="-11.02" dx="0" font-size="19.72">l</tspan><tspan dy="11.02" dx="0" font-size="29"> = ReLU(W</tspan><tspan dy="-11.02" dx="0" font-size="19.72">l</tspan><tspan dy="11.02" dx="0" font-size="29">h</tspan><tspan dy="-11.02" dx="0" font-size="19.72">l−1</tspan><tspan dy="11.02" dx="0" font-size="29"> + b</tspan><tspan dy="-11.02" dx="0" font-size="19.72">l</tspan><tspan dy="11.02" dx="0" font-size="29">),   l = 1, 2;   h</tspan><tspan dy="-11.02" dx="0" font-size="19.72">0</tspan><tspan dy="11.02" dx="0" font-size="29"> = x</tspan></text>
+<text id="output-equation" data-editable="true" x="865" y="1015" font-size="29" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="29">Output:  z = W</tspan><tspan dy="-11.02" dx="0" font-size="19.72">3</tspan><tspan dy="11.02" dx="0" font-size="29">h</tspan><tspan dy="-11.02" dx="0" font-size="19.72">2</tspan><tspan dy="11.02" dx="0" font-size="29"> + b</tspan><tspan dy="-11.02" dx="0" font-size="19.72">3</tspan><tspan dy="11.02" dx="0" font-size="29">;   p = softmax(z)</tspan></text>
+<g id="inset-frame" data-editable="true" data-label="inset-frame">
+<rect x="1740" y="228" width="600" height="804" rx="22" fill="#ffffff" stroke="#c6cdd2" stroke-width="1.6"/>
+</g>
+<text id="panel-b" data-editable="true" x="1774" y="286" font-size="46" fill="#23343c" text-anchor="start" font-weight="700"><tspan dy="0" dx="0" font-size="46">b</tspan></text>
+<text id="panel-b-title" data-editable="true" x="1838" y="282" font-size="30" fill="#23343c" text-anchor="start" font-weight="700"><tspan dy="0" dx="0" font-size="30">Inside one hidden unit</tspan></text>
+<text id="inset-inputs-1" data-editable="true" x="1820" y="356" font-size="23" fill="#4a70b0" text-anchor="middle" font-weight="400"><tspan dy="0" dx="0" font-size="23">Previous-layer</tspan></text>
+<text id="inset-inputs-2" data-editable="true" x="1820" y="386" font-size="23" fill="#4a70b0" text-anchor="middle" font-weight="400"><tspan dy="0" dx="0" font-size="23">activations</tspan></text>
+<g id="weighted-input-1" data-editable="true" data-label="weighted-input-1">
+<path d="M 1852,454 L 1980,589" fill="none" stroke="#4a70b0" stroke-width="2.2" stroke-linejoin="round"/>
+<polygon points="1980,589 1976.1,576.164 1967.39,584.42" fill="#4a70b0"/>
+</g>
+<text id="weight-inset-label-1" data-editable="true" x="1905" y="497" font-size="25" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="25">w</tspan><tspan dy="5" dx="0" font-size="17">j1</tspan></text>
+<g id="inset-input-1" data-editable="true" data-label="a₁">
+<circle cx="1820" cy="454" r="32" fill="url(#hidden1)" stroke="#4a70b0" stroke-width="1.8"/>
+</g>
+<text id="label-inset-input-1" data-editable="true" x="1820" y="464" font-size="30" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="30">a</tspan><tspan dy="6" dx="0" font-size="20.4">1</tspan></text>
+<g id="weighted-input-2" data-editable="true" data-label="weighted-input-2">
+<path d="M 1852,574 L 1980,609" fill="none" stroke="#4a70b0" stroke-width="2.2" stroke-linejoin="round"/>
+<polygon points="1980,609 1970.01,600.047 1966.84,611.622" fill="#4a70b0"/>
+</g>
+<text id="weight-inset-label-2" data-editable="true" x="1905" y="564" font-size="25" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="25">w</tspan><tspan dy="5" dx="0" font-size="17">j2</tspan></text>
+<g id="inset-input-2" data-editable="true" data-label="a₂">
+<circle cx="1820" cy="574" r="32" fill="url(#hidden1)" stroke="#4a70b0" stroke-width="1.8"/>
+</g>
+<text id="label-inset-input-2" data-editable="true" x="1820" y="584" font-size="30" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="30">a</tspan><tspan dy="6" dx="0" font-size="20.4">2</tspan></text>
+<g id="weighted-input-3" data-editable="true" data-label="weighted-input-3">
+<path d="M 1852,694 L 1980,629" fill="none" stroke="#4a70b0" stroke-width="2.2" stroke-linejoin="round"/>
+<polygon points="1980,629 1966.58,629.084 1972.02,639.783" fill="#4a70b0"/>
+</g>
+<text id="weight-inset-label-3" data-editable="true" x="1905" y="660" font-size="25" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="25">w</tspan><tspan dy="5" dx="0" font-size="17">j3</tspan></text>
+<g id="inset-input-3" data-editable="true" data-label="a₃">
+<circle cx="1820" cy="694" r="32" fill="url(#hidden1)" stroke="#4a70b0" stroke-width="1.8"/>
+</g>
+<text id="label-inset-input-3" data-editable="true" x="1820" y="704" font-size="30" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="30">a</tspan><tspan dy="6" dx="0" font-size="20.4">3</tspan></text>
+<text id="inset-ellipsis" data-editable="true" x="1820" y="753" font-size="35" fill="#61717c" text-anchor="middle" font-weight="400"><tspan dy="0" dx="0" font-size="35">⋮</tspan></text>
+<text id="inset-other" data-editable="true" x="1820" y="790" font-size="23" fill="#61717c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="23">other a</tspan><tspan dy="4.6" dx="0" font-size="15.64">i</tspan></text>
+<g id="sum" data-editable="true" data-label="Σ">
+<circle cx="2010" cy="610" r="35" fill="url(#hidden2)" stroke="#8064aa" stroke-width="1.8"/>
+</g>
+<text id="label-sum" data-editable="true" x="2010" y="620" font-size="30" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="30">Σ</tspan></text>
+<text id="bias-label" data-editable="true" x="2010" y="367" font-size="25" fill="#8064aa" text-anchor="middle" font-weight="400"><tspan dy="0" dx="0" font-size="25">Bias</tspan></text>
+<text id="bias-symbol" data-editable="true" x="2010" y="411" font-size="30" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="30">b</tspan><tspan dy="6" dx="0" font-size="20.4">j</tspan></text>
+<g id="bias-to-sum" data-editable="true" data-label="bias-to-sum">
+<path d="M 2010,436 L 2010,575" fill="none" stroke="#8064aa" stroke-width="2.4" stroke-linejoin="round"/>
+<polygon points="2010,575 2016,563 2004,563" fill="#8064aa"/>
+</g>
+<g id="sum-to-relu" data-editable="true" data-label="sum-to-relu">
+<path d="M 2045,610 L 2090,610" fill="none" stroke="#23343c" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="2090,610 2078,604 2078,616" fill="#23343c"/>
+</g>
+<text id="preactivation-symbol" data-editable="true" x="2065" y="586" font-size="27" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="27">z</tspan><tspan dy="5.4" dx="0" font-size="18.36">j</tspan></text>
+<g id="relu-frame" data-editable="true" data-label="relu-frame">
+<rect x="2090" y="535" width="138" height="153" rx="9" fill="#fcfbfe" stroke="#89939a" stroke-width="1.6"/>
+</g>
+<text id="relu-label" data-editable="true" x="2159" y="512" font-size="25" fill="#8064aa" text-anchor="middle" font-weight="400"><tspan dy="0" dx="0" font-size="25">ReLU</tspan></text>
+<g id="relu-axis-x" data-editable="true" data-label="relu-axis-x">
+<path d="M 2107,664 L 2213,664" fill="none" stroke="#61717c" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="2213,664 2201,658 2201,670" fill="#61717c"/>
+</g>
+<g id="relu-axis-y" data-editable="true" data-label="relu-axis-y">
+<path d="M 2148,673 L 2148,549" fill="none" stroke="#61717c" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="2148,549 2142,561 2154,561" fill="#61717c"/>
+</g>
+<g id="relu-function" data-editable="true" data-label="ReLU: max(0,z)" data-function="max(0,z)">
+<path d="M 2107,664 H 2148 L 2211,601" fill="none" stroke="#8064aa" stroke-width="3.5"/>
+</g>
+<text id="relu-zero" data-editable="true" x="2141" y="683" font-size="18" fill="#61717c" text-anchor="end" font-weight="400"><tspan dy="0" dx="0" font-size="18">0</tspan></text>
+<text id="relu-axis-label-x" data-editable="true" x="2213" y="684" font-size="18" fill="#61717c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="18">z</tspan></text>
+<text id="relu-axis-label-y" data-editable="true" x="2137" y="556" font-size="18" fill="#61717c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="18">h</tspan></text>
+<g id="relu-to-activation" data-editable="true" data-label="relu-to-activation">
+<path d="M 2228,610 L 2262,610" fill="none" stroke="#23343c" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="2262,610 2250,604 2250,616" fill="#23343c"/>
+</g>
+<g id="inset-activation" data-editable="true" data-label="hⱼ">
+<circle cx="2296" cy="610" r="34" fill="url(#hidden2)" stroke="#8064aa" stroke-width="1.8"/>
+</g>
+<text id="label-inset-activation" data-editable="true" x="2296" y="620" font-size="30" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="30">h</tspan><tspan dy="6" dx="0" font-size="20.4">j</tspan></text>
+<text id="activation-label" data-editable="true" x="2276" y="464" font-size="23" fill="#8064aa" text-anchor="middle" font-weight="400"><tspan dy="0" dx="0" font-size="23">Activation</tspan></text>
+<text id="unit-affine-equation" data-editable="true" x="2040" y="867" font-size="30" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="30">z</tspan><tspan dy="6" dx="0" font-size="20.4">j</tspan><tspan dy="-6" dx="0" font-size="30"> = Σ</tspan><tspan dy="6" dx="0" font-size="20.4">i</tspan><tspan dy="-6" dx="0" font-size="30"> w</tspan><tspan dy="6" dx="0" font-size="20.4">ji</tspan><tspan dy="-6" dx="0" font-size="30">a</tspan><tspan dy="6" dx="0" font-size="20.4">i</tspan><tspan dy="-6" dx="0" font-size="30"> + b</tspan><tspan dy="6" dx="0" font-size="20.4">j</tspan></text>
+<text id="unit-activation-equation" data-editable="true" x="2040" y="916" font-size="30" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="30">h</tspan><tspan dy="6" dx="0" font-size="20.4">j</tspan><tspan dy="-6" dx="0" font-size="30"> = max(0, z</tspan><tspan dy="6" dx="0" font-size="20.4">j</tspan><tspan dy="-6" dx="0" font-size="30">)</tspan></text>
+<text id="weight-definition" data-editable="true" x="2040" y="980" font-size="23" fill="#61717c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="23">w</tspan><tspan dy="4.6" dx="0" font-size="15.64">ji</tspan><tspan dy="-4.6" dx="0" font-size="23">: weight from input i to hidden unit j</tspan></text>
+<g id="training-frame" data-editable="true" data-label="training-frame">
+<rect x="60" y="1065" width="2280" height="262" rx="20" fill="#fdfdfd" stroke="#c6cdd2" stroke-width="1.6"/>
+</g>
+<text id="panel-c" data-editable="true" x="91" y="1124" font-size="46" fill="#23343c" text-anchor="start" font-weight="700"><tspan dy="0" dx="0" font-size="46">c</tspan></text>
+<text id="panel-c-title" data-editable="true" x="154" y="1120" font-size="32" fill="#23343c" text-anchor="start" font-weight="700"><tspan dy="0" dx="0" font-size="32">Training only</tspan></text>
+<text id="prediction-label" data-editable="true" x="883" y="1127" font-size="26" fill="#c96a58" text-anchor="middle" font-weight="400"><tspan dy="0" dx="0" font-size="26">Prediction</tspan></text>
+<text id="prediction-symbol" data-editable="true" x="883" y="1198" font-size="38" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="38">p</tspan></text>
+<g id="prediction-to-loss" data-editable="true" data-label="prediction-to-loss">
+<path d="M 918,1190 L 1085,1190" fill="none" stroke="#23343c" stroke-width="2.4" stroke-linejoin="round"/>
+<polygon points="1085,1190 1073,1184 1073,1196" fill="#23343c"/>
+</g>
+<text id="target-label" data-editable="true" x="1550" y="1127" font-size="26" fill="#167c83" text-anchor="middle" font-weight="400"><tspan dy="0" dx="0" font-size="26">Target</tspan></text>
+<text id="target-symbol" data-editable="true" x="1550" y="1198" font-size="38" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="38">y</tspan></text>
+<g id="target-to-loss" data-editable="true" data-label="target-to-loss">
+<path d="M 1512,1190 L 1385,1190" fill="none" stroke="#23343c" stroke-width="2.4" stroke-linejoin="round"/>
+<polygon points="1385,1190 1397,1196 1397,1184" fill="#23343c"/>
+</g>
+<g id="loss" data-editable="true" data-label="loss">
+<rect x="1085" y="1125" width="300" height="110" rx="12" fill="#ffffff" stroke="#73808a" stroke-width="1.6"/>
+</g>
+<text id="loss-label" data-editable="true" x="1235" y="1168" font-size="26" fill="#23343c" text-anchor="middle" font-weight="400"><tspan dy="0" dx="0" font-size="26">Cross-entropy loss</tspan></text>
+<text id="loss-equation" data-editable="true" x="1235" y="1208" font-size="27" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="27">L = −Σ</tspan><tspan dy="5.4" dx="0" font-size="18.36">k</tspan><tspan dy="-5.4" dx="0" font-size="27"> y</tspan><tspan dy="5.4" dx="0" font-size="18.36">k</tspan><tspan dy="-5.4" dx="0" font-size="27"> log p</tspan><tspan dy="5.4" dx="0" font-size="18.36">k</tspan></text>
+<g id="backpropagation" data-editable="true" data-label="backpropagation">
+<path d="M 1235,1235 L 1235,1290 L 345,1290" fill="none" stroke="#a86919" stroke-width="3" stroke-linejoin="round" stroke-dasharray="12 8"/>
+<polygon points="345,1290 357,1296 357,1284" fill="#a86919"/>
+</g>
+<text id="backprop-label" data-editable="true" x="622" y="1174" font-size="28" fill="#a86919" text-anchor="middle" font-weight="600"><tspan dy="0" dx="0" font-size="28">Backpropagation</tspan></text>
+<text id="backprop-detail" data-editable="true" x="622" y="1210" font-size="25" fill="#a86919" text-anchor="middle" font-weight="400"><tspan dy="0" dx="0" font-size="25">Gradients via the chain rule</tspan></text>
+<text id="backprop-note" data-editable="true" x="622" y="1252" font-size="22" fill="#61717c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="22">Not an inference connection</tspan></text>
+<g id="training-divider" data-editable="true" data-label="training-divider">
+<path d="M 1710,1110 L 1710,1290" fill="none" stroke="#cad2d8" stroke-width="1.5"/>
+</g>
+<text id="optimiser-label" data-editable="true" x="2006" y="1143" font-size="28" fill="#23343c" text-anchor="middle" font-weight="600"><tspan dy="0" dx="0" font-size="28">Gradient descent</tspan></text>
+<text id="optimiser-equation" data-editable="true" x="2006" y="1200" font-size="35" fill="#23343c" text-anchor="middle" font-weight="400" font-style="italic"><tspan dy="0" dx="0" font-size="35">θ ← θ − η∇</tspan><tspan dy="7" dx="0" font-size="23.8">θ</tspan><tspan dy="-7" dx="0" font-size="35">L</tspan></text>
+<text id="optimiser-note" data-editable="true" x="2006" y="1254" font-size="25" fill="#61717c" text-anchor="middle" font-weight="400"><tspan dy="0" dx="0" font-size="25">Updates weights and biases</tspan></text>
+<text id="footer" data-editable="true" x="1200" y="1375" font-size="24" fill="#61717c" text-anchor="middle" font-weight="400"><tspan dy="0" dx="0" font-size="24">Illustrative 4–5–5–3 classifier. All adjacent-layer connections shown; biases in equations. Colours identify layers, not values.</tspan></text>
+</svg>

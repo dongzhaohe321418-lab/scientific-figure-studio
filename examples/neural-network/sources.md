@@ -1,0 +1,8 @@
+# Sources and inspection
+
+Accessed 8 September 2026. Original illustration; research images are not generation inputs or redistributed assets.
+
+1. LeCun, Bengio and Hinton (2015), [Deep learning, Nature, Figure 1 and caption](https://www.nature.com/articles/nature14539/figures/1), DOI 10.1038/nature14539. Inspected the publisher's complete Figure 1 image and read its caption. Used to check layered computation, activation, chain-rule gradients and separation of forward/backward explanations. Visual observations: numbered panels, restrained node/edge diagrams and adjacent equations. We do not reproduce its specific layout or example. Article is a review; no claim of reading subscription-only full text.
+2. Goodfellow, Bengio and Courville (2016), [Deep Learning, Chapter 6](https://www.deeplearningbook.org/contents/mlp.html), especially Figure 6.2/6.3 and sections on feedforward layers, softmax and backpropagation. Read the authors' online chapter excerpt. Inspected its embedded page graphic showing unit-level/vector-level network conventions and the ReLU curve; HTML labels were checked separately against the text. Supports acyclic inference, affine maps with biases, nonlinear hidden activations and distinction between gradient computation and optimisation. Visual observations: explicit edges and compact vector notation; no empirical graph copied.
+
+The 4–5–5–3 architecture is our declared illustrative choice. Layer dimensions and connection count are derived from that choice; they are not attributed to either reference. Softmax/cross-entropy equations follow the stated column-vector, three-class convention. Source material serves scientific and design study only.

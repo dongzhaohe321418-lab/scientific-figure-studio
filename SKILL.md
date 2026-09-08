@@ -41,6 +41,7 @@ Create original scientific illustrations whose physical meaning, visual quality 
 Read [research and scientific validation](references/research-and-science.md).
 
 - Select the relevant row in [discipline support](references/discipline-support.md). Read its specialised checks before writing the brief. For interdisciplinary figures, combine the applicable checks and reconcile shared interfaces, scales and terminology.
+- For an unfamiliar discipline or a claim of broader support, follow the [cross-discipline evaluation protocol](references/cross-discipline-evaluation.md). Declare a narrow test case and scientific invariants; report case-level evidence separately from untested guidance coverage.
 
 - Identify the object and specific architecture. Separate observed features, sourced facts, assumptions and uncertain interpretation.
 - Determine the intended scientific message, audience, panel arrangement and delivery dimensions. Default to PNG plus full-vector SVG; distinguish any explicitly requested narrower editing scope. Use reasonable defaults for cosmetic choices.
@@ -64,6 +65,7 @@ Read [visual design and review](references/visual-standard.md).
 - Inspect local edit targets before passing them to the image tool. Use only supported reference arguments. Never claim a prompt instruction sets an unavailable API parameter.
 - Save the actual prompt, tool route, returned provenance and versioned output in the project. Record an undisclosed model as unknown, not “latest verified”.
 - Inspect the full image and detail crops. Correct scientific mistakes first, then visual defects. For each revision, state the intended change and invariants; compare against the previous best version to prevent regressions.
+- Keep failed masters clearly marked as drafts in the comparison record. Arrow direction, charge, topology and measurement geometry are scientific content: never assume a targeted image edit preserved them.
 - After three unsuccessful targeted revisions of the same defect, diagnose the representation or tool limitation and change approach. Do not spend indefinitely or quietly lower the target. Retain useful drafts and disclose unresolved issues.
 
 ### 4. Reconstruct faithfully into the required editable SVG
@@ -74,6 +76,7 @@ Read [editable reconstruction](references/editable-reconstruction.md).
 - Preserve appropriate gradients, shallow perspective, clipped material shading, curves and visual hierarchy. “All rectangles” is not an acceptable substitute when the benchmark relies on these attributes.
 - Use a hybrid source only when it matches the requested editing scope; disclose which content remains raster. If full vector was requested, unresolved raster geometry is a failed requirement, not a completed conversion.
 - Render the editable source and compare it with the master at the same crop, size and background. Inspect at intended publication size and enlarged detail.
+- Where exact constraints matter, check actual vector paths/coordinates and labels as well as semantic metadata. Use case-specific negative tests when warranted; reversing an arrow or moving a measurement element outside its compartment should fail the relevant check. These checks supplement source-based review, not certify a whole discipline.
 - In an available target editor, change one live label, one component colour and one arrow or component position; save, reopen and render a test copy. Name the editor and actual results. If only source-level edits were tested, report that narrower scope and leave application round-trip verification pending.
 
 ### 5. Review and release

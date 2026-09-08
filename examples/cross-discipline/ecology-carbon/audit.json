@@ -1,0 +1,37 @@
+{
+  "counts": {
+    "image": 0,
+    "text": 20,
+    "path": 195,
+    "g": 44,
+    "foreignObject": 0,
+    "feImage": 0
+  },
+  "geometry_elements": 518,
+  "live_labels": [
+    "Carbon pathways in a terrestrial ecosystem",
+    "Atmospheric CO2",
+    "Plant biomass",
+    "Herbivore biomass",
+    "Soil organic matter",
+    "Microbial biomass",
+    "Photosynthesis",
+    "Plant respiration",
+    "Herbivory",
+    "Animal respiration",
+    "Litter + dead roots",
+    "Waste + remains",
+    "Decomposition",
+    "+ uptake",
+    "Microbial residues",
+    "Microbial",
+    "respiration",
+    "Light energy",
+    "Microbes magnified schematically",
+    "Selected terrestrial pathways; not a complete carbon budget or steady-state model. No rates or pool sizes are implied."
+  ],
+  "errors": [],
+  "warnings": [],
+  "scope": "Structural checks only; rendering, semantic editing, science and aesthetics need inspection.",
+  "file": "figure.svg"
+}
