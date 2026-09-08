@@ -2,6 +2,12 @@
 
 The target is a clear, refined scientific argument. No single palette, white background or three-dimensional view is compulsory for every field. Establish a suitable visual grammar from inspected references and the user's purpose.
 
+## Quality priority
+
+Scientific accuracy is the prerequisite for both formats. Among correct candidates, protect the best PNG first, then improve SVG fidelity towards it. The easier-to-edit representation must not set a lower ceiling for the PNG. A vector-derived PNG is eligible only when comparison supports its selection; format consistency alone is not a reason.
+
+Review the primary PNG and the SVG render separately. Preserve the raster's composition, contour quality, material character and meaningful detail; document losses in the vector reconstruction. Do not ask image2 for a simpler, flatter image merely to reduce reconstruction effort. More pixels, more SVG paths or a claimed quality score are not substitutes for visual inspection.
+
 ## Reference-led design brief
 
 Record observations rather than the vague instruction “make it Nature quality”:

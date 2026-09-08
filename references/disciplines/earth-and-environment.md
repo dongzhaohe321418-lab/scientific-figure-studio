@@ -18,4 +18,4 @@ Identify scenario, baseline, geography, time horizon and uncertainty for claims 
 
 ## Acceptance questions
 
-Do section geometry, map orientation, chronology and transport directions agree? Are local and global mechanisms separated? Are measurements and conceptual elements visibly distinguished? Does the PNG exported from the SVG preserve scale bars, axis labels and all legends? Use current authoritative sources for dynamic datasets and regulations when relevant.
+Do section geometry, map orientation, chronology and transport directions agree? Are local and global mechanisms separated? Are measurements and conceptual elements visibly distinguished? Do the primary PNG and separate SVG preview each preserve scale bars, axis labels and legends? Use current authoritative sources for dynamic datasets and regulations when relevant.

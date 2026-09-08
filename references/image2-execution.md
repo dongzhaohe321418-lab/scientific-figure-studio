@@ -33,13 +33,14 @@ Exact labels: [verbatim labels, symbols, subscripts/superscripts].
 Scale: [to-scale dimensions with sources, or explicit schematic convention].
 Visual references: [each input's role and observed transferable attributes].
 Visual treatment: [projection, hierarchy, material cues, palette, type, lines].
+Quality priority: Optimise the scientifically correct PNG; do not simplify appearance for later SVG reconstruction.
 Composition: [clear leaders, whitespace, separation of structure/mechanism].
 Constraints: No additional layers, invented data, reversed arrows or unrelated effects.
 Editing invariants, if applicable: [what must remain identical].
 Target: [requested aspect and intended output size, subject to tool support].
 ```
 
-Use explicit carrier and optical paths instead of asking the model to infer a mechanism from material abbreviations. For dense diagrams, reserve clean annotation space and construct labels deterministically in the editable stage; inspect that neither duplicate nor stale generated labels remain. Do not offload all design decisions to “journal quality”.
+Use explicit carrier and optical paths instead of asking the model to infer a mechanism from material abbreviations. For dense diagrams, reserve clean annotation space and construct labels accurately; ensure the final PNG itself contains correct labels, not only the later SVG. Inspect for duplicate or stale generated labels. Corrections/compositing must preserve the best raster appearance and follow the available image-editing tool's instructions. Do not offload design decisions to “journal quality” or flatten the master for vector convenience.
 
 ## Native tool handling
 

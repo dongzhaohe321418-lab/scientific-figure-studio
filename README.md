@@ -1,6 +1,6 @@
 # Scientific Figure Studio
 
-**Research the science. Design with image2. Preserve the quality when making it editable.**
+**Verify the science. Secure the best PNG. Improve the editable SVG towards it.**
 
 [中文说明](README.zh-CN.md) · [Skill instructions](SKILL.md) · [Quality gates](references/quality-gates.md)
 
@@ -16,8 +16,8 @@ Other agents are not supported out of the box. GPT Image 2 is also available thr
 
 1. Identify the actual architecture and verify physical relationships using appropriate sources.
 2. Inspect scientific figures as well as reading papers; translate observed visual qualities into a concrete design brief.
-3. Establish and refine an image2 visual master for substantial new illustrations.
-4. Reconstruct meaningful editable SVG objects while preserving the master's perspective, material cues, typography and hierarchy; export the corresponding PNG and save both files.
+3. Establish and refine the best scientifically correct PNG for substantial new illustrations. Never reduce its quality to make SVG reconstruction easier.
+4. Reconstruct and improve meaningful editable SVG objects towards that visual standard; save its preview separately. Preserve the better primary PNG even if SVG fidelity remains lower.
 5. Review science, appearance and editability independently; save evidence, prompts, sources and portable deliverables.
 
 Scientific errors cannot be compensated for by attractive styling. File validity cannot substitute for visual inspection. A PNG embedded in SVG is not fully editable. “Nature-style” expresses an aesthetic ambition, not affiliation, acceptance or certification.
@@ -67,11 +67,13 @@ An explicitly authorised API route can use a documented model ID and supported `
 
 ## Editable deliverables
 
-The default is **full vector SVG plus its exported PNG**. Keep the image2 master separately. The SVG must remain available on disk with live labels, selectable components and reopening instructions. Raster-only or hybrid delivery requires an explicit user request; inconvenience is not a format exception. The release checker rejects a raster-only default and checks that the PNG preview is a real PNG/IHDR file.
+The default is **the best scientifically correct PNG plus a genuinely editable SVG**, with a separate SVG preview. PNG quality has priority: it is not forced to come from SVG, and an inferior vector export must never replace a better raster merely to make the pair match. Preserve versioned image2 masters. Improve SVG contours, projection, shading, material cues and live typography independently; disclose visible differences instead of claiming lossless conversion.
+
+The SVG remains available on disk with live labels, selectable components and reopening instructions. Raster-only or hybrid delivery requires an explicit user request. New schema 2 reviews record primary PNG selection, forbid degradation for SVG convenience and require a separate SVG-render comparison. Historical schema 1 records can be checked with `--allow-legacy`, which does not certify this new policy.
 
 | Mode | Deliverable |
 | --- | --- |
-| Full vector | Semantic geometry, separate arrows and live text; SVG source and render |
+| Full vector | Best eligible primary PNG, semantic SVG with live text, and separate SVG preview |
 | Hybrid | Declared raster regions plus editable vector content; layered source and render |
 | Raster | Inspected image2 output with prompt, provenance, caption and sources |
 

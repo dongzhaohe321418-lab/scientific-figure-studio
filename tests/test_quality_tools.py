@@ -36,13 +36,13 @@ class QualityTools(unittest.TestCase):
             route="codex-native" if generated else None,
             tool="synthetic-test" if generated else None,
             reason="Explicit direct vector test fixture" if not generated else "")
-        roles = ["brief", "sources", "preview", "caption", "visual-comparison", "edit-test", "source"]
+        roles = ["brief", "sources", "preview", "svg-render", "caption", "visual-comparison", "edit-test", "source"]
         if generated:
             roles += ["prompt", "master"]
         for role in roles:
-            name = "figure.svg" if role == "source" else ("preview.png" if role == "preview" else role + ".txt")
+            name = "figure.svg" if role == "source" else (role + ".png" if role in {"preview", "svg-render"} else role + ".txt")
             path = self.base / name
-            if role == "preview":
+            if role in {"preview", "svg-render"}:
                 path.write_bytes(base64.b64decode('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aDV0AAAAASUVORK5CYII='))
             else:
                 path.write_text(SVG if role == "source" else "Synthetic evidence for unit tests only.", encoding="utf-8")
@@ -51,7 +51,77 @@ class QualityTools(unittest.TestCase):
         for gate in GATES:
             record["gates"][gate].update(status="pass", reviewer="synthetic test fixture",
                 notes="Fixture only; no live figure inspection occurred.", evidence=["brief.txt"])
+        record['png_quality'].update(primary_file='preview.png', origin='image2' if generated else 'svg-render',
+            selection_reason='Synthetic fixture only, not an actual aesthetic assessment.', degraded_for_svg=False,
+            review_evidence=['visual-comparison.txt'])
+        record['svg_quality'].update(render_file='svg-render.png', fidelity_status='differences-disclosed',
+            differences='Synthetic fixture only; no actual visual comparison claimed.', review_evidence=['visual-comparison.txt'])
         return record
+
+    def test_native_png_and_separate_svg_render_are_allowed(self):
+        self.assertEqual(check(self.record(), self.base), [])
+
+    def test_png_degraded_for_svg_is_rejected(self):
+        record = self.record()
+        record['png_quality']['degraded_for_svg'] = True
+        self.assertTrue(any('must not be degraded' in e for e in check(record, self.base)))
+
+    def test_png_priority_cannot_be_left_pending_or_string_false(self):
+        for value in [None, 'false', 0]:
+            with self.subTest(value=value):
+                record = self.record()
+                record['png_quality']['degraded_for_svg'] = value
+                self.assertTrue(any('must not be degraded' in e for e in check(record, self.base)))
+
+    def test_png_selection_needs_a_reason(self):
+        record = self.record()
+        record['png_quality']['selection_reason'] = ''
+        self.assertTrue(any('selection reason' in e for e in check(record, self.base)))
+
+    def test_png_selection_needs_registered_review(self):
+        record = self.record()
+        record['png_quality']['review_evidence'] = ['imaginary-review.md']
+        self.assertTrue(any('Primary PNG quality review' in e for e in check(record, self.base)))
+
+    def test_primary_png_must_be_the_registered_preview(self):
+        record = self.record()
+        record['png_quality']['primary_file'] = 'svg-render.png'
+        self.assertTrue(any('registered primary PNG' in e for e in check(record, self.base)))
+
+    def test_svg_render_cannot_replace_primary_path(self):
+        record = self.record()
+        record['svg_quality']['render_file'] = 'preview.png'
+        self.assertTrue(any('separate path' in e for e in check(record, self.base)))
+
+    def test_missing_svg_preview_is_rejected(self):
+        record = self.record()
+        record['files'] = [f for f in record['files'] if f['role'] != 'svg-render']
+        self.assertTrue(any('role svg-render' in e for e in check(record, self.base)))
+
+    def test_fake_svg_preview_png_is_rejected(self):
+        record = self.record()
+        (self.base/'svg-render.png').write_bytes(b'not a PNG')
+        for f in record['files']:
+            if f['role']=='svg-render': f['sha256']=hashlib.sha256(b'not a PNG').hexdigest()
+        self.assertTrue(any('role svg-render' in e for e in check(record, self.base)))
+
+    def test_svg_fidelity_cannot_be_unreviewed(self):
+        record = self.record()
+        record['svg_quality']['fidelity_status'] = 'pending'
+        self.assertTrue(any('SVG fidelity must be reviewed' in e for e in check(record, self.base)))
+
+    def test_svg_differences_must_be_described(self):
+        record = self.record()
+        record['svg_quality']['differences'] = ''
+        self.assertTrue(any('describe actual differences' in e for e in check(record, self.base)))
+
+    def test_legacy_record_requires_explicit_historical_mode(self):
+        record = self.record()
+        record['schema_version'] = 1
+        record.pop('png_quality')
+        record.pop('svg_quality')
+        self.assertTrue(any('Legacy schema 1' in e for e in check(record, self.base)))
+        self.assertEqual(check(record, self.base, allow_legacy=True), [])
 
     def test_valid_vector_with_gradient_and_live_text(self):
         self.assertFalse(audit(self.svg(SVG), True, True)["errors"])

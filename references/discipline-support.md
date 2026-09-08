@@ -24,7 +24,7 @@ Read the applicable reference below, research the specific topic and record the 
 2. Compute numeric plots, geometry with exact constraints, chemical structures, maps and network layouts from legitimate data/definitions using appropriate deterministic tools. Integrate such outputs with the illustration only after verifying them.
 3. For molecular or crystallographic structure fidelity, use source structural coordinates and a suitable renderer. An attractive generated molecule is not structural evidence.
 4. For manufacturing drawings, diagnostic interpretation or quantitative simulation, use the specialised workflow and its validation. This skill can assist conceptual communication, not certify those outputs.
-5. Default delivery remains a persistent PNG/SVG pair. If a requested photorealistic or extremely complex scene cannot be faithfully reconstructed as full vector, expose the limitation and resolve the representation rather than providing a fake vector wrapper.
+5. Default delivery remains a persistent best-quality PNG plus editable SVG and a separate SVG preview. Protect the scientifically correct PNG from vectorisation compromises. If a complex scene cannot be matched faithfully in full vector, improve the SVG and disclose its remaining approximation; never silently provide a raster wrapper or downgrade the primary PNG.
 
 ## Coverage status
 

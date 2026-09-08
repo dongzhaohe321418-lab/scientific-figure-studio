@@ -1,8 +1,21 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "title": "",
   "delivery": "full-vector",
   "delivery_format_override": {"requested_by_user": false, "reason": ""},
+  "png_quality": {
+    "primary_file": "",
+    "origin": "",
+    "selection_reason": "",
+    "degraded_for_svg": null,
+    "review_evidence": []
+  },
+  "svg_quality": {
+    "render_file": "",
+    "fidelity_status": "pending",
+    "differences": "",
+    "review_evidence": []
+  },
   "generation": {
     "status": "pending",
     "route": null,

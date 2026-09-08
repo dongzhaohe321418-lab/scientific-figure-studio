@@ -12,13 +12,27 @@ from audit_svg import audit
 GATES = ("science", "visual", "typography", "editability", "portability", "provenance")
 
 
-def check(record, base):
+def png_header_valid(path):
+    if not path or not path.is_file() or path.suffix.lower() != '.png':
+        return False
+    with path.open('rb') as stream:
+        header = stream.read(24)
+    if len(header) != 24 or header[:8] != b'\x89PNG\r\n\x1a\n' or header[12:16] != b'IHDR':
+        return False
+    width, height = struct.unpack('>II', header[16:24])
+    return width > 0 and height > 0
+
+
+def check(record, base, allow_legacy=False):
     errors = []
     if not isinstance(record, dict):
         return ["Review must be a JSON object"]
     base = Path(base).resolve()
-    if record.get("schema_version") != 1:
+    schema = record.get("schema_version")
+    if type(schema) is not int or schema not in {1, 2}:
         errors.append("Unsupported schema_version")
+    elif schema == 1 and not allow_legacy:
+        errors.append("Legacy schema 1 does not record PNG priority; use schema 2 for new releases or --allow-legacy for archived evidence only")
     if not isinstance(record.get("title"), str) or not record["title"].strip():
         errors.append("A figure title is required")
     delivery = record.get("delivery")
@@ -32,6 +46,7 @@ def check(record, base):
     if delivery != "full-vector" and not explicit_override:
         errors.append("Default delivery requires PNG plus fully editable SVG; a format exception needs an explicit user request and reason")
     registered = {}
+    file_roles = {}
     roles = set()
     files = record.get("files")
     if not isinstance(files, list):
@@ -57,6 +72,7 @@ def check(record, base):
             errors.append("Missing file role: " + rel)
         else:
             roles.add(role)
+            file_roles[rel] = role
         if not target.is_file():
             errors.append("Missing file: " + rel)
         elif not isinstance(sha, str) or not re.fullmatch(r"[0-9a-f]{64}", sha) or hashlib.sha256(target.read_bytes()).hexdigest() != sha:
@@ -105,17 +121,40 @@ def check(record, base):
         required_roles |= {"source", "edit-test"}
     for role in sorted(required_roles - roles):
         errors.append("Missing file role: " + role)
-    if not explicit_override:
-        previews = [registered.get(i.get("path")) for i in files if isinstance(i, dict) and i.get("role") == "preview"]
-        valid_png = False
-        for preview in previews:
-            if preview and preview.is_file() and preview.suffix.lower() == ".png":
-                header = preview.read_bytes()[:24]
-                if len(header) == 24 and header[:8] == b'\x89PNG\r\n\x1a\n' and header[12:16] == b'IHDR':
-                    width, height = struct.unpack('>II', header[16:24])
-                    valid_png |= width > 0 and height > 0
-        if not valid_png:
-            errors.append("Default delivery requires a saved PNG preview with a valid PNG/IHDR header; inspect full decoding separately")
+    previews = [p for rel, p in registered.items() if file_roles.get(rel) == 'preview']
+    if not explicit_override and not any(png_header_valid(p) for p in previews):
+        errors.append("Default delivery requires a saved PNG preview with a valid PNG/IHDR header; inspect full decoding separately")
+    png_required = not explicit_override or any(p.suffix.lower() == '.png' for p in previews)
+    if schema == 2 and png_required:
+        png_quality = record.get('png_quality', {})
+        if not isinstance(png_quality, dict):
+            errors.append('png_quality must be an object')
+            png_quality = {}
+        primary = png_quality.get('primary_file')
+        if not isinstance(primary, str) or file_roles.get(primary) != 'preview' or not png_header_valid(registered.get(primary)):
+            errors.append('PNG priority requires a registered primary PNG with role preview')
+        if png_quality.get('origin') not in {'image2', 'svg-render', 'composite', 'user-supplied'}:
+            errors.append('Primary PNG origin must be recorded')
+        if not isinstance(png_quality.get('selection_reason'), str) or not png_quality['selection_reason'].strip():
+            errors.append('Primary PNG requires its actual selection reason')
+        if png_quality.get('degraded_for_svg') is not False:
+            errors.append('PNG must not be degraded for SVG convenience; explicitly review and record degraded_for_svg=false')
+        evidence(png_quality.get('review_evidence'), 'Primary PNG quality review')
+        if delivery in {'full-vector', 'hybrid'}:
+            svg_quality = record.get('svg_quality', {})
+            if not isinstance(svg_quality, dict):
+                errors.append('svg_quality must be an object')
+                svg_quality = {}
+            render = svg_quality.get('render_file')
+            if not isinstance(render, str) or file_roles.get(render) != 'svg-render' or not png_header_valid(registered.get(render)):
+                errors.append('SVG quality review requires a registered PNG with role svg-render')
+            if isinstance(render, str) and render == primary:
+                errors.append('The SVG preview must have a separate path from the primary PNG')
+            if svg_quality.get('fidelity_status') not in {'matched', 'differences-disclosed'}:
+                errors.append('SVG fidelity must be reviewed as matched or differences-disclosed')
+            if not isinstance(svg_quality.get('differences'), str) or not svg_quality['differences'].strip():
+                errors.append('SVG quality review must describe actual differences or the inspected absence of differences')
+            evidence(svg_quality.get('review_evidence'), 'SVG fidelity review')
     gates = record.get("gates", {})
     if not isinstance(gates, dict):
         errors.append("gates must be an object")
@@ -153,12 +192,17 @@ def check(record, base):
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("review", type=Path)
+    p.add_argument('--allow-legacy', action='store_true', help='Recheck archived schema 1 only; does not assess PNG-priority selection')
     args = p.parse_args()
+    record = None
     try:
-        errors = check(json.loads(args.review.read_text(encoding="utf-8-sig")), args.review.parent)
+        record = json.loads(args.review.read_text(encoding="utf-8-sig"))
+        errors = check(record, args.review.parent, allow_legacy=args.allow_legacy)
     except (OSError, ValueError, TypeError) as exc:
         errors = [str(exc)]
     print(json.dumps({"evidence_checks_passed": not errors, "errors": errors,
+                      "legacy_review": isinstance(record, dict) and record.get('schema_version') == 1,
+                      "png_priority_record_checked": isinstance(record, dict) and record.get('schema_version') == 2 and not errors and isinstance(record.get('png_quality'), dict) and bool(record['png_quality'].get('primary_file')),
                       "scope": "Bookkeeping and selected SVG checks only; not independent scientific or aesthetic certification."}, indent=2))
     return 1 if errors else 0
 

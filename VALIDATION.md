@@ -5,11 +5,11 @@ This file separates tooling checks from actual figure-production evidence.
 ## Release checks
 
 - Checked on 8 September 2026, Windows, Python 3.12.
-- Python regression suite: **37 tests passed**, using `python -m unittest discover -s tests -v`. The original 26 tooling tests are joined by 11 example-invariant/mutation tests: four canonical cases plus deliberate atom, charge, arrow, screen, head and graph errors.
+- Python regression suite: **49 tests passed**, using `python -m unittest discover -s tests -v`. These include 26 original tooling tests, 11 example-invariant/mutation tests and 12 PNG-priority/legacy-schema tests.
 - Codex skill metadata validation: **passed** using the installed official `skill-creator/scripts/quick_validate.py` (PyYAML was required by that external validator, not by this repository's scripts).
 - Relative documentation links: all resolved in the test suite.
 - Blank review template: **correctly rejected** with exit code 1 by `python scripts/check_release.py assets/review-template.json`.
-- Six example review records passed the release checker with matching evidence hashes and final SVG structural checks. This is evidence bookkeeping, not independent scientific certification.
+- Six historical schema 1 example records pass the release checker with `--allow-legacy`, matching evidence hashes and final SVG structural checks. They predate the PNG-priority policy and do not validate its quality-selection step.
 - Behavioural scenarios beyond the six named cases remain proposed evaluations; they are not automatically executed by the unit tests.
 
 ## Live biology case in v0.2.0
@@ -43,3 +43,11 @@ All four new editor tests changed a label, component colour and arrow position; 
 Read the [case-specific protocol, observed defects and limits](references/cross-discipline-evaluation.md). No exact native backend snapshot, highest-model selection, independent peer review or publisher-size preflight is claimed.
 
 The workflow requires actual figure inspection when used. A release record is evidence bookkeeping, not a certificate that its author was truthful. The SVG auditor is conservative and incomplete; it cannot infer semantic grouping, render CSS fully, or prove that every visible label is live text. Inspect the target editor and final output.
+
+## PNG-priority policy in v0.4.0
+
+User feedback identified a real quality loss: full-vector reconstructions remained less visually refined than their raster masters, and requiring the primary PNG to be exported from SVG propagated that loss. The rule now protects the best scientifically correct PNG and improves SVG independently towards it. No new pictures were generated or visually re-evaluated for this policy-only change; the six earlier figure records remain historical evidence.
+
+Schema 2 requires an explicitly selected primary PNG, its origin and selection rationale, a reviewed assertion that it was not degraded for SVG convenience, and a separately saved SVG preview with fidelity/difference evidence. Twelve synthetic regression tests check these requirements and explicit legacy handling. They do not measure aesthetics, prove the truth of a self-review, or demonstrate that future SVGs will match native image quality.
+
+New reviews use schema 2 by default. Old schema 1 records are rejected unless `--allow-legacy` is explicitly supplied, and the CLI reports that PNG-priority records were not checked. No historic image or review was relabelled as passing the new policy.

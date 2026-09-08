@@ -2,7 +2,7 @@
 
 ## Agree on the scope of editing
 
-Default to a PNG exported from a fully editable SVG, with both saved in a persistent project directory. Link the actual local files and supply reopening instructions. Use another mode only for an explicit user request, recorded in the release review.
+Default to the best scientifically correct PNG plus a fully editable SVG, saved in a persistent project directory. The primary PNG is selected on its own scientific and visual merits, not forced through SVG. Save the SVG render separately as `figure-svg-preview.png`. The SVG must preserve scientific meaning while its visual fidelity is improved; never reduce the PNG's quality to force a match. Link the files and supply reopening instructions. Change the promised editing scope only for an explicit user request.
 
 | Deliverable | What can be edited | Honest description |
 | --- | --- | --- |
@@ -24,13 +24,24 @@ For current application-specific import/export instructions, inspect installed v
 
 ## Reconstruction procedure
 
-- Lock an inspected reference master. Inventory components, labels, arrows, legends and panel geometry.
+- Lock the best scientifically correct PNG as the protected visual target. Inventory components, labels, arrows, legends and panel geometry. Preserve versioned raster candidates; SVG work must not overwrite them.
 - Use stable IDs such as `layer-active`, `arrow-electron-collection` and `label-detector`. Name groups by scientific meaning rather than drawing order.
 - Rebuild geometry with a coherent coordinate system and consistent projection; keep arrows independently selectable.
 - Preserve gradients and restrained material cues using vector fills, clipping and opacity. Use filters only where they survive the target editor; inspect exports for unintentional rasterisation.
 - Keep live text, correct mathematical typography and a documented font fallback. Optional outlined export copies do not replace the editable master.
 - Add an SVG title/description and a concise external caption. Store project-relative references, and package permitted required assets. Avoid remote image/font dependencies for an offline deliverable.
 - Provide the actual SVG or native source, not only an editor screenshot. If procedural, include the generator and configuration necessary to reproduce it without hardcoded personal paths.
+
+## Improve SVG quality without penalising PNG
+
+1. Compare the separate SVG render with the primary PNG at matched size. List concrete discrepancies: silhouettes, proportions, surface treatment, spatial depth, annotations and microdetail. Fix the most visually consequential discrepancy first.
+2. Replace stock primitives where their shapes are wrong: use fitted Bézier curves, coherent shared boundaries, shaped silhouettes and consistent projection. Preserve named scientific components instead of fragmenting everything into a trace.
+3. Reconstruct material appearance with layered gradients, restrained highlights, clipping, masks and selected vector texture. Use reusable symbols/patterns where supported. Textures must not imply measured structure. Check whether the target editor preserves each technique before relying on it.
+4. Refine edges, occlusion, line weights, arrowheads and live-text spacing. Group movement must keep arrow shafts/heads and component shading together. Recolouring should retain intentional opacity and shading, as tested by the bundled editor.
+5. Inspect the revised render and recheck scientific invariants. Preserve the best SVG revision; reject regressions. If a technique cannot reproduce the target, diagnose that limitation and try another supported representation rather than merely increasing the number of paths.
+6. State the actual outcome: visually matched at the inspected scale, or an editable approximation with listed differences. A simpler organic texture may remain visibly inferior. Do not call it lossless or equally polished merely because all elements are vectors. Supply a hybrid alternative only within authorised editing scope; it cannot silently replace a requested full vector.
+
+A ready high-quality PNG may be delivered while SVG refinement continues. Show separate completion statuses. Scientific corrections apply to both files: after changing a mechanism or label in SVG, update and re-review the PNG as necessary without substituting an inferior rendering by default.
 
 ## Verification
 
