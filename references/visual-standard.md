@@ -31,7 +31,23 @@ Appropriate shallow perspective, edge shading and gentle gradients can reveal la
 
 Avoid bloom, lens flare, glowing particles, metallic everything, excessive gloss, heavy drop shadows and generic futuristic styling unless the scientific message explicitly calls for them. Light and charge symbols must carry defined information. Do not make every surface visually compete.
 
-## Three-scale review
+## Responding to an AI-looking result
+
+Treat this as visual feedback, not a request to conceal provenance. Keep generation records. Do not promise that viewers cannot identify AI use, or add fake hand-drawn imperfections to suggest human authorship.
+
+1. Identify the actual competing visual signals: repeated bead-like surfaces, excessive specular highlights, indiscriminate microtexture, oversized headings, rounded information cards, badge gradients or inconsistent arrow styles. Select relevant changes rather than applying every prohibition to every discipline.
+2. Assign detail to scientific roles. Show membrane continuity, binding-domain topology, pore openings or particle displacement where they explain the mechanism. Omit unsupported microstructure. A protein domain schematic must not masquerade as a coordinate-derived molecular surface; a porous-layer cartoon is not a micrograph.
+3. Retain informative volume through custom silhouettes, shallow perspective and broad restrained shading. Use matte surfaces when appropriate; avoid converting every subject into flat primitives. Protect the best scientifically correct PNG throughout SVG work.
+4. Make a targeted revision with explicit scientific invariants, preserve the earlier version, and inspect both. Recheck contacts, domain labels, angles, signs and arrowheads: material/style edits can change physical meaning.
+5. Compare at the same size and label the improvement and remaining gap in ordinary words. User acceptance and independent scientific review remain separate from the agent's own review.
+
+### Quantitative elements inside generated illustrations
+
+A plausible curve can still contain non-uniform tick spacing or a misplaced guide. When coordinates, calculated values or measured data carry the claim, produce that panel with a deterministic plotting tool, verify against its source/model and use an authorised assembly workflow. Do not repair an incorrect measured plot merely by removing its ticks.
+
+For a purely conceptual illustration where quantitative values were never required, an explicitly qualitative profile with a correct defining equation may be appropriate. Record the representation change; remove inconsistent numerical ticks/guides and change any caption claiming an analytical plot. The editable reconstruction must preserve the same interpretation. Do not call an image-generated curve numerically accurate based on visual plausibility alone.
+
+## Three-scale inspection
 
 1. **Whole figure:** inspect panel balance, hierarchy, palette and obvious scientific errors.
 2. **Intended output size:** inspect actual label readability, arrow visibility, line weights and leader ambiguity. Use the target journal's current author instructions if journal compliance is requested; do not invent universal Nature font or DPI requirements.

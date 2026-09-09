@@ -51,7 +51,7 @@ Both scripts use Python 3.10+ and the standard library. Exit code 0 means their 
 
 1. Check science against source evidence and the fixed brief. Never approve solely by familiarity with how the object usually looks.
 2. Select and secure the best scientifically correct PNG; compare the independently saved SVG render with it. Never overwrite the primary PNG during SVG iteration. Recheck both after any scientific correction.
-3. Perform the promised editor test in a separate copy, leaving the scientifically correct source intact. Record application and version when available.
+3. Perform the promised editor test in a separate copy, leaving the scientifically correct source intact. Confirm the actual saved file exists before reopening it; a download-request notification is insufficient. Record application and version when available, and state gradient/shared-definition editing limits.
 4. Correct defects, regenerate hashes and rerun affected checks. Do not endlessly repeat checks unaffected by a change.
 5. If a gate cannot pass, return the useful draft and the exact limitation. The task may be partially delivered, but the failed requirement is not complete.
 

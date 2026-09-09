@@ -4,9 +4,9 @@ This file separates tooling checks from actual figure-production evidence.
 
 ## Release checks
 
-- Checked on 8 September 2026, Windows, Python 3.12.
-- Python regression suite: **49 tests passed**, using `python -m unittest discover -s tests -v`. These include 26 original tooling tests, 11 example-invariant/mutation tests and 12 PNG-priority/legacy-schema tests.
-- Codex skill metadata validation: **passed** using the installed official `skill-creator/scripts/quick_validate.py` (PyYAML was required by that external validator, not by this repository's scripts).
+- Tooling checked on 9 September 2026, Windows, Python 3.12, with Pillow 12.3.0 installed for the optional colour-region helper.
+- Python regression suite: **63 tests passed**, using `python -m unittest discover -s tests -v`. These include 26 original tooling tests, 11 example-invariant/mutation tests, 12 PNG-priority/legacy-schema tests and 14 colour-region tests. Without Pillow, the 14 optional helper tests are explicitly skipped, not counted as passed.
+- Codex skill metadata validation: **passed** using the installed official `skill-creator/scripts/quick_validate.py` (PyYAML was required by that external validator; this repository's audit scripts do not require it).
 - Relative documentation links: all resolved in the test suite.
 - Blank review template: **correctly rejected** with exit code 1 by `python scripts/check_release.py assets/review-template.json`.
 - Six historical schema 1 example records pass the release checker with `--allow-legacy`, matching evidence hashes and final SVG structural checks. They predate the PNG-priority policy and do not validate its quality-selection step.
@@ -51,3 +51,17 @@ User feedback identified a real quality loss: full-vector reconstructions remain
 Schema 2 requires an explicitly selected primary PNG, its origin and selection rationale, a reviewed assertion that it was not degraded for SVG convenience, and a separately saved SVG preview with fidelity/difference evidence. Twelve synthetic regression tests check these requirements and explicit legacy handling. They do not measure aesthetics, prove the truth of a self-review, or demonstrate that future SVGs will match native image quality.
 
 New reviews use schema 2 by default. Old schema 1 records are rejected unless `--allow-legacy` is explicitly supplied, and the CLI reports that PNG-priority records were not checked. No historic image or review was relabelled as passing the new policy.
+
+## Regional reconstruction update, 9 September 2026
+
+The [PNG-to-SVG guide](references/png-to-svg.md) records one local comparison of whole-page tracing, regional tracing and semantic reconstruction with sampled gradients. The last route was selected for that conceptual weather-network diagram. Its 46 live labels and actual browser save/reopen/export test do not establish field-wide performance or compatibility with untested desktop editors. The generated PNG was retained unchanged. The private project, raw user input and third-party research images are not published as part of this update.
+
+The public [component example](examples/vector-reconstruction/README.md) contains an isolated illustrative colour field from that generated PNG, the reusable helper, semantic integration code, rendered previews and a comparison record. It is not a measured map, a scientific model or a seventh discipline evaluation. No additional image-generation call was made for this publication update.
+
+- The helper uses standard SVG gradients, masks and clipped geometry; it refuses output overwrite and records source hash, crop, grid and colour-space treatment. Tests cover input/crop validation, profile conversion, transparency rejection, vector structure, protected files and interpolation continuity at overlapping sample bands.
+- Both component SVGs passed their applicable structural audit with no warnings. The standalone field has no text by design; the integration example has four live text objects and no raster content. Both previews were decoded and visually inspected using Sharp 0.35.4 / librsvg 2.62.91.
+- A 55 × 43 sampling grid was selected after matched comparison with 27 × 21. Regional RGB RMSE changed from approximately 5.120 to 3.534 on 8-bit channels, while SVG size grew from 36,041 to 131,551 bytes. These are one-region image errors, not scientific accuracy, whole-figure fidelity or general performance scores. Remaining smoothing and increased editing burden are disclosed.
+- The integration example passed an actual source-level edit/save/reparse check for a live label, component colour and independent arrow position. Its edited PNG was rendered and visually inspected. This new component test did not operate an application UI; it is distinct from the earlier local full-figure browser round trip.
+- The bundled editor now reports a download request rather than claiming that a file has been saved. Actual file existence and reopening are required by the workflow. The edited JavaScript was syntax-checked; a new editor UI round trip was not performed for this wording change.
+
+The AI-style review guidance now targets observed excessive gloss, repetitive texture, oversized hierarchy and decorative containers while retaining meaningful scientific depth. These are review instructions, not an automatic detector of image provenance or a guarantee that every future output will meet the target.

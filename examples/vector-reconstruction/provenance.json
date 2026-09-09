@@ -1,0 +1,23 @@
+{
+  "source_kind": "Isolated illustrative colour artwork from an image generated with the native image2 workflow; not user input or measured weather data",
+  "generation_date": "2026-09-09",
+  "requested_route": "native image2",
+  "reported_backend_model": null,
+  "generated_master_sha256": "35c815d07b861b243ec1822b6eb494033c5dafd0cd5367a167ba94d7f96b4c03",
+  "generated_master_dimensions": [
+    1536,
+    1024
+  ],
+  "crop_xywh": [
+    1354,
+    492,
+    136,
+    106
+  ],
+  "source_dimensions": [
+    136,
+    106
+  ],
+  "source_sha256": "5cd5de9852700fcc39084d74fcdf94f872c39363047c94cf6acaced681a30658",
+  "transformation": "Exact rectangular crop, RGB PNG; no scientific labels or measured values retained."
+}

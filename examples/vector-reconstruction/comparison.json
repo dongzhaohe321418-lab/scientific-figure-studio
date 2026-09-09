@@ -1,0 +1,40 @@
+{
+  "date": "2026-09-09",
+  "reviewer": "Executing agent; not independent review",
+  "comparison_scope": "One 136 x 106 illustrative colour region; same canvas and RGB channels. No scientific, typography or whole-figure score.",
+  "renderer": "Sharp / librsvg; version recorded in VALIDATION.md",
+  "candidate_settings": "Same fit_svg_region.py implementation with interpolation ending at the next sampled row. Grid size varied; the 27 x 21 output is reproducible with the CLI.",
+  "candidates": [
+    {
+      "grid": [
+        27,
+        21
+      ],
+      "svg_bytes": 36041,
+      "mae_rgb_8bit": 3.077552719200888,
+      "rmse_rgb_8bit": 5.1198546443943345
+    },
+    {
+      "grid": [
+        55,
+        43
+      ],
+      "svg_bytes": 131551,
+      "mae_rgb_8bit": 2.0218044765075844,
+      "rmse_rgb_8bit": 3.5341177083287145
+    }
+  ],
+  "selected_grid": [
+    55,
+    43
+  ],
+  "visual_observations": "Denser sampling retains more small colour boundaries and reduces visible sampling bands; slight smoothing remains. The larger SVG has more gradient stops and a higher editing burden. No pixel-identical or universally best conversion is claimed.",
+  "edit_verification": "verify_demo.py saved a new SVG, reparsed the actual file and verified live label, component fill and arrow-position changes. Sharp exported its PNG and the executing agent visually inspected it. This was a source-level test, not an application UI round trip.",
+  "file_sha256": {
+    "source.png": "5cd5de9852700fcc39084d74fcdf94f872c39363047c94cf6acaced681a30658",
+    "region.svg": "bf11eeea9200486eb98075ed7792546806a63d24c9130d2e5b3d8ba2f5ecf4ab",
+    "region-preview.png": "537d06f15a54e99e95a56a62203676e5d39e5dd09320368c7f02fbc61115f335",
+    "example.svg": "c5aebcb3d46dc5227bcacbbf55379fbfc32a30ff62636a76b95244933c406b94",
+    "example-preview.png": "83040d364ddaf3afe3cb49c3d57f9bf0a96f7f6a8cafe3197b2f2fe3a3a5ec71"
+  }
+}

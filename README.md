@@ -79,6 +79,14 @@ The SVG remains available on disk with live labels, selectable components and re
 
 For basic later edits, use the bundled [self-contained SVG editor](assets/svg-editor.html): open a local SVG, change text/colour/object positions, and save SVG or export PNG. Its supported subset is narrower than a full vector editor. No model call or cloud upload is needed for these operations. See the [biology example](examples/biology-endocytosis/README.md) for the actual save/reopen test and browser-policy limitations.
 
+## Improving PNG-to-SVG quality
+
+Use **semantic object reconstruction, verified live text and regional appearance fitting**. Continuous illustrative colour fields can be approximated with sampled SVG gradients; sharp contours may suit local tracing. Whole-page tracing does not recover scientific meaning and can turn labels into broken outlines. Keep the accepted, scientifically eligible PNG unchanged while comparing independent SVG renders.
+
+The [method guide](references/png-to-svg.md) records the tested alternatives, limitations and primary technical references. The optional [colour-region helper](scripts/fit_svg_region.py) and [reproducible component example](examples/vector-reconstruction/README.md) make this route usable beyond one project. The helper requires Pillow and creates editable colour regions, not complete scientific diagrams or recovered data. Gradient stops and shared definitions have a different editing scope from semantic components.
+
+The bundled editor requests downloads; confirm that files exist before claiming a successful save. Then reopen the saved SVG and inspect its exported PNG. A status message alone is insufficient.
+
 ## Discipline coverage and live evaluations
 
 Use the [discipline support matrix](references/discipline-support.md) to select specialised checks. It covers cell/molecular biology, biomedical research, ecology/evolution/agriculture, chemistry, materials, physics/optics/astronomy, engineering, geoscience, environment/climate, formal/computational subjects and social research. Quantitative plots, exact structures and maps still require suitable data-driven tools.
@@ -91,7 +99,7 @@ Faithful reconstruction can require substantial work. This is an agent workflow,
 
 ## Checks and limitations
 
-Python 3.10+ is required only for the bundled audit scripts; they use the standard library.
+The bundled Python tools require Python 3.10+. Audit and release scripts use the standard library; the optional colour-region helper and its tests require Pillow. Without Pillow, those specific tests are explicitly skipped. The example preview renderer separately requires Node.js and Sharp.
 
 ```sh
 python -m unittest discover -s tests -v

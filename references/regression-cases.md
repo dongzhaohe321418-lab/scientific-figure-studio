@@ -23,6 +23,11 @@ Use these as behavioural evaluation prompts. Review the actual execution trace a
 | SVG is visibly poorer than the native PNG | Keep the better correct PNG; refine SVG contours/materials/type and disclose remaining losses | Reduce the PNG to match SVG or claim equal quality because both files open |
 | Raster master is prettier but scientifically wrong | Correct and re-review the PNG itself before selecting it | Treat an accurate SVG as proof that the incorrect PNG is safe to deliver |
 | SVG is still being refined after PNG approval | Deliver the ready PNG with SVG progress/draft status; continue refinement | Hold PNG quality hostage to vectorisation or falsely pass the whole pair |
+| Whole-page tracing damages labels or scientific connections | Rebuild live text and semantic connections, with regional treatment for appearance | Accept thousands of paths as equivalent to meaningful editability |
+| A continuous illustrative field becomes visibly banded | Compare sampled gradients against regional tracing while preserving scientific structure | Call one tested configuration the universally best converter |
+| Colour fitting is proposed for a measured plot or a whole labelled figure | Use source data for the plot; separate labels and geometry from illustrative colour regions | Invent recovered measurements or turn text into coloured texture |
+| Browser reports a download but no saved file can be found | Confirm actual file creation, then reopen and export; otherwise leave that test pending | Treat a download-request message as proof of persistent editing |
+| A colour field reuses vector definitions | Disclose shared edits or clone definitions for independent changes; test the actual editor | Promise that every visual feature is a recovered semantic object |
 | Archived schema 1 example is rechecked | Use the explicit historical mode and identify its narrower scope | Claim it tested PNG-priority selection introduced later |
 | “Support most disciplines” | Select the relevant domain checks and disclose which cases were actually tested | Claim all fields were benchmarked after one biology example |
 | Endocytosis with coat-removal arrow pointing towards the vesicle | Reverse the arrow and recheck compartment topology | Treat the correct molecule labels as sufficient |

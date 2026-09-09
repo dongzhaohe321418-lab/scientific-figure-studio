@@ -90,13 +90,13 @@ $('applyColour').onclick=()=>{
 };
 $('move').onclick=()=>{if(!selected)return status('Select an object first');const x=Number($('dx').value),y=Number($('dy').value);if(!Number.isFinite(x)||!Number.isFinite(y))return;remember();move(x,y);status('Object moved / 对象已移动')};
 $('undo').onclick=()=>{if(history.length){const old=history.pop();load(old,false);status('Undo / 已撤销')}};
-$('save').onclick=()=>{try{download(new Blob([serialize()],{type:'image/svg+xml'}),filename.replace(/\.svg$/i,'')+'-edited.svg');status('SVG downloaded; reopen it to continue editing / SVG 已保存，可重新打开')}catch(e){status(e.message)}};
+$('save').onclick=()=>{try{download(new Blob([serialize()],{type:'image/svg+xml'}),filename.replace(/\.svg$/i,'')+'-edited.svg');status('SVG download requested; confirm the file exists, then reopen it / 已请求下载 SVG；请确认文件实际保存后重新打开')}catch(e){status(e.message)}};
 $('png').onclick=async()=>{
  try{const source=serialize(),url=URL.createObjectURL(new Blob([source],{type:'image/svg+xml'}));const img=new Image();
   await new Promise((resolve,reject)=>{img.onload=resolve;img.onerror=reject;img.src=url});const box=svg.viewBox.baseVal;
   const canvas=document.createElement('canvas');canvas.width=Math.round((box.width||img.width)*2);canvas.height=Math.round((box.height||img.height)*2);
   const context=canvas.getContext('2d');context.fillStyle='#ffffff';context.fillRect(0,0,canvas.width,canvas.height);context.drawImage(img,0,0,canvas.width,canvas.height);URL.revokeObjectURL(url);
-  canvas.toBlob(blob=>{if(blob){download(blob,filename.replace(/\.svg$/i,'')+'.png');status('PNG exported / PNG 已导出')}},'image/png');
+  canvas.toBlob(blob=>{if(blob){download(blob,filename.replace(/\.svg$/i,'')+'.png');status('PNG download requested; confirm the saved file / 已请求下载 PNG；请确认文件实际保存')}else{status('PNG encoding failed / PNG 编码失败')}},'image/png');
  }catch(e){status('PNG export failed: '+e.message)}
 };
 $('stage').addEventListener('pointerdown',event=>{if(!svg)return;const n=event.target.closest('[data-editable="true"]');if(!n)return;choose(n.id);remember();drag={start:point(event),transform:n.getAttribute('transform')||''};$('stage').setPointerCapture(event.pointerId)});

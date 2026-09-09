@@ -57,6 +57,7 @@ Read [visual design and review](references/visual-standard.md).
 - For a substantial new illustration, inspect at least two relevant high-quality visual references where accessible, alongside the necessary scientific sources. One can be a user-supplied benchmark. If fewer are accessible, record that limitation and the resulting uncertainty; do not invent inspections.
 - Write a short visual brief based on observed attributes: camera/projection, layout, information hierarchy, palette semantics, material cues, type, line weights, whitespace and arrow grammar.
 - Prefer restrained scientific editorial styling. Use controlled shading and depth when they clarify structure. Avoid decorative glow, pseudo-microscopy and physically meaningless texture.
+- When a user finds the result recognisably AI-styled, apply the concrete material, hierarchy and notation review in [visual design and review](references/visual-standard.md#responding-to-an-ai-looking-result). Preserve meaningful depth and PNG quality; do not treat flatness as the solution.
 - An explicit user visual benchmark sets the target for refinement; it does not override scientific truth. Explain any scientifically necessary departure.
 
 ### 3. Make and inspect the image2 master
@@ -67,12 +68,15 @@ Read [visual design and review](references/visual-standard.md).
 - Save the actual prompt, tool route, returned provenance and versioned output in the project. Record an undisclosed model as unknown, not “latest verified”.
 - Refine the PNG for scientific correctness, clarity and material/structural quality without constraining it to what is easy to vectorise. Fix scientific errors in the PNG itself; a corrected SVG never makes an incorrect raster master eligible for final delivery.
 - Inspect the full image and detail crops. Correct scientific mistakes first, then visual defects. For each revision, state the intended change and invariants; compare against the previous best version to prevent regressions.
+- Treat an approved, scientifically eligible PNG as the fixed visual target for subsequent SVG work. Record its hash and keep reconstruction/export paths separate. Approval of the PNG does not automatically approve the SVG or authorise publication.
 - Keep failed masters clearly marked as drafts in the comparison record. Arrow direction, charge, topology and measurement geometry are scientific content: never assume a targeted image edit preserved them.
 - After three unsuccessful targeted revisions of the same defect, diagnose the representation or tool limitation and change approach. Do not spend indefinitely or quietly lower the target. Retain useful drafts and disclose unresolved issues.
 
 ### 4. Reconstruct faithfully into the required editable SVG
 
 Read [editable reconstruction](references/editable-reconstruction.md).
+
+For PNG-to-SVG conversion or a visibly weaker vector result, read [regional reconstruction and colour fitting](references/png-to-svg.md). Prefer semantic geometry and live labels with region-specific treatment; use fitted gradients for suitable continuous colour fields and local tracing for suitable sharp contours. The optional helper produces colour regions, not complete scientific diagrams.
 
 - Rebuild the selected PNG as semantic objects with live labels, separate arrows, named component groups and consistent reusable styles. Improve silhouette/projection, curved boundaries, layered gradients, clipped material cues and typography in that order of visual impact. Keep the best PNG intact while iterating on SVG. Read the refinement procedure in the reconstruction guide.
 - Preserve appropriate gradients, shallow perspective, clipped material shading, curves and visual hierarchy. “All rectangles” is not an acceptable substitute when the benchmark relies on these attributes.

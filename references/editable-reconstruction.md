@@ -15,6 +15,8 @@ Do not quietly substitute another row for the user's requested editing scope. SV
 
 ## Choose a reconstruction method
 
+When reconstructing a selected PNG, first partition scientific structure, text, arrows and colour/texture regions. Follow [PNG-to-SVG methods](png-to-svg.md) for the tested decision process and optional gradient helper. Successful texture reconstruction must not replace semantic geometry or convert live labels into paths.
+
 1. **Semantic vector redraw:** preferred for layered devices, mechanism diagrams and moderate apparatus geometry. Reconstruct meaningful component shapes, not thousands of contour fragments. Text remains live. Use named groups and shared styling.
 2. **Hybrid illustration:** appropriate when complex shading or microtexture is required and the requested edits are labels, arrows and selected components. Keep intentional raster layers separate and disclose them. Do not embed the entire picture and call it a conversion.
 3. **Editable 3D scene plus vector annotations:** useful for genuinely complex spatial apparatus when modelling is within scope. A rendered PNG is not an editable 3D scene; deliver the actual source scene and relevant assets. Do not introduce Blender when the user explicitly requests image2 without modelling.
