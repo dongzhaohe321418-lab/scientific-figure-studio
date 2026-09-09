@@ -32,6 +32,8 @@ Each gate has `status`, `reviewer`, `notes` and `evidence` (a non-empty list of 
 - For editable delivery, `svg_quality.render_file`: a registered `svg-render` PNG at a different path from the primary PNG, even if their bytes happen to match. This preserves their distinct roles.
 - `svg_quality.fidelity_status`: `matched` or `differences-disclosed`. `differences` states the inspected scale and actual losses, or explicitly explains that none were visible. A visibly simplified SVG must not be marked matched. `review_evidence` links the real comparison notes.
 
+For image2-assisted editorial finishing, retain actual generation status and native masters even when the selected PNG origin is `svg-render`. Record the comparison-based selection, the common SVG hash and rendering conditions, and the separate reopen/render check in existing evidence files. Follow [editorial refinement](editorial-refinement.md); no new schema or automatic aesthetic pass is implied. Pixel equality does not remove the visual or editability gates.
+
 Deliver a scientifically/visually reviewed PNG promptly even if SVG refinement remains pending. Report that partial status clearly and continue the requested SVG work. A useful PNG can be complete while the combined release check still fails for an unfinished SVG; never degrade the PNG to make that check pass.
 
 Archived schema 1 records remain unchanged. The checker requires schema 2 by default. Use `--allow-legacy` only to recheck historical evidence; its output states that PNG-priority selection was not checked. Do not use this option for a new release or retrofit a passing comparison that never occurred.

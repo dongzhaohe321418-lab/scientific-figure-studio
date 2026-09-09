@@ -38,12 +38,15 @@ The crop arguments are **x, y, width, height**, in source pixels. Omit the crop 
 - Output keeps the crop's aspect ratio. The SVG metadata records source hash, dimensions, crop and grid without storing personal file paths. Existing output files are never overwritten.
 - Copy the generated group, including its definitions, into the semantic SVG and position it within a wrapper group. Keep labels, scientific boundaries and connectors separate. Do not put the entire finished figure through the colour fitter.
 - Increase the sampling grid only when matched renders show a useful improvement. More stops increase file size and editing burden; they cannot restore missing source detail. Sharp edges, tiny symbols and high-frequency textures require another representation.
+- Dense row sampling can reveal antialiased strip seams even with valid SVG. The helper now overlaps bands by at least one source pixel, with interpolation still finishing at the next sampled row. Inspect the actual export at its intended scale; extreme downscaling or a different renderer may need another sampling choice. The optional rendered regression uses a synthetic field, not a scientific map.
 - Colours are editable as gradient stops, and the region is movable as a group. Changing an individual feature inside the colour field is not equivalent to editing a recovered scientific object. Reused definitions or symbols may affect multiple instances; disclose that scope or clone definitions before independent editing.
 - A simple SVG editor may support moving/recolouring groups without exposing every gradient stop or mask. Test the intended editor. Do not assume identical behaviour in browsers, Inkscape, Illustrator or PowerPoint.
 
 The [public component example](../examples/vector-reconstruction/README.md) supplies an illustrative PNG region, a fitted SVG and an integration example with live labels. It is a component demonstration, not a validated scientific figure or an automatic full-figure converter.
 
 ## Comparison and editing protocol
+
+If semantic reconstruction also improves typography and composition, use [editorial refinement](editorial-refinement.md) to decide whether it can supply the final PNG. Retain the native benchmark and actual generation provenance; a common SVG master is conditional on quality, not a mandatory conversion shortcut.
 
 1. Match canvas, crop, resolution and background. Inspect the whole figure at intended use size and enlarged crops of scientific labels, arrows, interfaces and texture regions.
 2. Compare geometry and appearance separately. An image-similarity score can favour a large white background while overlooking a reversed arrow. Regional pixel error is supplementary and cannot pass science or typography.

@@ -59,6 +59,19 @@ individually editable components. Preserve material shading and depth.
 
 For the best result, supply the intended message, architecture or source paper, an admired visual reference, target size and exactly what must remain editable. For an existing SVG correction, say so; the skill does not force unnecessary image regeneration.
 
+For computing-related frameworks and pipelines, the [compact framework guide](references/computing-frameworks.md) keeps the method visible, prevents false data relays, uses variables on meaningful edges/ports, and checks density without shrinking the text. It selectively adapts ideas from [paper-framework-figure-studio-pro](https://github.com/c-narcissus/paper-framework-figure-studio-pro), v3.2.15f, while retaining this skill's local editable deliverables.
+
+## Editorial finish, useful density and matched PNG/SVG
+
+The [editorial refinement guide](references/editorial-refinement.md) makes requests such as “more like a carefully finished journal figure” actionable:
+
+- Restore necessary mechanism and compact spacing before reducing type size. Retypeset normal-width live labels; verify equations, collisions and legibility at the intended physical size.
+- Keep meaningful shallow 3D through coherent faces and restrained shading. Remove redundant presentation chrome, not scientific information or material detail.
+- Preserve native image2 versions. A refined SVG may supply the **final PNG only when actual comparison supports meeting or improving the best eligible native candidate**. Then reopen that saved SVG, independently render its preview and verify both under matched conditions. Equality alone does not establish quality or universal editor compatibility.
+- Test later edits and exports. The editor retains approximate relative face tones when recolouring supported hex paints; the gradient helper addresses seams seen at dense sampling. Neither tool recovers scientific semantics automatically.
+
+These principles apply across disciplines; the skill does not impose one successful diagram's geometry, palette or channel counts on other subjects. “Human-like finish” is an aesthetic target, with generation provenance retained.
+
 ## “Highest image2 version” means a verifiable request
 
 The skill prefers the best verified available GPT Image 2 option and forbids silent downgrades. Native Codex tools may not expose a model selector or quality argument. In that case it reports platform-selected/undisclosed routing instead of falsely claiming a pinned highest snapshot.
@@ -99,13 +112,15 @@ Faithful reconstruction can require substantial work. This is an agent workflow,
 
 ## Checks and limitations
 
-The bundled Python tools require Python 3.10+. Audit and release scripts use the standard library; the optional colour-region helper and its tests require Pillow. Without Pillow, those specific tests are explicitly skipped. The example preview renderer separately requires Node.js and Sharp.
+The bundled Python tools require Python 3.10+. Audit and release scripts use the standard library; the optional colour-region helper and its tests require Pillow. Without Pillow, those specific tests are explicitly skipped. The example preview renderer and two real-render gradient regressions also require Node.js and Sharp. Set `FIGURE_NODE` to a Node executable or `FIGURE_NODE_MODULES` to a directory containing Sharp if they are outside normal discovery paths; unavailable optional render dependencies are reported as skips.
 
 ```sh
 python -m unittest discover -s tests -v
 python scripts/audit_svg.py path/to/figure.svg --full-vector --live-text
 python scripts/check_release.py path/to/review.json
 ```
+
+For the [synthetic browser editor checks](tests/editor-regression.html), serve the repository on localhost (`python -m http.server 8000 --bind 127.0.0.1`), open `http://127.0.0.1:8000/tests/editor-regression.html`, and click **Run editor checks**. This exercises the real DOM, recolouring, shared-definition isolation, SVG serialisation/reimport and decoded PNG export. It does not prove that a browser download reached disk; that remains a separate delivery check.
 
 Start a review record from [the template](assets/review-template.json) and follow [the evidence format](references/quality-gates.md). The template intentionally fails until real reviews and files are recorded. Scripts check selected SVG structures, required evidence, file hashes and unsupported completion claims. They do **not** independently establish scientific correctness, visual excellence or the truth of self-reported reviews.
 

@@ -1,0 +1,73 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>SVG editor synthetic regression</title>
+<style>body{font:16px system-ui;margin:24px}iframe{width:100%;height:620px;border:1px solid #aaa}pre{white-space:pre-wrap}img{max-width:700px}button{padding:10px}</style>
+<h1>SVG editor synthetic regression</h1>
+<p>Serve the repository on localhost and open this page. Uses the real editor DOM and handlers. No scientific data, uploads or model calls. This is a browser component test, not an independent aesthetics review or a desktop-editor test.</p>
+<button id="run" disabled>Run editor checks</button>
+<pre id="result" role="status">Loading editor…</pre>
+<iframe id="editor" src="../assets/svg-editor.html" title="Bundled editor"></iframe>
+<div id="preview"></div>
+<script>
+'use strict';
+const fixture=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320">
+<defs>
+ <linearGradient id="top"><stop id="top-stop" stop-color="#cbd8dd"/><stop offset="1" stop-color="#acbec7" stop-opacity="0.9"/></linearGradient>
+ <linearGradient id="front"><stop stop-color="#7e9dab"/><stop offset="1" stop-color="#637f8c"/></linearGradient>
+ <linearGradient id="side"><stop stop-color="#516d7b"/><stop offset="1" stop-color="#354e59"/></linearGradient>
+</defs>
+<rect width="640" height="320" fill="#ffffff"/>
+<g id="specimen" data-editable="true">
+ <defs><mask id="local-mask"><rect width="1" height="1" fill="#fff"/></mask><clipPath id="local-clip"><rect width="600" height="300" fill="#fff"/></clipPath></defs>
+ <path id="top-face" d="M 60 100 L 105 62 L 235 62 L 190 100 Z" fill="url(#top)"/>
+ <path id="front-face" d="M 60 100 H 190 V 240 H 60 Z" fill="url(#front)"/>
+ <path id="side-face" d="M 190 100 L 235 62 V 202 L 190 240 Z" fill="url(#side)"/>
+</g>
+<g id="other" data-editable="true" transform="translate(300 0)">
+ <path d="M 60 100 L 105 62 L 235 62 L 190 100 Z" fill="url(#top)"/>
+ <path d="M 60 100 H 190 V 240 H 60 Z" fill="url(#front)"/>
+ <path d="M 190 100 L 235 62 V 202 L 190 240 Z" fill="url(#side)"/>
+</g>
+<text id="label" data-editable="true" x="60" y="280" font-family="Arial,sans-serif" font-size="19" fill="#234">Synthetic component</text>
+<rect id="unsupported" data-editable="true" x="600" y="20" width="10" height="10" fill="navy"/>
+<rect id="css-paint" data-editable="true" x="600" y="40" width="10" height="10" fill="#123456" style="fill:#888888"/>
+</svg>`;
+const frame=document.getElementById('editor'),button=document.getElementById('run'),result=document.getElementById('result');
+frame.onload=()=>{button.disabled=false;result.textContent='Ready';};
+button.onclick=async()=>{
+ button.disabled=true;const checks=[];const e=frame.contentWindow;let capture,oldDownload=e.download;
+ const assert=(condition,name)=>{if(!condition)throw Error(name);checks.push(name)};
+ try{
+  e.load(fixture);const root=e.document.querySelector('#stage svg');
+  const original=[...root.querySelectorAll('linearGradient')].map(n=>n.outerHTML);
+  const other=root.querySelector('#other').outerHTML,mask=root.querySelector('#local-mask').outerHTML,clip=root.querySelector('#local-clip').outerHTML;
+  e.choose('specimen');e.document.getElementById('colour').value='#aa824e';e.document.getElementById('applyColour').click();
+  const average=id=>{const face=root.querySelector('#'+id);const gid=face.getAttribute('fill').slice(5,-1);const g=[...root.querySelectorAll('linearGradient')].find(n=>n.id===gid);return [...g.querySelectorAll('stop')].reduce((sum,s)=>{const c=s.getAttribute('stop-color');return sum+[.2126,.7152,.0722].reduce((t,w,i)=>t+w*parseInt(c.slice(1+2*i,3+2*i),16),0)},0)/g.querySelectorAll('stop').length};
+  assert(average('top-face')>average('front-face')+10&&average('front-face')>average('side-face')+10,'Distinct ordered face tones survive recolouring');
+  assert(original.every((s,i)=>root.querySelectorAll('linearGradient')[i].outerHTML===s),'Shared original gradients remain unchanged');
+  assert(root.querySelector('#other').outerHTML===other,'Other component remains unchanged');
+  assert(root.querySelector('#local-mask').outerHTML===mask&&root.querySelector('#local-clip').outerHTML===clip,'Mask and clip definitions remain unchanged');
+  const topId=root.querySelector('#top-face').getAttribute('fill').slice(5,-1);const top=[...root.querySelectorAll('linearGradient')].find(n=>n.id===topId);
+  assert(top.querySelectorAll('stop')[1].getAttribute('offset')==='1'&&top.querySelectorAll('stop')[1].getAttribute('stop-opacity')==='0.9','Gradient offsets and opacity retained');
+  const ids=[...root.querySelectorAll('[id]')].map(n=>n.id);assert(new Set(ids).size===ids.length,'Cloned gradient descendants do not duplicate IDs');
+  assert(e.recolourObject(root,root.querySelector('#unsupported'),'#aa824e')===1&&root.querySelector('#unsupported').getAttribute('fill')==='navy','Unsupported paint is retained and reported');
+  const css=root.querySelector('#css-paint'),cssBefore=css.outerHTML;
+  assert(e.recolourObject(root,css,'#aa824e')===1&&css.outerHTML===cssBefore,'CSS paint is retained and reported rather than changing a hidden attribute');
+  e.choose('label');e.document.getElementById('labelText').value='Edited component';e.document.getElementById('applyText').click();
+  e.choose('specimen');e.document.getElementById('dx').value='3';e.document.getElementById('dy').value='0';e.document.getElementById('move').click();
+  e.download=(blob,name)=>{capture={blob,name}};e.document.getElementById('save').click();
+  assert(capture&&capture.blob.type==='image/svg+xml','Save handler produces an SVG blob');
+  const saved=await capture.blob.text();assert(!saved.includes('data-selected'),'Saved source excludes selection effects');
+  e.load(saved);const reopened=e.document.querySelector('#stage svg');
+  assert(reopened.querySelector('#label').textContent==='Edited component'&&reopened.querySelector('#specimen').getAttribute('transform').includes('3'),'Serialised edits survive reimport');
+  let resolvePNG;const ready=new Promise(resolve=>resolvePNG=resolve);e.download=(blob,name)=>{capture={blob,name};resolvePNG()};
+  e.document.getElementById('png').click();let timer;try{await Promise.race([ready,new Promise((_,reject)=>timer=setTimeout(()=>reject(Error('PNG export timed out')),15000))])}finally{clearTimeout(timer)}
+  assert(capture.blob.type==='image/png','PNG export encodes a real PNG blob');
+  const img=new Image(),url=URL.createObjectURL(capture.blob);img.src=url;await img.decode();
+  assert(img.naturalWidth===1280&&img.naturalHeight===640,'Exported PNG decodes at expected dimensions');
+  document.getElementById('preview').replaceChildren(img);URL.revokeObjectURL(url);
+  result.textContent=JSON.stringify({status:'pass',checks:checks.length,observations:checks,scope:'Real browser DOM, production handlers, SVG serialisation/reimport and decoded PNG. Disk downloads and human UI actions are not established by this harness.'},null,2);
+ }catch(error){result.textContent=JSON.stringify({status:'fail',completed:checks,error:error.message},null,2)}
+ finally{e.download=oldDownload;button.disabled=false}
+};
+</script>

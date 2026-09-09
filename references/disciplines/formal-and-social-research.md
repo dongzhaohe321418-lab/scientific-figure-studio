@@ -8,6 +8,8 @@ The [MLP case](../../examples/neural-network/README.md) checks layer counts, adj
 
 ## Mathematics, statistics and computing
 
+For computing-related framework, model and pipeline figures, also apply [compact computing frameworks](../computing-frameworks.md): semantic versus visible structure, useful information density, edge/port labels, no false data relay, and matched PNG/SVG delivery when requested.
+
 Define symbols, domains, dimensions and assumptions before illustration. Use deterministic tools for exact geometry, equations, graph layout and quantitative plots. Verify tensor shapes, data/control flow, algorithm stages and input/output relationships. A drawn architecture is not evidence that an algorithm has been implemented or benchmarked.
 
 For statistical figures, retain sample sizes, uncertainty definition, axes and data provenance. Do not invent distributions, significance, convergence curves or performance numbers. Image2 may design a conceptual overview or illustrative surrounding elements; it must not generate the scientific data layer.

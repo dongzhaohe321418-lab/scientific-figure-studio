@@ -61,6 +61,14 @@ class QualityTools(unittest.TestCase):
     def test_native_png_and_separate_svg_render_are_allowed(self):
         self.assertEqual(check(self.record(), self.base), [])
 
+    def test_svg_finished_png_keeps_native_generation_evidence(self):
+        record = self.record()
+        record['png_quality']['origin'] = 'svg-render'
+        record['png_quality']['selection_reason'] = 'Synthetic selection record for image2-assisted vector finishing.'
+        self.assertEqual(check(record, self.base), [])
+        record['files'] = [f for f in record['files'] if f['role'] != 'master']
+        self.assertTrue(any('master' in error for error in check(record, self.base)))
+
     def test_png_degraded_for_svg_is_rejected(self):
         record = self.record()
         record['png_quality']['degraded_for_svg'] = True

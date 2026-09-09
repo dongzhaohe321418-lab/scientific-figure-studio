@@ -35,6 +35,8 @@ Avoid bloom, lens flare, glowing particles, metallic everything, excessive gloss
 
 Treat this as visual feedback, not a request to conceal provenance. Keep generation records. Do not promise that viewers cannot identify AI use, or add fake hand-drawn imperfections to suggest human authorship.
 
+For the concrete typography, density, shallow-facet, endpoint and final-master procedure, read [editorial refinement](editorial-refinement.md). This can continue an image2-assisted workflow through an eligible vector finish; it must not lower the PNG benchmark.
+
 1. Identify the actual competing visual signals: repeated bead-like surfaces, excessive specular highlights, indiscriminate microtexture, oversized headings, rounded information cards, badge gradients or inconsistent arrow styles. Select relevant changes rather than applying every prohibition to every discipline.
 2. Assign detail to scientific roles. Show membrane continuity, binding-domain topology, pore openings or particle displacement where they explain the mechanism. Omit unsupported microstructure. A protein domain schematic must not masquerade as a coordinate-derived molecular surface; a porous-layer cartoon is not a micrograph.
 3. Retain informative volume through custom silhouettes, shallow perspective and broad restrained shading. Use matte surfaces when appropriate; avoid converting every subject into flat primitives. Protect the best scientifically correct PNG throughout SVG work.

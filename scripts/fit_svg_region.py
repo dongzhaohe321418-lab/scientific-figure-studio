@@ -91,7 +91,10 @@ def fit_region(source, crop=None, columns=27, rows=21, prefix="colour-region"):
     group = element("g", id=prefix, data_editable="true",
                     data_role="colour-region", transform=f"scale({w/100:g} {h/100:g})")
     step = 100/(rows-1)
-    band_height = step + min(.5, step*.1)
+    # At dense sampling, a subpixel overlap exposes the first-row base through
+    # antialiased strip edges. Cover at least one source pixel; the fade still
+    # ends at the next sample row, so overlap does not alter interpolation.
+    band_height = step + max(100 / h, step * .8)
     defs = element("defs")
     # Finish interpolation at the next sample row, not the overlapping edge.
     # Otherwise adjacent rows restart at slightly different colours.

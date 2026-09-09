@@ -43,6 +43,7 @@ Read [research and scientific validation](references/research-and-science.md).
 
 - Select the relevant row in [discipline support](references/discipline-support.md). Read its specialised checks before writing the brief. For interdisciplinary figures, combine the applicable checks and reconcile shared interfaces, scales and terminology.
 - For an unfamiliar discipline or a claim of broader support, follow the [cross-discipline evaluation protocol](references/cross-discipline-evaluation.md). Declare a narrow test case and scientific invariants; report case-level evidence separately from untested guidance coverage.
+- For computer-science method overviews, model architectures and process/data-flow diagrams, also read [compact computing frameworks](references/computing-frameworks.md). Establish the actual operations and connector meanings before assigning visual boxes or edge labels.
 
 - Identify the object and specific architecture. Separate observed features, sourced facts, assumptions and uncertain interpretation.
 - Determine the intended scientific message, audience, panel arrangement and delivery dimensions. Default to PNG plus full-vector SVG; distinguish any explicitly requested narrower editing scope. Use reasonable defaults for cosmetic choices.
@@ -58,7 +59,9 @@ Read [visual design and review](references/visual-standard.md).
 - Write a short visual brief based on observed attributes: camera/projection, layout, information hierarchy, palette semantics, material cues, type, line weights, whitespace and arrow grammar.
 - Prefer restrained scientific editorial styling. Use controlled shading and depth when they clarify structure. Avoid decorative glow, pseudo-microscopy and physically meaningless texture.
 - When a user finds the result recognisably AI-styled, apply the concrete material, hierarchy and notation review in [visual design and review](references/visual-standard.md#responding-to-an-ai-looking-result). Preserve meaningful depth and PNG quality; do not treat flatness as the solution.
+- For editorial finishing, denser information, refined shallow 3D or closely matched PNG/SVG, follow [editorial refinement](references/editorial-refinement.md): normal-width live typography, local reflow, coherent facets, visible endpoint checks and quality-based final-master selection. Recheck the actual output after every repair.
 - An explicit user visual benchmark sets the target for refinement; it does not override scientific truth. Explain any scientifically necessary departure.
+- When method diagrams feel sparse, restore missing mechanism and tighten layout before reducing type size. Keep context subordinate and retain meaningful shallow depth; use the computing-framework guide's density and routing checks where applicable.
 
 ### 3. Make and inspect the image2 master
 
@@ -70,6 +73,7 @@ Read [visual design and review](references/visual-standard.md).
 - Inspect the full image and detail crops. Correct scientific mistakes first, then visual defects. For each revision, state the intended change and invariants; compare against the previous best version to prevent regressions.
 - Treat an approved, scientifically eligible PNG as the fixed visual target for subsequent SVG work. Record its hash and keep reconstruction/export paths separate. Approval of the PNG does not automatically approve the SVG or authorise publication.
 - Keep failed masters clearly marked as drafts in the comparison record. Arrow direction, charge, topology and measurement geometry are scientific content: never assume a targeted image edit preserved them.
+- If near-identical PNG/SVG is requested, use the [quality-first common-master procedure](references/editorial-refinement.md#4-select-the-final-png-on-quality-then-verify-the-pair). A refined SVG may supply the final PNG only after comparison supports its quality; preserve the native versions and actual generation record. Reopen and independently render the saved SVG under matched conditions. Pixel equality alone never passes the visual review.
 - After three unsuccessful targeted revisions of the same defect, diagnose the representation or tool limitation and change approach. Do not spend indefinitely or quietly lower the target. Retain useful drafts and disclose unresolved issues.
 
 ### 4. Reconstruct faithfully into the required editable SVG

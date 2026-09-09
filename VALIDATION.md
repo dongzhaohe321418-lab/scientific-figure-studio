@@ -5,7 +5,7 @@ This file separates tooling checks from actual figure-production evidence.
 ## Release checks
 
 - Tooling checked on 9 September 2026, Windows, Python 3.12, with Pillow 12.3.0 installed for the optional colour-region helper.
-- Python regression suite: **63 tests passed**, using `python -m unittest discover -s tests -v`. These include 26 original tooling tests, 11 example-invariant/mutation tests, 12 PNG-priority/legacy-schema tests and 14 colour-region tests. Without Pillow, the 14 optional helper tests are explicitly skipped, not counted as passed.
+- Python regression suite: **66 tests passed**, using `python -m unittest discover -s tests -v` with the optional rendering dependencies present. These include the previous 63 tests, one image2-assisted SVG-finish evidence test, and two real-render dense-gradient regressions. Without Pillow, colour-region tests are explicitly skipped; the new rendering tests also require Node.js and Sharp. Skips are not counted as passes.
 - Codex skill metadata validation: **passed** using the installed official `skill-creator/scripts/quick_validate.py` (PyYAML was required by that external validator; this repository's audit scripts do not require it).
 - Relative documentation links: all resolved in the test suite.
 - Blank review template: **correctly rejected** with exit code 1 by `python scripts/check_release.py assets/review-template.json`.
@@ -65,3 +65,19 @@ The public [component example](examples/vector-reconstruction/README.md) contain
 - The bundled editor now reports a download request rather than claiming that a file has been saved. Actual file existence and reopening are required by the workflow. The edited JavaScript was syntax-checked; a new editor UI round trip was not performed for this wording change.
 
 The AI-style review guidance now targets observed excessive gloss, repetitive texture, oversized hierarchy and decorative containers while retaining meaningful scientific depth. These are review instructions, not an automatic detector of image provenance or a guarantee that every future output will meet the target.
+
+## Editorial refinement and computing-framework update, 9 September 2026
+
+The [new refinement procedure](references/editorial-refinement.md) generalises local iteration on typography, information density, shallow facets, mathematical accents and connector destinations. The accepted local design used image2 references followed by vector editorial finishing. It supports selecting an SVG-derived final PNG only after the actual comparison justified its quality, with native versions retained. The user's complete research diagram and local project are not included in this update, and this narrative is not a newly published end-to-end benchmark. No additional native generation was performed for this repository update.
+
+The [computing guide](references/computing-frameworks.md) credits the selectively consulted framework skill and separates semantic relationships from drawing layout. Its principles are conditional guidance; fixed diagram geometries, compulsory extra approvals and raster-only delivery were not imported. The six previously published live cases remain historical evidence rather than retrospective tests of the new procedure.
+
+New public, reproducible checks:
+
+- Two Python tests actually render a synthetic field through Sharp: dense row grids at 1× and 2× export sizes keep lower-region colour error within three 8-bit channel levels; a mutation reinstating the old subpixel overlap produces an error above eight. This tests the observed base-colour seam defect, not all fields, scales or renderers. It does not measure scientific accuracy or whole-image aesthetics.
+- One release-record test permits a selected `svg-render` PNG while retaining native-generation evidence, then rejects removal of the required master. This checks bookkeeping, not whether the recorded visual judgement is true.
+- The [browser harness](tests/editor-regression.html) passed **13 checks** in the Codex Chromium browser, using the real bundled editor DOM and production handlers. It checks ordered face tones, isolation of shared paints, unchanged mask/clip definitions, retained opacity and offsets, unique IDs, explicit handling of unsupported/CSS paints, live-text/position serialisation, reimport and actual PNG encoding/decoding at 1280 × 640. The displayed component and PNG were visually inspected; retained depth and the unchanged second object were visible.
+
+The browser harness intercepts download blobs for testing; it does **not** establish disk-download persistence or a full human UI round trip. Local full-figure save/reopen/export was exercised during the preceding design work, but its private assets are not a public fixture here. Desktop vector applications, offline double-click opening, and general scientific/aesthetic success rates remain unverified by this update.
+
+The editor retint supports explicit opaque hex paints and stops, preserves approximate relative sRGB tones and clones shared gradients. It is not perceptual colour matching, physical relighting or a general CSS editor. The new guide requires final-size typography, visible science/endpoint checks and independent saved-source rendering; successful automation never replaces those reviews.

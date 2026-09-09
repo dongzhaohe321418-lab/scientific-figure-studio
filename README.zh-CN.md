@@ -70,6 +70,16 @@ PNG 达标后可以先交付，SVG 继续改进并单独说明状态。保留 im
 
 ## 如何进一步提升 PNG 转 SVG 的质量
 
+新增[精修流程](references/editorial-refinement.md)，将“像人工精修过的科研图”落实为具体步骤：
+
+- **信息密度**：保留完整机理，先调整标题、留白、间距和局部排版，不能靠压扁字体或整体缩小文字塞入信息。
+- **文字与公式**：使用正常字宽的活文字，逐一核对符号、上下标和连线端点，按实际使用尺寸检查可读性。
+- **适度立体感**：用一致的浅透视、独立的顶面／正面／侧面和克制渐变表达结构，避免多余的卡片框、辉光和装饰纹理。
+- **PNG／SVG 一致性**：保留原生 image2 稿；只有实际对照确认精修 SVG 达到或超过最佳合格原生稿时，才用它导出最终 PNG。重新打开已保存 SVG，独立渲染预览并对比。“同源”或像素一致本身不能证明质量。
+- **后续编辑**：改色应保留各面的相对明暗，且不影响共享渐变的其他对象；保存、重新打开和导出都要实际检查。
+
+计算机及相关框架图另有[紧凑框架指南](references/computing-frameworks.md)，选择性参考 [paper-framework-figure-studio-pro](https://github.com/c-narcissus/paper-framework-figure-studio-pro) 的语义结构、信息密度和连线路由思路。保留本 skill 的科学核对、PNG 优先及本地可编辑交付要求；不把某个案例的结构套用到所有学科。
+
 采用**科学对象重建＋核对后的活文字＋分区外观拟合**。连续示意色场适合拟合为 SVG 渐变，清晰轮廓可局部描摹；整图自动描摹不能恢复科学含义，也容易破坏文字。保留已经认可且科学合格的 PNG，独立导出并比较 SVG。
 
 [方法指南](references/png-to-svg.md)记录实际尝试、适用边界和技术来源；新增[渐变拟合脚本](scripts/fit_svg_region.py)及[可复现示例](examples/vector-reconstruction/README.md)。脚本需要 Pillow，生成的是可编辑的色彩区域，不能自动恢复整图结构或科研数据。渐变节点与共享引用的编辑范围也必须说明。
@@ -88,13 +98,15 @@ PNG 达标后可以先交付，SVG 继续改进并单独说明状态。保留 im
 
 ## 自动检查与实际边界
 
-仓库附带 SVG 结构检查、交付证据检查、默认未通过的审查模板和反例测试。Python 工具要求 3.10+；检查脚本仅用标准库。可选的渐变拟合工具及其测试需要 Pillow，未安装时会明确跳过对应测试。示例预览渲染另需 Node.js 和 Sharp：
+仓库附带 SVG 结构检查、交付证据检查、默认未通过的审查模板和反例测试。Python 工具要求 3.10+；检查脚本仅用标准库。可选的渐变拟合工具及其测试需要 Pillow，未安装时会明确跳过对应测试。示例预览及两项实际渲染回归另需 Node.js 和 Sharp；可用 `FIGURE_NODE` 指定 Node 可执行文件，用 `FIGURE_NODE_MODULES` 指定包含 Sharp 的模块目录。依赖缺失会报告跳过，不冒充通过：
 
 ```sh
 python -m unittest discover -s tests -v
 python scripts/audit_svg.py figure.svg --full-vector --live-text
 python scripts/check_release.py review.json
 ```
+
+编辑器还提供[合成素材浏览器测试](tests/editor-regression.html)：在仓库目录运行 `python -m http.server 8000 --bind 127.0.0.1`，打开 `http://127.0.0.1:8000/tests/editor-regression.html` 并点击 **Run editor checks**。它检查真实 DOM、改色、共享定义隔离、SVG 序列化重导入和 PNG 解码；不将内存中的文件对象冒充已保存到磁盘的文件。
 
 检查脚本能发现部分假可编辑文件、缺失证据、文件被改动和未经支持的完成声明；**不能自动证明科学正确或审美优秀，也不能保证 agent 永不违反指令**。真正的科学与视觉验收仍须看图和核对来源。当前验证范围见 [VALIDATION.md](VALIDATION.md)，不虚构完整实测结果。
 
